@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>config</title>
+</head>
+<body>
+    <div id="index"></div>
+</body>
+</html>
+<script>
+    /*********************************************TODO 列表页面*********************************************/
+    /*TODO 头部查询栏配置*/
+    let headerQuery = [
+        {
+            type: 'input', // 文本框
+            title: '标题',
+            name: 'title',
+            placeholder: '标题查询',
+            width: '', // 为空默认宽度，值为数字：100，转换为100px
+        },
+        {
+            type: 'select', // 下拉选
+            title: '状态',
+            name: 'status',
+            placeholder: '',
+            width: '',
+            remote: 0, // 0本地配置取data，1远程字典取remoteUrl...
+            data: [
+                {
+                    text: '全部',
+                    value: ''
+                },
+                {
+                    text: '已发布',
+                    value: '1'
+                },
+                {
+                    text: '未发布',
+                    value: '0'
+                },
+            ],
+            remoteUrl: '/dictionary/notice/status',
+        },
+        {
+            type: 'date', // 日期选择框
+            title: '发布时间',
+            name: 'releaseTime',
+            placeholder: '请选择日期',
+            width: '',
+            format: '',
+        },
+    ]
+    
+    /*TODO 头部按钮配置*/
+    let headerBtn = [
+        {
+            type: 'single', // 单个按钮
+            title: '公告管理 - 新增',
+            name: '新增',
+            action: 'add',
+            url: '/notice/v1/manageList/add',
+            pageParams: '',
+        },
+        {
+            type: 'single',
+            title: '公告管理 - 编辑',
+            name: '编辑',
+            action: 'edit',
+            url: '/notice/v1/manageList/edit',
+            pageParams: '',
+            table: '#mi-table',
+            idKey: 'id',
+        },
+        {
+            type: 'multiple', // 批量操作按钮
+            name: '批量操作',
+            action: 'action',
+            table: '#mi-table',
+            idKey: 'id',
+            children: [
+                {
+                    type: 'action', // 操作
+                    title: '批量删除',
+                    action: 'removeSelected',
+                    confirm: true,
+                    isTableRowAction: true,
+                    url: '/notice/v1/manageList/remove',
+                    idKey: 'id',
+                },
+                {
+                    type: 'divider' // 分隔线
+                },
+                {
+                    type: 'action',
+                    title: '批量置顶',
+                    action: 'action',
+                    confirm: true,
+                    isTableRowAction: true,
+                    url: '/notice/v1/manageList/top',
+                    idKey: 'id',
+                },
+                {
+                    type: 'action',
+                    title: '批量发布',
+                    action: 'action',
+                    confirm: true,
+                    isTableRowAction: true,
+                    url: '/notice/v1/manageList/release',
+                    idKey: 'id',
+                },
+            ],
+        },
+    ]
+    
+    /*TODO 表格行按钮配置*/
+    let tableRowBtn = [
+        {
+            type: 'single',
+            function: 'miTableRowEdit',
+            title: '公告管理 - 编辑',
+            name: '编辑',
+            action: 'rowEdit',
+            url: '/notice/v1/manageList/edit',
+            table: '#mi-table',
+            idKey: 'id',
+        },
+        {
+            type: 'single',
+            function: 'miTableRowRemove',
+            title: '公告管理 - 删除',
+            name: '删除',
+            action: 'rowRemove',
+            url: '/notice/v1/manageList/remove',
+            table: '#mi-table',
+            idKey: 'id',
+        },
+        {
+            type: 'multiple',
+            name: '更多',
+            action: 'rowAction',
+            table: '#mi-table',
+            idKey: 'id',
+            children: [
+                {
+                    type: 'action',
+                    function: 'miTableRowRelease',
+                    title: '公告管理 - 发布',
+                    name: '发布',
+                    action: 'rowAction',
+                    url: '/notice/v1/manageList/release',
+                    table: '#mi-table',
+                    idKey: 'id',
+                },
+                {
+                    type: 'action',
+                    function: 'miTableRowCancelRelease',
+                    title: '公告管理 - 取消发布',
+                    name: '取消发布',
+                    url: '/notice/v1/manageList/cancelRelease',
+                },
+                {
+                    type: 'action',
+                    function: 'miTableRowTop',
+                    title: '公告管理 - 置顶',
+                    name: '置顶',
+                    url: '/notice/v1/manageList/top',
+                },
+                {
+                    type: 'action',
+                    function: 'miTableRowCancelTop',
+                    title: '公告管理 - 取消置顶',
+                    name: '取消置顶',
+                    url: '/notice/v1/manageList/cancelTop',
+                },
+            ]
+        }
+    ]
+    
+    /*TODO 表格行配置*/
+    let columns = [
+        {
+            checkbox: true,
+            valign: 'middle',
+            align: 'center',
+        },
+        {
+            field: 'id',
+            title: '序号',
+            valign: 'middle',
+            halign: 'center',
+            align: 'center',
+            width: '40',
+            formatter: 'function(val, row, index) {\n' +
+                '\t\t\t\t\t\treturn index + 1\n' +
+            '\t\t\t\t\t}'
+        },
+        {
+            field: 'cId',
+            title: '类型',
+            sortable: true,
+            valign: 'center',
+            align: 'center',
+            width: '100',
+            formatter: 'function(val, row, index) {\n' +
+                '\t\t\t\t\t\tif(val === 1) {\n' +
+                '\t\t\t\t\t\t} else if (val === 2) {\n' +
+                    '\t\t\t\t\t\t\treturn "公告"\n' +
+                '\t\t\t\t\t\t}\n' +
+            '\t\t\t\t\t}'
+        },
+        {
+            field: 'title',
+            title: '标题',
+            sortable: true,
+            valign: 'middle',
+            formatter: 'function(val, row, index) {\n' +
+                '\t\t\t\t\t\treturn val\n' +
+            '\t\t\t\t\t}'
+        },
+        {
+            field: 'isTop',
+            title: '是否置顶',
+            sortable: true,
+            valign: 'middle',
+            align: 'center',
+            width: '60',
+            formatter: 'function(val, row, index) {\n' +
+                '\t\t\t\t\t\tif (val === 0) {\n' +
+                    '\t\t\t\t\t\t\treturn "否"\n' +
+                '\t\t\t\t\t\t} else if (val === 1) {\n' +
+                    '\t\t\t\t\t\t\treturn "是"\n' +
+                '\t\t\t\t\t\t}' +
+            '\t\t\t\t\t}'
+        },
+        {
+            field: 'status',
+            title: '状态',
+            sortable: true,
+            valign: 'middle',
+            align: 'center',
+            width: '100',
+            formatter: 'function(val, row, index) {\n' +
+                '\t\t\t\t\t\tif (val === 0) {\n' +
+                    '\t\t\t\t\t\t\treturn "未发布"\n' +
+                '\t\t\t\t\t\t} else if (val === 1) {\n' +
+                    '\t\t\t\t\t\t\treturn "已发布"\n' +
+                '\t\t\t\t\t\t} else {\n' +
+                    '\t\t\t\t\t\t\treturn "——"\n' +
+                '\t\t\t\t\t\t}\n' +
+            '\t\t\t\t\t}'
+        },
+        {
+            field: 'updateTime',
+            title: '更新时间',
+            sortable: true,
+            valign: 'middle',
+            align: 'center',
+            width: '120',
+            formatter: 'function(val, row, index) {\n' +
+                '\t\t\t\t\t\treturn val\n' +
+            '\t\t\t\t\t}'
+        },
+        {
+            title: '操作',
+            align: 'center',
+            width: '160',
+            formatter: 'function(val, row, index) {\n' +
+                '\t\t\t\t\t\trow.formatStatusAction = function() {\n' +
+                    '\t\t\t\t\t\t\tif (row.status == 0) {\n' +
+                        '\t\t\t\t\t\t\t\treturn 1\n' +
+                    '\t\t\t\t\t\t\t} else {\n' +
+                        '\t\t\t\t\t\t\t\treturn 0\n' +
+                    '\t\t\t\t\t\t\t}\n' +
+                '\t\t\t\t\t\t}\n' +
+                '\t\t\t\t\t\trow.formatStatusActionTitle = function() {\n' +
+                    '\t\t\t\t\t\t\tif (row.status == 0) {\n' +
+                        '\t\t\t\t\t\t\t\treturn "发布"\n' +
+                    '\t\t\t\t\t\t\t} else {\n' +
+                        '\t\t\t\t\t\t\t\treturn "取消发布"\n' +
+                    '\t\t\t\t\t\t\t}\n' +
+                '\t\t\t\t\t\t}\n' +
+                '\t\t\t\t\t\treturn LD.T.render($("#mi-table-row-toolbar").html(), {\n' +
+                    '\t\t\t\t\t\t\trowData: row\n' +
+                '\t\t\t\t\t\t})\n' +
+            '\t\t\t\t\t}'
+        },
+    ]
+    
+    /*TODO 表格配置*/
+    let table = {
+        relativeHeight: 'LR',
+        url: '/notice/v1/manageList/paginateList',
+        idField: 'id',
+        leftFixedColumns: false, // 表格左侧固定
+        leftFixedNumber: 1, // 表格左侧固定行数
+        rightFixedColumns: false, // 表格右侧固定
+        rightFixedNumber: 1, // 表格右侧固定行数
+        columns
+    }
+    
+    /**
+     * TODO 列表页面配置
+     */
+    let index = {
+        template: '_layout_table.html', // 引用表格模板文件
+        name: 'index.html', // 文件名称
+        filePath: 'templates/notice/manageList/', // 页面生成路径
+        headerQuery, headerBtn, tableRowBtn, table
+    }
+    
+    /*********************************************TODO 表单页面*********************************************/
+    
+    /*TODO 表单头部按钮*/
+    let formBtns = [
+        {
+            position: 'left',
+            type: 'save',
+            title: '保存',
+            name: 'saveFun',
+        },
+        {
+            position: 'right',
+            type: 'reload',
+            title: '',
+            name: '',
+        },
+        {
+            position: 'right',
+            type: 'close',
+            title: '关闭',
+            name: '',
+        },
+    ]
+    
+    /*TODO 表单项配置*/
+    let formFields = [
+        {
+            type: 'form-group', // 组
+            children: [
+                {
+                    title: '标题',
+                    name: 'title',
+                    type: 'input',
+                    placeholder: '标题',
+                    rule: '{\n' +
+                        '                    required: true,\n' +
+                        '                    normalizer: function (val) {\n' +
+                        '                        return $.trim(val)\n' +
+                        '                    },\n' +
+                        '                }',
+                    messages: '请输入标题'
+                },
+                {
+                    title: '副标题',
+                    name: 'cubTitle',
+                    type: 'input',
+                    placeholder: '副标题',
+                    rule: '{\n' +
+                        '                    required: true,\n' +
+                        '                    normalizer: function (val) {\n' +
+                        '                        return $.trim(val)\n' +
+                        '                    },\n' +
+                        '                }',
+                    messages: '请输入副标题'
+                },
+            ]
+        },
+        {
+            type: 'form-group',
+            children: [
+                {
+                    title: '缩略图',
+                    name: 'thumbnail',
+                    type: 'uploader',
+                    placeholder: '请上传缩略图'
+                },
+            ]
+        },
+        {
+            type: 'form-group',
+            children: [
+                {
+                    title: '信息类型',
+                    name: 'infoType',
+                    type: 'radio',
+                    data: [
+                        {text: '图文', value: '1', checked: true},
+                        {text: '链接', value: '2', checked: false},
+                    ]
+                },
+                {
+                    title: '通知分类',
+                    name: 'cId',
+                    type: 'radio',
+                    data: [
+                        {text: '通知', value: '1', checked: true},
+                        {text: '公告', value: '2', checked: false},
+                    ]
+                },
+            ]
+        },
+        {
+            type: 'form-group',
+            children: [
+                {
+                    title: '有效时间',
+                    name: 'isValidTime',
+                    type: 'radio',
+                    data: [
+                        {text: '开启', value: '1', checked: true},
+                        {text: '关闭', value: '0', checked: false},
+                    ]
+                },
+                {
+                    title: '发送方式',
+                    name: 'sendMode',
+                    type: 'radio',
+                    data: [
+                        {text: '全部', value: '1', checked: true},
+                        {text: '部分', value: '2', checked: false},
+                    ]
+                },
+            ]
+        },
+        {
+            type: 'form-group',
+            children: [
+                {
+                    title: '开始时间',
+                    name: 'validStartTime',
+                    type: 'datetime',
+                    placeholder: '请选择开始时间',
+                },
+                {
+                    title: '结束时间',
+                    name: 'validEndTime',
+                    type: 'datetime',
+                    placeholder: '请选择开始时间',
+                },
+            ]
+        },
+        {
+            type: 'form-group',
+            children: [
+                {
+                    title: '内容',
+                    name: 'content',
+                    type: 'editor',
+                    placeholder: '此处编辑内容',
+                },
+            ]
+        },
+        {
+            type: 'hidden', // 隐藏字段
+            name: 'id',
+            value: ''
+        },
+    ]
+    
+    /**
+     * TODO 新增/编辑页面配置
+     */
+    let addOrEdit = {
+        template: '_layout_form.html', // 引用表格模板文件
+        name: 'edit.html', // 文件名称
+        filePath: 'templates/notice/manageList/', // 页面生成路径
+        submitUrl: '/notice/v1/manageList/save', // 保存表单接口
+        loadFormUrl: '/notice/v1/manageList/loadForm', // 加载表单接口
+        paramKey: 'dataId', // 参数key
+        paramValue: '#(_page_params_id??)', // 参数Value
+        formBtns, formFields,
+    }
+
+    /*********************************************TODO controller*********************************************/
+    let controller = {
+        basePackage: 'com.mictrl.leopard.platform',
+        modelPackage: 'model',
+        servicePackage: 'service',
+        modulePackage: 'notice',
+        entityClassName: 'NoticeList',
+        serviceClassName: 'NoticeManageService',
+        description: '通知公告管理',
+        author: 'lingdian',
+        requestMappingValue: '/notice/v1/manageList', // TODO 统一设置
+        requestMappingViewPath: '/notice/manageList',
+        controllerClassName: 'NoticeManageController',
+        indexHtmlName: 'index.html',
+        addOrEditHtmlName: 'edit.html',
+        paramKey: 'dataId',
+        idField: 'id',
+        methods: [
+            {
+                description: '删除/批量删除',
+                cMethodName: 'remove',
+                sMethodName: 'remove'
+            },
+            {
+                description: '发布/批量发布',
+                cMethodName: 'release',
+                sMethodName: 'release'
+            },
+            {
+                description: '取消 发布/批量发布',
+                cMethodName: 'cancelRelease',
+                sMethodName: 'cancelRelease'
+            },
+            {
+                description: '置顶/批量置顶',
+                cMethodName: 'top',
+                sMethodName: 'top'
+            },
+            {
+                description: '取消 置顶/批量置顶',
+                cMethodName: 'cancelTop',
+                sMethodName: 'cancelTop'
+            },
+        ]
+    }
+    
+    /*********************************************TODO service*********************************************/
+    let service = {
+        basePackage: 'com.mictrl.leopard.platform',
+        modelPackage: 'model',
+        modulePackage: 'notice',
+        entityClassName: 'NoticeList',
+        serviceClassName: 'NoticeManageService',
+        description: '通知公告管理',
+        author: 'lingdian',
+        methods: {
+            paginate: 'notice.paginateList',
+            getRecordById: 'notice.getNoticeById',
+            others: [
+                {
+                    name: 'remove',
+                    description: '删除一条数据',
+                    paramType: 'String',
+                    paramName: 'id',
+                    paramText: '要删除的数据id',
+                    template: 'notice.remove',
+                    okText: '删除操作成功',
+                    failText: '删除操作失败',
+                },
+                {
+                    name: 'remove',
+                    description: '删除多条数据',
+                    paramType: 'String[]',
+                    paramName: 'ids',
+                    paramText: '要删除的数据id数组',
+                    template: 'notice.removes',
+                    okText: '批量删除操作成功',
+                    failText: '批量删除操作失败',
+                },
+                {
+                    name: 'release',
+                    description: '发布一条数据',
+                    paramName: 'id',
+                    paramType: 'String',
+                    paramText: '要发布的数据id',
+                    template: 'notice.release',
+                    okText: '发布操作成功',
+                    failText: '发布操作失败',
+                },
+                {
+                    name: 'release',
+                    description: '发布多条数据',
+                    paramName: 'ids',
+                    paramType: 'String[]',
+                    paramText: '要发布的数据id数组',
+                    template: 'notice.releases',
+                    okText: '批量发布操作成功',
+                    failText: '批量发布操作失败',
+                },
+                {
+                    name: 'cancelRelease',
+                    description: '取消发布一条数据',
+                    paramName: 'id',
+                    paramType: 'String',
+                    paramText: '要取消发布的数据id',
+                    template: 'notice.cancelRelease',
+                    okText: '取消发布操作成功',
+                    failText: '取消发布操作失败',
+                },
+                {
+                    name: 'cancelRelease',
+                    description: '取消发布多条数据',
+                    paramName: 'ids',
+                    paramType: 'String[]',
+                    paramText: '要取消发布的数据id数组',
+                    template: 'notice.cancelReleases',
+                    okText: '批量取消发布操作成功',
+                    failText: '批量取消发布操作失败',
+                },
+                {
+                    name: 'top',
+                    description: '置顶一条数据',
+                    paramName: 'id',
+                    paramType: 'String',
+                    paramText: '要置顶的数据id',
+                    template: 'notice.top',
+                    okText: '置顶操作成功',
+                    failText: '置顶操作失败',
+                },
+                {
+                    name: 'top',
+                    description: '置顶多条数据',
+                    paramName: 'ids',
+                    paramType: 'String[]',
+                    paramText: '要置顶的数据id数组',
+                    template: 'notice.tops',
+                    okText: '批量置顶操作成功',
+                    failText: '批量置顶操作失败',
+                },
+                {
+                    name: 'cancelTop',
+                    description: '取消置顶一条数据',
+                    paramName: 'id',
+                    paramType: 'String',
+                    paramText: '要取消置顶的数据id',
+                    template: 'notice.cancelTop',
+                    okText: '取消置顶操作成功',
+                    failText: '取消置顶操作失败',
+                },
+                {
+                    name: 'cancelTop',
+                    description: '取消置顶多条数据',
+                    paramName: 'ids',
+                    paramType: 'String[]',
+                    paramText: '要取消置顶的数据id数组',
+                    template: 'notice.cancelTops',
+                    okText: '批量取消置顶操作成功',
+                    failText: '批量取消置顶操作失败',
+                },
+            ]
+        },
+    }
+    
+    /*********************************************TODO 总配置*********************************************/
+    let config = {
+        index,addOrEdit,controller,service
+    }
+
+    // document.querySelector('body').innerHTML = JSON.stringify(index)
+    // document.querySelector('body').innerHTML = JSON.stringify(addOrEdit)
+    // document.querySelector('body').innerHTML = JSON.stringify(service)
+    document.querySelector('body').innerHTML = JSON.stringify(controller)
+</script>

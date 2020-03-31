@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ul_li</title>
+</head>
+<body>
+<ul id="container">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+
+<img src="http://192.168.12.123:9001/captcha/v1/captcha/dba7b183f1034dbd97a6571e3bfb785a" style="width: 108px; height: 40px;"/>
+
+</body>
+</html>
+<script>
+    let ul = document.getElementById('container')
+    let liArr = ul.getElementsByTagName('li')
+    console.log('liArr', liArr, )
+
+
+    // Array.from(liArr).map((item, index) => {
+    //     item.addEventListener('click', () => {
+    //         console.log('下标', index)
+    //     })
+    // })
+
+    Array.from(liArr).forEach((item, index) => {
+        item.addEventListener('click', () => {
+            console.log('下标', index)
+        })
+    })
+</script>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>var_demo3</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let ms = {}
+
+    function getItem(key) {
+        return key in ms ? ms[key] : null
+    }
+
+    function setItem(key, value) {
+        ms[key] = value
+    }
+
+    function clear() {
+        ms = {}
+    }
+
+    // module.exports = {getItem, setItem, clear}
+
+
+    let Employee = {
+        firstname: "John",
+        lastname: "Doe"
+    }
+
+    console.log(Employee.firstname) // expected output: "John"
+    delete Employee.firstname
+    console.log(Employee.firstname) // expected output: undefined
+    console.log('employee', Employee) // { lastname: "Doe" }
+
+    let var1 = {a: 1, b: 2}
+    console.log('a', var1.a)
+    console.log('a', var1['a'])
+
+    let key = 'abc'
+    let c = 3
+    let var2 = {['a'+'b']: 1, [key]: 2, c, ...var1}
+    console.log('var2', var2)
+    console.log('ab', var2.ab)
+    console.log('abc', var2.abc)
+    console.log('abc', var2['abc'])
+
+    /* TODO var 和 let 申明的变量的作用域 */
+    for(var i=0; i<5; i++) { }
+    console.log('i', i) // 5
+
+    for(let x=0; x<5; x++) { }
+    // console.log('x', x) // x is not defined
+
+    function ff(x) {
+        var value = x
+        console.log('x', x)
+    }
+
+    ff(1234)
+    // console.log('value', value) // value is not defined
+
+</script>

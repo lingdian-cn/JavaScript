@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XML_Http_Request</title>
+
+</head>
+
+<body>
+    <script async>
+    /*get请求*/
+    function requestByGet() {
+        let url2 = 'https://api.cdnjs.com/libraries?search=jquery' // ok
+        let url6 = 'https://api.you-fire.com/youapi/demo/show/haha?id=chrome' // ok，增加了@CrossOrigin注解
+
+        let url = 'https://api.you-fire.com/youapi/demo/show1/haha'
+        let data = {id: 'chrome'}
+        $.ajax({
+            url,
+            data,
+            type: 'get',
+            dataType: 'json',
+            async: false,   // 注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。
+            success: function (res) {
+                console.log('res', res)
+            },
+            error: function (request, statusText, errorThrow) {
+                // statusText: 'success', 'error'
+                console.log(request, statusText, errorThrow)
+            },
+            statusCode: {
+                404: function (value) {
+                    console.log('404', value)
+                    alert("page not found!")
+                }
+            },
+            complete: function (request, statusText) { // 最后执行
+                // statusText: 'success', 'error'
+                console.log(request, statusText)
+                document.getElementById('h1').innerText = 'ok'
+            }
+
+        })
+    }
+
+    /*post请求*/
+    function requestByPost () {
+        let url = 'https://api.apiopen.top/getWangYiNews'
+        let data = {page: 1, count: 2}
+        $.ajax({
+            url,
+            data,
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                console.log('res', res)
+            },
+            error: function (request, statusText, errorThrow) {
+                // statusText: 'success', 'error'
+                console.log(request, statusText, errorThrow)
+            },
+            statusCode: {
+                404: function (value) {
+                    console.log('404', value)
+                }
+            },
+            complete: function (request, statusText) { // 最后执行
+                // statusText: 'success', 'error'
+                console.log(request, statusText)
+            }
+        })
+    }
+
+    /*页面加载时执行*/
+    window.onload = function () {
+        console.log('window.onload()...')
+        requestByGet()
+        // requestByPost()
+    }
+
+</script>
+    <h1 id="h1">XML_Http_Request....</h1>
+</body>
+</html>
+<script src="../_libs/jquery-2.2.4.js" async></script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cors_jsonp</title>
+
+</head>
+<body>
+<button onclick="doing()">jsonp-script</button>
+<button onclick="doingByAjax()">jsonp-ajax</button>
+</body>
+</html>
+<script src="../_libs/jquery-2.2.4.js"></script>
+<script>
+    function refreshPrice(data) {
+        console.log('refreshPrice', data)
+    }
+    function _ntes_quote_callback(data) {
+        console.log('_ntes_quote_callback', data)
+    }
+
+    function doing() {
+        let s1 = document.createElement('script');
+        s1.src = 'http://api.money.126.net/data/feed/0000001,1399001';
+        document.querySelector('body').appendChild(s1);
+        // document.querySelector('head').appendChild(s1);
+
+        let s2 = document.createElement('script');
+        s2.src = 'http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice';
+        document.querySelector('body').appendChild(s2);
+
+
+        // let h1 = document.createElement('h1')
+        // h1.innerText = 'hello'
+        // let body = document.querySelector('body');
+        // body.appendChild(h1)
+    }
+
+    function doingByAjax() {
+        $.ajax({
+            url: 'http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice',
+            type: 'GET',
+            dataType: 'jsonp',
+            jsonp: 'call',
+            jsonpCallback: 'back'
+            // success: function (res) {
+            //     console.log('ok', res)
+            // }
+        })
+    }
+</script>
+<!--<script src="http://api.money.126.net/data/feed/0000001,1399001?callback=refreshPrice"></script>-->

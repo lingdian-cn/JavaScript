@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>audio5</title>
+</head>
+<body>
+<hr>
+<video id="webcam" style="width: 400px; height: 400px;"></video>
+<hr>
+<button onclick="openAudio()">启用audio</button>
+<button onclick="closeAudio()">禁用audio</button>
+<hr>
+<button onclick="openVideo()">启用video</button>
+<button onclick="closeVideo()">禁用video</button>
+</body>
+</html>
+<script>
+    // 多媒体
+    navigator.getUserMedia  = navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
+    
+    // 音频上下文
+    window.AudioContext = window.AudioContext ||
+        window.webkitAudioContext;
+    
+    var mediaStream;
+    
+    // 打开音频
+    var openAudio = function () {
+        // console.log('启用audio')
+        if (mediaStream) {
+            let tracks = mediaStream.getAudioTracks();
+            console.log('audioTracks', tracks);
+            for (let i = 0; i < tracks.length; i++) {
+                if(!tracks[i].enabled) {
+                    tracks[i].enabled = true
+                    console.log('tracks['+i+'].enabled', tracks[i].enabled)
+                }
+            }
+        }
+        alert('已启用麦克风')
+    }
+    
+    // 关闭音频
+    var closeAudio = function () {
+        // console.log('关闭audio')
+        if (mediaStream) {
+            let tracks = mediaStream.getAudioTracks();
+            console.log('audioTracks', tracks);
+            for (let i = 0; i < tracks.length; i++) {
+                if(tracks[i].enabled) {
+                    tracks[i].enabled = false
+                    console.log('tracks['+i+'].enabled', tracks[i].enabled)
+                }
+            }
+            console.log('audioTracks', tracks);
+        }
+        alert('已关闭麦克风')
+    }
+    
+    // 打开视频
+    var openVideo = function () {
+        // console.log('启用视频')
+        if (mediaStream) {
+            let tracks = mediaStream.getVideoTracks();
+            console.log('videoTracks', tracks);
+            for (let i = 0; i < tracks.length; i++) {
+                if(!tracks[i].enabled) {
+                    tracks[i].enabled = true
+                    console.log('tracks['+i+'].enabled', tracks[i].enabled)
+                }
+            }
+        }
+        alert('已启用视频')
+    }
+    
+    // 关闭视频
+    var closeVideo = function () {
+        // console.log('关闭视频')
+        if (mediaStream) {
+            let tracks = mediaStream.getVideoTracks();
+            console.log('videoTracks', tracks);
+            for (let i = 0; i < tracks.length; i++) {
+                if(tracks[i].enabled) {
+                    tracks[i].enabled = false
+                    console.log('tracks['+i+'].enabled', tracks[i].enabled)
+                }
+            }
+        }
+        alert('已关闭视频')
+    }
+    
+    window.onload = function () {
+    
+        var constraints = {
+            video: true,
+            audio: true
+        };
+        function onSuccess(stream) {
+            mediaStream = stream;
+            console.log('stream', stream)
+            
+            // 创建一个音频分析对象，采样的缓冲区大小为4096，输入和输出都是单声道
+            // scriptProcessor = audioContext.createScriptProcessor(4096,1,1);
+            // bufferSource.onended = ended
+            
+            var video = document.getElementById('webcam');
+            video.srcObject = stream;
+            video.autoplay = true;
+        }
+        function onError(error) {
+            console.log("navigator.getUserMedia error: ", error);
+        }
+    
+        if (navigator.getUserMedia) {
+            // 支持
+            navigator.getUserMedia(constraints, onSuccess, onError);
+        } else {
+            // 不支持
+            console.log('不支持getUserMedia')
+        }
+    }
+</script>

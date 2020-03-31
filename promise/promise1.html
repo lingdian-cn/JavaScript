@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise1</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function test1(resolve, reject) {
+        let num = -1
+        console.log('test1: ' )
+        if (num > 0) {
+            resolve(num);
+        } else {
+            reject(num)
+        }
+
+
+    }
+    function test2(resolve, reject) {
+        console.log('test1: ' + num)
+    }
+    function test3(resolve, reject) {
+        console.log('test1: ' + num)
+    }
+    function test4(resolve, reject) {
+        console.log('test1: ' + num)
+    }
+
+    function p(num) {
+        let p = new Promise(test1);
+        p.then(function (ok) {
+            console.log('ok: '+ok)
+        }).catch(function (error) {
+            console.log('fail: '+error)
+        })
+
+    }
+
+    p();
+</script>

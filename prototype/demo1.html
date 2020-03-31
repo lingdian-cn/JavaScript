@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototype_demo1</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person.prototype.show = function () {
+        console.log('show ' + this.name)
+    }
+    Person.prototype.going = function () {
+        console.log('going to... '+ this.name)
+    }
+
+    console.log('Person', new Person('Jack Ma', 50))
+
+    function Teacher(name, age, subject) {
+        Person.call(this, name, age)
+        this.subject = subject
+    }
+    Teacher.prototype = Object.create(Person.prototype)
+    Teacher.prototype.todo = function () {
+        console.log('todo '+ this.subject )
+    }
+    Teacher.prototype.constructor = Teacher
+    console.log('Teacher', new Teacher('Amm', 30, 'english'))
+
+    let lia = new Teacher('lia', 22, 'math');
+    console.log('lia', lia)
+
+    // 验证原型
+    console.log('prototype', lia.__proto__ === Teacher.prototype)
+    console.log('prototype', lia.__proto__.__proto__ === Person.prototype)
+
+    // 验证继承关系
+    console.log('extends', lia instanceof Teacher)
+    console.log('extends', lia instanceof Person)
+
+
+</script>

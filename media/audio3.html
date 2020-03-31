@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>audio3</title>
+</head>
+<body>
+<hr>
+<video id="webcam" style="width: 400px; height: 400px;"></video>
+<hr>
+<button onclick="openAudio()">启用audio</button>
+<button onclick="closeAudio()">禁用audio</button>
+<hr>
+</body>
+</html>
+<script>
+    var audioInput;
+    
+    var openAudio = function (data) {
+        console.log('启用audio', data)
+        if (audioInput) {
+            audioInput.mediaStream.onactive = true
+            console.log('openAudio-audioInput', audioInput)
+        }
+    }
+    
+    var closeAudio = function (data) {
+        console.log('禁用audio', data)
+        if (audioInput) {
+            audioInput.mediaStream.oninactive = false
+            console.log('closeAudio-audioInput', audioInput)
+        }
+    }
+    
+    window.onload = function () {
+    
+        var constraints = {
+            video: true,
+            audio: true
+        };
+    
+        window.AudioContext = window.AudioContext ||
+            window.webkitAudioContext;
+    
+        var context = new AudioContext();
+    
+        navigator.getUserMedia  = navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia;
+    
+        window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+    
+        function onSuccess(stream) {
+            // var video = document.querySelector("video");
+            // video.src = window.URL.createObjectURL(stream);
+        
+            audioInput = context.createMediaStreamSource(stream);
+            audioInput.connect(context.destination);
+            console.log('audioInput', audioInput)
+            // audioInput.mediaStream.active = false
+            // audioInput.mediaStream.oninactive = closeAudio();
+            // audioInput.mediaStream.onactive = openAudio();
+            
+            var videoTracks = stream.getVideoTracks();
+            var audioTracks = stream.getAudioTracks();
+            console.log('videoTracks', videoTracks)
+            console.log('audioTracks', audioTracks)
+            
+            var video = document.getElementById('webcam');
+            video.srcObject = stream;
+            console.log('window.URL', window.URL)
+            video.autoplay = true;
+        }
+    
+        function onError(error) {
+            console.log("navigator.getUserMedia error: ", error);
+        }
+    
+        if (navigator.getUserMedia) {
+            // 支持
+            navigator.getUserMedia(constraints, onSuccess, onError);
+        } else {
+            // 不支持
+            console.log('不支持getUserMedia')
+        }
+    }
+</script>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draggable4_demo</title>
+    <style>
+        .drag-item:hover {
+            opacity: .5;
+        }
+        .drag-group:hover {
+            opacity: .5;
+        }
+        
+        /*.isDragging {*/
+        /*    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), move !important;*/
+        /*}*/
+        
+    </style>
+</head>
+<body style="margin: 0 0; padding: 0 0; background-color: #c4c76c" class="isDragging"><!--margin: 0 0; padding: 0 0;-->
+
+<!--组件-->
+<div class="drag-container" draggable="false" style="float: left; width: 300px; height: 300px; background-color: #ececec;"></div>
+<!--预览-->
+<div id="container" class="drag-container drag-preview" style="float: left; margin:0 40px; padding: 0 10px; width: 120px; height: 600px; background-color: #a97764;"></div>
+<!--组件-->
+<div class="drag-container" draggable="false" style="float: left; width: 300px; height: 300px; background-color: #ececec;">
+    <div id="group1" class="drag-group" draggable="true" style="float: left; width: 100px; height: 260px; background-color: #0484a5;">group</div>
+</div>
+
+</body>
+</html>
+<script>
+    
+    var targetId = ''; // 目标元素id
+    var tempNode = null; // 临时node
+    
+    // TODO 组件
+    function dragItem(el, type, effectAllowed) {
+        el.ondrag = function (e) {
+            // console.log('item-', e)
+        }
+        el.ondragend = function (e) {
+            // console.log('item-end', e)
+            var copy = e.dataTransfer.getData('copy')
+            var move = e.dataTransfer.getData('move')
+            // console.log('getData', copy, '-', move)
+            if (copy) {
+                // 暂不处理
+            } else if(move) {
+                var src = document.querySelector('#'+move)
+                console.log('item-end-src', src)
+                if (targetId) {
+                    var tar = document.querySelector('#'+targetId)
+                    console.log('item-end-target', targetId, tar)
+                    if (tar.className.indexOf('drag-group') > -1) {
+                        tar.appendChild(src)
+                    } else if (tar.className.indexOf('drag-container') > -1) {
+                        tar.appendChild(src)
+                    } else if (tar.className.indexOf('drag-item') > -1) {
+                        tar.parentNode.insertBefore(src, tar)
+                    }
+                } else {
+                    src.parentNode.appendChild(src)
+                }
+            }
+        }
+        el.ondragenter = function (e) {
+            // console.log('item-enter', e)
+        }
+        el.ondragexit = function (e) {
+            // console.log('item-exit', e)
+        }
+        el.ondragleave = function (e) {
+            // console.log('item-leave', e)
+        }
+    
+        el.ondragstart = function (e) {
+            console.log('item-start', e)
+            e.dataTransfer.effectAllowed = effectAllowed || 'copyMove' // none, copy, copyLink, copyMove, link, linkMove, move, all or uninitialized.
+            e.dataTransfer.setData(type || 'copy', e.target.id)
+            // e.target.style.opacity = .5
+            // document.body.setAttribute('class', 'isDragging')
+        }
+    
+        el.ondragover = function (e) {
+            // console.log('item-over', e)
+            // e.target.style.opacity = ''
+            e.preventDefault()
+        }
+    
+        // el.ondrop = function (e) {
+        //     // console.log('item-drop', e)
+        //     var data = e.dataTransfer.getData("data")
+        //     // console.log('item-data', data, e.target)
+        //     document.querySelectorAll('.drag-item').forEach(item => {
+        //         if (item.innerText && item.innerText === data) {
+        //             // console.log('item', item)
+        //             e.target.appendChild(item)
+        //             return
+        //         }
+        //     })
+        //     e.preventDefault()
+        // }
+    }
+
+    // TODO 组
+    function dragGroup(el, type, effectAllowed) {
+        el.ondragstart = function (e) {
+            console.log('group-start', e)
+            e.dataTransfer.effectAllowed = effectAllowed || 'copyMove' // none, copy, copyLink, copyMove, link, linkMove, move, all or uninitialized.
+            e.dataTransfer.setData(type || 'copy', e.target.id)
+        }
+        el.ondragend = function (e) {
+            console.log('group-end', e)
+            // console.log('item-end', e)
+            // e.target.style.opacity = ''
+            // document.body.removeAttribute('class')
+            var copy = e.dataTransfer.getData('copy')
+            var move = e.dataTransfer.getData('move')
+            // console.log('getData', copy, '-', move)
+            if (copy) {
+                // 暂不处理
+            } else if(move) {
+                var src = document.querySelector('#'+move)
+                console.log('group-end-targetId', targetId, src)
+                if (targetId) {
+                    var tar = document.querySelector('#'+targetId)
+                    if (tar.className.indexOf('drag-group') > -1) {
+                        tar.appendChild(src)
+                    } else if (tar.className.indexOf('drag-container') > -1) {
+                        tar.appendChild(src)
+                    } else if (tar.className.indexOf('drag-item')) {
+                        tar.parentNode.insertBefore(src, tar)
+                    }
+                } else {
+                    src.parentNode.appendChild(src)
+                }
+            }
+        }
+    
+        el.ondragenter = function (e) {
+            console.log('group-enter', e)
+        }
+    
+        el.ondragexit = function (e) {
+            console.log('group-exit', e)
+        }
+    
+        el.ondragleave = function (e) {
+            console.log('group-leave', e)
+        }
+    
+        el.ondragover = function (e) {
+            console.log('group-over', e)
+            var copy = e.dataTransfer.getData('copy')
+            var move = e.dataTransfer.getData('move')
+            console.log('group-getData', copy, '-', move)
+            if (copy) {
+                e.dataTransfer.dropEffect = 'copy'
+            } else if (move) {
+                e.dataTransfer.dropEffect = 'move'
+                var src = document.querySelector('#'+move)
+                var tar = e.target
+                // console.log('src-tar', src, '-', tar, tar.id)
+                targetId = tar.id
+            }
+            e.preventDefault()
+        }
+    
+        el.ondrop = function (e) {
+            console.log('group-drop', e)
+            var copy = e.dataTransfer.getData('copy')
+            var move = e.dataTransfer.getData('move')
+            if (copy) {
+                // console.log('copy')
+                if (e.target.className.indexOf('drag-container') > -1 || e.target.className.indexOf('drag-group') > -1) {
+                    var src = document.querySelector('#'+copy)
+                    var clone = src.cloneNode(true)
+                    clone.id = 'div_'+Date.now()
+                    clone.innerText = clone.id
+                    dragItem(clone, 'move', 'move')
+                    // e.target.appendChild(clone)
+                }
+            } else if (move) {
+                // console.log('move')
+                if (e.target.className.indexOf('drag-container') > -1 || e.target.className.indexOf('drag-group') > -1) {
+                    var src = document.querySelector('#'+move)
+                }
+            }
+        
+        }
+    }
+    
+    // TODO 容器
+    function dragContainer(el) {
+        // el.ondragstart = function (e) {
+        //     console.log('container-start', e)
+        // }
+        // el.ondragend = function (e) {
+        //     console.log('container-end', e)
+        // }
+        //
+        // el.ondragenter = function (e) {
+        //     console.log('container-enter', e)
+        //     // e.target.style.opacity = 0.2
+        // }
+        //
+        // el.ondragexit = function (e) {
+        //     console.log('container-exit', e)
+        // }
+        //
+        // el.ondragleave = function (e) {
+        //     console.log('container-leave', e)
+        // }
+    
+        el.ondragover = function (e) {
+            console.log('container-over', e)
+            var copy = e.dataTransfer.getData('copy')
+            var move = e.dataTransfer.getData('move')
+            console.log('container-getData', copy, '-', move)
+            if (copy) {
+                e.dataTransfer.dropEffect = 'copy'
+            } else if (move) {
+                e.dataTransfer.dropEffect = 'move'
+                var src = document.querySelector('#'+move)
+                var tar = e.target
+                // console.log('src-tar', src, '-', tar, tar.id)
+                targetId = tar.id
+            }
+            // e.target.style.opacity = ''
+            e.preventDefault()
+        }
+    
+        el.ondrop = function (e) {
+            e.preventDefault()
+            console.log('container-drop', e)
+            var copy = e.dataTransfer.getData('copy')
+            var move = e.dataTransfer.getData('move')
+            if (copy) {
+                console.log('copy')
+                if (e.target.className.indexOf('drag-container') > -1 || e.target.className.indexOf('drag-group') > -1) {
+                    var src = document.querySelector('#'+copy)
+                    var clone = src.cloneNode(true)
+                    clone.id = 'div_'+Date.now()
+                    clone.innerText = clone.id
+                    dragItem(clone, 'move', 'move')
+                    e.target.appendChild(clone)
+                }
+            } else if (move) {
+                console.log('move')
+                if (e.target.className.indexOf('drag-container') > -1 || e.target.className.indexOf('drag-group') > -1) {
+                    var src = document.querySelector('#'+move)
+                }
+            }
+            
+        }
+    }
+    
+    window.onload = function() {
+        var colorList = ['aqua', '#ff7c19', '#ffacbd', 'blue', 'gold', 'green', 'darkmagenta', 'blueviolet', 'brown']
+        var innerHtml = ''
+        for (var i=0; i<colorList.length; i++) {
+            var color = colorList[i]
+            innerHtml += '<div id="item'+i+'" class="drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: '+color+';">'+i+'</div>'
+            // console.log('color', color)
+        }
+        document.querySelector('.drag-container').innerHTML = innerHtml
+    
+        document.querySelectorAll('.drag-item').forEach(el => {
+            dragItem(el, 'copy')
+        })
+    
+        document.querySelectorAll('.drag-preview').forEach(el => {
+            dragContainer(el)
+        })
+        document.querySelectorAll('.drag-group').forEach(el => {
+            dragGroup(el)
+        })
+    }
+    
+
+</script>

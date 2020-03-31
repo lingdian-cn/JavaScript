@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+       <!--高德-->
+<!--       <script src="https://webapi.amap.com/maps?v=1.4.15&key=44f02a5250ff36acb0abff2def256c25"></script>-->
+       <!--百度-->
+       <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=iTrcx3Ca6TGVs7eGxD0OxIr0OxXLcKom&__ec_v__=20190126"></script>
+       <script src="../_libs/jquery-3.4.1.js"></script>
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="mapContainer" style="height: 100%"></div>
+   </body>
+   <script type="text/javascript">
+       var dom = document.getElementById("mapContainer");
+       var myChart = echarts.init(dom);
+       option = null;
+       myChart.showLoading();
+    
+       $.get('./json/tianchang.json', function (tianchangJson) {
+           myChart.hideLoading();
+        
+           echarts.registerMap('tianchang', tianchangJson, {});
+           option = {
+               title: {
+                   text: '天长市地图',
+                   subtext: '乡镇志愿者分布图',
+                   sublink: 'http://www.tcwmsj.com/datamic',
+                   left: 'left'
+               },
+               tooltip: {
+                   trigger: 'item',
+                   showDelay: 0,
+                   transitionDuration: 0.2,
+                   formatter: function (params) {
+                       console.log('formatter-params', params)
+                       var value = params.value + '';
+                       return params.name + '<br/>' +  '志愿者在线人数：' + value;
+                       // return params.seriesName + '<br/>' + params.name + ': ' + value;
+                   }
+               },
+               visualMap: {
+                   left: 'left',
+                   min: 0,
+                   max: 100,
+                   inRange: {
+                       color: [
+                           '#3cda30',
+                           '#5cf356',
+                           '#9cd19b',
+                           '#d1e9b6',
+                           '#e0f3f8',
+                           '#ffffbf',
+                           '#fee090',
+                           '#fdc768',
+                           '#f4a886',
+                           '#d7845e',
+                           '#e06016'
+                       ]
+                   },
+                   text: ['高', '低'], // 文本，默认为数值文本
+                   calculable: true, // 是否可计算，即按照跨度筛选
+               },
+               toolbox: {
+                   show: true,
+                   orient: 'vertical', // 方向垂直，默认水平
+                   left: 'right',
+                   top: 'top',
+                   feature: {
+                       dataView: {readOnly: false},
+                       restore: {},
+                       saveAsImage: {}
+                   }
+               },
+               series: [
+                   {
+                       name: '天长市',
+                       type: 'map',
+                       roam: true, // 是否拖动，缩放
+                       map: 'tianchang',
+                       label: {
+                           show: true
+                       },
+                       emphasis: {
+                           label: {
+                               show: true
+                           }
+                       },
+                       // 文本位置修正
+                       textFixed: {
+                           Alaska: [100, -20]
+                       },
+                       data:[
+                           {name: '天长街道', value: 1},
+                           {name: '铜城镇', value: 10},
+                           {name: '汊涧镇', value: 50},
+                           {name: '秦栏镇', value: 30},
+                           {name: '大通镇', value: 5},
+                           {name: '杨村镇', value: 80},
+                           {name: '石梁镇', value: 100},
+                           {name: '金集镇', value: 60},
+                           {name: '永丰镇', value: 50},
+                           {name: '仁和集镇', value: 40},
+                           {name: '冶山镇', value: 20},
+                           {name: '郑集镇', value: 11},
+                           {name: '张铺镇', value: 15},
+                           {name: '新街镇', value: 30},
+                           {name: '万寿镇', value: 49},
+                       ]
+                   }
+               ]
+           };
+        
+           myChart.setOption(option);
+       });;
+       if (option && typeof option === "object") {
+           myChart.setOption(option, true);
+       }
+   </script>
+</html>

@@ -1,0 +1,242 @@
+#[[#include]]#("/layout/#(template??"_layout_table.html")") #[[#@layout() #define content()]]#
+<div class="box">
+	<div class="box-header">
+		<form class="form-inline mi-form-search">
+			
+			#for(item:headerQuery??)
+			#if(item.type??"input" == "input")
+			<div class="form-group">
+				<label for="#(item.name??)" class="control-label">#(item.title??)</label>
+				<input type="text" class="form-control" name="#(item.name??)" placeholder="#(item.placeholder??)">
+			</div>
+			#else if(item.type?? == "select")
+			<div class="form-group">
+				<label for="#(item.name??)" class="control-label">#(item.title??)</label>
+				#if(item.remote??0 == 0)
+				<select class="form-control mi-select2" name="#(item.name??)" placeholder="#(item.placeholder??)" style="#if(item.width??) width: #(item.width??)px #end">
+					#for(dataItem:item.data??)
+					<option value="#(dataItem.value??)">#(dataItem.text??)</option>
+					#end
+				</select>
+				#else
+				<!--TODO 远程获取数据，暂未配置-->
+				<select class="form-control mi-select2" name="#(item.name??)" placeholder="#(item.placeholder??)">
+					<option value="">暂未配置</option>
+				</select>
+				#end
+			</div>
+			#else if(item.type?? == "datetime")
+			<div class="form-group">
+				<label for="#(item.name??)" class="control-label">#(item.title??)</label>
+				<!--TODO 日期控件，日期格式，初始化控件-->
+				<div style="float: left; padding-left: 15px; padding-right: 15px;" class="input-group date form_datetime col-sm-4">
+					<input class="form-control" type="text" name="#(item.name??)" value="" placeholder="#(item.placeholder??)">
+					<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+				</div>
+			</div>
+			#else if(item.type?? == "date")
+			<div class="form-group">
+				<label for="#(item.name??)" class="control-label">#(item.title??)</label>
+				<!--TODO 日期控件，日期格式，初始化控件-->
+				<div style="float: left; padding-left: 15px; padding-right: 15px;" class="input-group date form_date col-sm-4">
+					<input class="form-control" type="text" name="#(item.name??)" value="" placeholder="#(item.placeholder??)">
+					<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+				</div>
+			</div>
+			#else if(item.type?? == "time")
+			<div class="form-group">
+				<label for="#(item.name??)" class="control-label">#(item.title??)</label>
+				<!--TODO 日期控件，日期格式，初始化控件-->
+				<div style="float: left; padding-left: 15px; padding-right: 15px;" class="input-group date form_time col-sm-4">
+					<input class="form-control" type="text" name="#(item.name??)" value="" placeholder="#(item.placeholder??)">
+					<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+				</div>
+			</div>
+			#end
+			#end
+
+			<button type="button" data-table="#mi-table" class="btn btn-primary mi-table-search-submit">查询</button>
+			<button type="reset" class="btn btn-default">重置</button>
+		</form>
+
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+
+		<div class="toolbar form-inline">
+			<div class="btn-group pull-left">
+				#for(item:headerBtn??)
+				#if(item.type??"single" == "single")
+				<button type="button" class="btn  btn-default mi-btn-rows-single"
+						onclick="LD.action.go({title:'#(item.title??)',action:'#(item.action??)',url:'#(item.url??)',table:'#mi-table',idKey:'#(item.idKey??"id")',pageParams:'#(item.pageParams??)',success : function(data) {refreshData('#(item.action??)')}})">#(item.name??)</button>
+				#else if(item.type??"single" == "multiple")
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-default dropdown-toggle mi-btn-rows-multi" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#(item.name??"批量操作")<span class="caret"></span></button>
+					<ul class="dropdown-menu">
+						
+						#for(child:item.children??)
+						#if(child.type??"action" == "action")
+						### <li><a href="#" class="btn mi-btn-rows-multi" onclick='#("goBStatus"+for.index+"()")'>#(child.title??)</a></li>
+						<li><a href="#" class="btn mi-btn-rows-multi" onclick="LD.action.go({title:'#(child.title??)',action:'#(child.action??)',url:'#(child.url??)',table:'#mi-table',idKey:'#(child.idKey??"id")',success : function(data) {refreshData('#(child.action??)')}})">#(child.title??)</a></li>
+						#else if(child.type??"action" == "divider")
+						<li role="separator" class="divider"></li>
+						#end
+						#end
+					</ul>
+				</div>
+				#end
+				#end
+			</div>
+			#--
+			<script>
+				#for(item:headerBtn??)
+				#if(item.type??"single" == "multiple")
+				#for(child:item.children??)
+				#if(child.type??"action" == "action")
+				var #("goBStatus"+for.index) = function() {
+					LD.action.go({
+						title: '#(child.title??)',
+						action: '#(child.action??)',
+						confirm: true,
+						isTableRowAction: true,
+						url: '#(child.url??)',
+						table: '#mi-table',
+						idKey: '#(child.title??"id")',
+						params: {
+						},
+						success: function(data) {
+							refreshData('top')
+						}
+					})
+				}
+				#end
+				#end
+				#end
+				#end
+			</script>
+			--#
+		</div>
+		<div id="mi-table-row-toolbar" class="mi-table-row-toolbar">
+			#for(item:tableRowBtn??)
+			#if(item.type??"single" == "single")
+			### <a href="#" class="mi-table-row-button" onclick="#(item.function??+"('{{rowData."+item.idKey??"id"+"}}')")">#(item.name??)</a> #if(for.count != for.size) | #end
+			<a href="#" class="mi-table-row-button" onclick="LD.action.go({title:'#(item.title)',action:'#(item.action??)',url:'#(item.url??)',table:'#mi-table',params:{#(item.idKey??"id"):'{{rowData.#(item.idKey??"id")}}'},success:function(data){refreshData('#(item.action??)')}})">#(item.name??)</a> #if(for.count != for.size) | #end
+			#else if(item.type??"single" == "multiple")
+			<div class="btn-group">
+				<a class="btn btn-sm dropdown-toggle mi-btn-sm-a" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#(item.name??"更多")<span class="caret"></span></a>
+				<ul class="dropdown-menu mi-dropdown-menu-bl">
+					#for(child:item.children??)
+					#if(child.type??"action" == "action")
+					### <li><a href="#" onclick="#(child.function??+"('{{rowData."+child.idKey??"id"+"}}')")">#(child.name??)</a></li>
+					<li><a href="#" onclick="LD.action.go({title:'#(child.title)',action:'#(child.action??"rowAction")',url:'#(child.url??)',table:'#mi-table',params:{#(child.idKey??"id"):'{{rowData.#(child.idKey??"id")}}'},success:function(data){refreshData('#(child.action??"rowAction")')}})">#(child.name??)</a></li>
+					#else if(child.type??"action" == "divider")
+					<li role="separator" class="divider"></li>
+					#end
+					#end
+				</ul>
+			</div>
+			#end
+			#end
+		</div>
+		<table id="mi-table" class="mi-autoheight-bTable-lr"></table>
+	</div>
+	<!-- /.box-body -->
+</div>
+<!-- /.box -->
+<script>
+	
+	### 初始化日期控件
+	#for(item:headerQuery??)
+	#if(item.type?? == "datetime")
+	LD.datepicker.initDatetime('.form_datetime')
+	#else if(item.type?? == "date")
+	LD.datepicker.initDate('.form_date')
+	#else if(item.type?? == "time")
+	LD.datepicker.initTime('.form_time')
+	#end
+	#end
+	
+	var $table = $('#mi-table')
+
+	$(function() {
+		LD.bTable.init($table, {
+			relativeHeight : '#(table.relativeHeight??)',
+			// height: '100',
+			url: '#(table.url??)',
+			idField: '#(table.idField??)',
+			leftFixedColumns: #(table.leftFixedColumns??false),
+			leftFixedNumber: #(table.leftFixedNumber??1),
+			rightFixedColumns: #(table.rightFixedColumns??false),
+			rightFixedNumber: #(table.rightFixedNumber??1),
+			columns: [
+			#for(col:table.columns??)
+				#if(col.checkbox??false == true)
+				{
+					checkbox: true,
+					valign: '#(col.valign??"middle")',
+					align: '#(col.valign??"center")',
+				},
+				#else
+				{
+					field: '#(col.field??)',
+					title: '#(col.title??)',
+					valign: '#(col.valign??"middle")',
+					halign: '#(col.halign??)"center"',
+					align: '#(col.align??"center")',
+					width: '#(col.width??100)',
+					formatter: #(col.formatter??)
+				},
+				#end
+			#end
+			],
+		})
+	})
+
+	var refreshData = function(action, data) {
+		/* console.log('refreshData', data) */
+		LD.bTable.refresh($table)
+	}
+	
+	#--
+	#for(item:tableRowBtn??)
+		#if(item.type??"single" == "single")
+	var #(item.function??) = function(#(item.idKey??"id")) {
+		// console.log('row', #(item.idKey??"id"))
+		LD.action.go({
+			title: '#(item.title??)',
+			action: '#(item.action??)',
+			url: '#(item.url??)',
+			table: '#mi-table',
+			params: { #(item.idKey??"id") },
+			success: function(data) {
+				refreshData("#(item.action??)")
+			}
+		})
+	}
+		
+		#else if(item.type??"single" == "multiple")
+			#for(child:item.children??)
+				#if(child.type??"action" == "action")
+	var #(child.function??) = function(#(child.idKey??"id")) {
+		// console.log('row', #(child.idKey??"id"))
+		LD.action.go({
+			title: '#(child.title??)',
+			action: '#(child.action??"rowAction")',
+			url: '#(child.url??)',
+			table: '#mi-table',
+			params: { #(child.idKey??"id") },
+			success: function(data) {
+				refreshData("#(child.action??)")
+			}
+		})
+	}
+				#end
+			#end
+		#end
+	#end
+	--#
+</script>
+#[[#end]]#

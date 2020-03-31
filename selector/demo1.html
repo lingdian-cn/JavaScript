@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>config</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div id="four">4</div>
+    <div class="design">5</div>
+    <div class="design">6</div>
+    <div>
+        <div>7</div>
+        <div>8</div>
+        <span>
+            <p>p1</p>
+            <p>p2</p>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+        </span>
+    </div>
+    <div>12</div>
+</body>
+</html>
+<script>
+    console.log('div-el', document.querySelector('div'))
+    console.log('div-els', document.querySelectorAll('div'))
+    console.log('class-el', document.querySelector('.design'))
+    console.log('class-els', document.querySelectorAll('.design'))
+    console.log('id-els', document.querySelectorAll('#four'))
+    // console.log(':first-el', document.querySelectorAll('div:first')) // 错误
+    // console.log(':last-el', document.querySelectorAll('div:last')) //错误
+    // console.log(':even-els', document.querySelectorAll('div:even')) //错误
+    console.log('div>div-els', document.querySelectorAll('div>div'))
+    console.log('div div-els', document.querySelectorAll('div div'))
+    console.log('div+div-els', document.querySelectorAll('div+div'))
+    console.log('div~div-els', document.querySelectorAll('div~div'))
+    console.log('div p-els', document.querySelectorAll('div p'))
+    console.log('div>p-els', document.querySelectorAll('div>p'))
+    
+</script>

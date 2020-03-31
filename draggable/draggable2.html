@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draggable2_demo</title>
+    <style>
+        /*@font-face {*/
+        /*    font-family: 'webfont';*/
+        /*    font-display: swap;*/
+        /*    src: url('//at.alicdn.com/t/webfont_ui06tqkfso.eot'); !* IE9*!*/
+        /*    src: url('//at.alicdn.com/t/webfont_ui06tqkfso.eot?#iefix') format('embedded-opentype'), !* IE6-IE8 *!*/
+        /*    url('//at.alicdn.com/t/webfont_ui06tqkfso.woff2') format('woff2'),*/
+        /*    url('//at.alicdn.com/t/webfont_ui06tqkfso.woff') format('woff'), !* chrome、firefox *!*/
+        /*    url('//at.alicdn.com/t/webfont_ui06tqkfso.ttf') format('truetype'), !* chrome、firefox、opera、Safari, Android, iOS 4.2+*!*/
+        /*    url('//at.alicdn.com/t/webfont_ui06tqkfso.svg#Alibaba-PuHuiTi-Bold') format('svg'); !* iOS 4.1- *!*/
+        /*}*/
+        @font-face {
+            font-family: 'webfont';
+            font-display: swap;
+            src: url('../_libs/webfont_34ke27nie2/webfont.eot'); /* IE9*/
+            src: url('../_libs/webfont_34ke27nie2/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('../_libs/webfont_34ke27nie2/webfont.woff2') format('woff2'),
+            url('../_libs/webfont_34ke27nie2/webfont.woff') format('woff'), /* chrome、firefox */
+            url('../_libs/webfont_34ke27nie2/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+            url('../_libs/webfont_34ke27nie2/webfont.svg#webfont') format('svg'); /* iOS 4.1- */
+        }
+        .myFont {
+            font-family: "webfont" !important;
+            font-size: 16px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            /*cursor: pointer;*/
+        }
+        
+        .drag-item:hover {
+            opacity: .5;
+        }
+        
+        /*.isDragging {*/
+        /*    cursor: url(https://shopify.github.io/draggable/assets/img/cursor-pointer.png), move !important;*/
+        /*}*/
+        
+    </style>
+</head>
+<body style="margin: 0 0; padding: 0 0; background-color: black" class="isDragging"><!--margin: 0 0; padding: 0 0;-->
+<div class="drag-container" draggable="false" style="display: inline-block; width: 300px; height: 300px; background-color: #ececec;">
+    <!--<div style="width: 100px; height: 100px; background-color: #0000d3; display: inline-block;">1</div>
+    <div style="width: 100px; height: 100px; background-color: #4fff39; display: inline-block;">2</div>
+    <div style="width: 100px; height: 100px; background-color: #0000d3; display: inline-block;">3</div>-->
+    <!--<div class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: aqua;">1</div>
+    <div class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: #ff7c19;">2</div>
+    <div class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: #ffacbd;">3</div>
+    <div class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: blue;">4</div>
+    <div class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: gold;">5</div>
+    <div class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: green;">6</div>
+    <div class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: darkmagenta;">7</div>
+    <div class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: blueviolet;">8</div>
+    <div class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: brown;">9</div>-->
+</div>
+<div class="drag-container" style="display: inline-block; width: 100px; height: 600px; background-color: #a97764;"></div>
+
+</body>
+</html>
+<script>
+    function drag(el, type, effectAllowed) {
+        el.ondrag = function (e) {
+            // console.log('ondrag', e)
+        }
+        el.ondragend = function (e) {
+            console.log('ondragend', e)
+            // e.target.style.opacity = ''
+            // document.body.removeAttribute('class')
+        }
+        el.ondragenter = function (e) {
+            // console.log('ondragenter', e)
+        }
+        el.ondragexit = function (e) {
+            // console.log('ondragexit', e)
+        }
+        el.ondragleave = function (e) {
+            // console.log('ondragleave', e)
+        }
+    
+        el.ondragstart = function (e) {
+            // console.log('ondragstart-----------', e)
+            e.dataTransfer.effectAllowed = effectAllowed || 'copyMove' // none, copy, copyLink, copyMove, link, linkMove, move, all or uninitialized.
+            e.dataTransfer.setData(type || 'copy', e.target.id)
+            // e.target.style.opacity = .5
+            // document.body.setAttribute('class', 'isDragging')
+        }
+    
+        el.ondragover = function (e) {
+            // console.log('ondragover', e)
+            e.target.style.opacity = ''
+            e.preventDefault()
+        }
+    
+        // el.ondrop = function (e) {
+        //     // console.log('ondrop', e)
+        //     var data = e.dataTransfer.getData("data")
+        //     // console.log('data', data, e.target)
+        //     document.querySelectorAll('.drag-item').forEach(item => {
+        //         if (item.innerText && item.innerText === data) {
+        //             // console.log('item', item)
+        //             e.target.appendChild(item)
+        //             return
+        //         }
+        //     })
+        //     e.preventDefault()
+        // }
+    }
+    
+    window.onload = function() {
+        var colorList = ['aqua', '#ff7c19', '#ffacbd', 'blue', 'gold', 'green', 'darkmagenta', 'blueviolet', 'brown']
+        var innerHtml = ''
+        for (var i=0; i<colorList.length; i++) {
+            var color = colorList[i]
+            innerHtml += '<div id="item'+i+'" class="myFont drag-item" draggable="true" style="float: left; width: 100px; height: 100px; background-color: '+color+';">'+i+'</div>'
+            // console.log('color', color)
+        }
+        document.querySelector('.drag-container').innerHTML = innerHtml
+    
+        document.querySelectorAll('.drag-item').forEach(el => {
+            drag(el, 'copy')
+        })
+    
+        document.querySelectorAll('.drag-container').forEach(el => {
+            // el.ondragstart = function (e) {
+            //     // console.log('container-ondragstart', e)
+            //     e.dataTransfer.setData('data', e.target.innerText)
+            // }
+        
+            el.ondragenter = function (e) {
+                // console.log('container-enter', e)
+                // e.target.style.opacity = 0.2
+            }
+        
+            el.ondragexit = function (e) {
+                // console.log('container-exit', e)
+            }
+        
+            el.ondragleave = function (e) {
+                // console.log('container-leave', e)
+            }
+        
+            el.ondragover = function (e) {
+                console.log('container-over', e)
+                var copy = e.dataTransfer.getData("copy")
+                var move = e.dataTransfer.getData("move")
+                console.log('getData', copy, '-', move)
+                if (copy) {
+                    e.dataTransfer.dropEffect = 'copy'
+                } else if (move) {
+                    e.dataTransfer.dropEffect = 'move'
+                    
+                }
+                // e.target.style.opacity = ''
+                e.preventDefault()
+            }
+        
+            el.ondrop = function (e) {
+                // console.log('container-drop', e)
+                var copy = e.dataTransfer.getData("copy")
+                var move = e.dataTransfer.getData("move")
+                if (copy) {
+                    console.log('copy')
+                    if (e.target.className.indexOf('drag-container') > -1 || e.target.className.indexOf('drag-group') > -1) {
+                        var src = document.querySelector('#'+copy)
+                        var clone = src.cloneNode(true)
+                        drag(clone, 'move', 'move')
+                        e.target.appendChild(clone)
+                    }
+                } else if (move) {
+                    console.log('move')
+                    if (e.target.className.indexOf('drag-container') > -1 || e.target.className.indexOf('drag-group') > -1) {
+                        var src = document.querySelector('#'+move)
+                        // var clone = src.cloneNode(true)
+                        // drag(clone)
+                        // e.target.appendChild(src)
+                    }
+                }
+                // console.log('data', data, e.target, e.target.class)
+                // e.target.style.opacity = ''
+                
+            }
+        })
+    }
+    
+
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json1</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let str = '{"a": 1, "b": 2}'
+    let str2 = '[1, "yes i do", {"a": 3, "b": 4}]'
+    let json1 = JSON.parse(str)
+    let json2 = JSON.parse(str2)
+    console.log('json1', json1)
+    console.log('json2', json2)
+    console.log('json1_str', JSON.stringify(json1))
+    console.log('json2_str', JSON.stringify(json2))
+
+    let d1 = new Date();
+    console.log('d1', d1.toLocaleString())
+    let d2 = new Date('2019-06-01 08:00:00')
+    console.log('d2', d2.toLocaleString())
+    console.log('Date.now()', Date.now())
+    console.log('d1.time', d1.getTime())
+
+    console.log('Date.parse()', Date.parse('2019-06-01 08:00:00'))
+    console.log('Date.parse()', Date.parse('2019.06.01 08:00:00'))
+    console.log('Date.parse()', Date.parse('2019/06/01 08:00:00'))
+
+    console.log('Date()', Date('2019/06/01 08:00:00'))
+
+    window.console.log(111)
+    window.alert(location.href);
+
+
+</script>

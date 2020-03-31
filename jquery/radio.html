@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>radio</title>
+</head>
+<body>
+    <div class="form-group ">
+        <label for="isValidTime" class="col-sm-2 control-label">有效时间</label>
+        <div class="col-sm-4">
+            <label class="radio-inline"><input type="radio" name="isValidTime" value="1" checked>开启</label>
+            <label class="radio-inline"><input type="radio" name="isValidTime" value="0">关闭</label>
+        </div>
+        <label for="sendMode" class="col-sm-2 control-label">发送方式</label>
+        <div class="col-sm-4">
+            <label class="radio-inline"><input type="radio" name="sendMode" value="1" checked>全部</label>
+            <label class="radio-inline"><input type="radio" name="sendMode" value="2">部分</label>
+        </div>
+    </div>
+    <div class="form-group " id="datetime_picker" style="display: block;">
+        <label for="validStartTime" class="col-sm-2 control-label">开始时间</label>
+        <div style="float: left; padding-left: 15px; padding-right: 15px;" class="input-group date form_datetime col-sm-4" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii:ss" data-link-field="dtp_input1">
+            <input class="form-control" type="text" id="validStartTime" name="validStartTime" value="" readonly>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <!--<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>-->
+        </div>
+        <label for="validEndTime" class="col-sm-2 control-label">结束时间</label>
+        <div style="float: left; padding-left: 15px; padding-right: 15px;" class="input-group date form_datetime col-sm-4" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii:ss" data-link-field="dtp_input1">
+            <input class="form-control" type="text" id="validEndTime" name="validEndTime" value="" readonly>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+            <!--<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>-->
+        </div>
+    </div>
+</body>
+<script src="../_libs/jquery-3.4.1.js"></script>
+<script>
+    $(function() {
+        $('input[type=radio][name=isValidTime]').change(function () {
+            console.log('isValidTime', this.value, $('#datetime_picker').css('display'))
+            if (this.value === '1') {
+                $('#datetime_picker').css('display', "block")
+                // $('#datetime_picker').attr("display", "block") // 无效
+            } else {
+                $('#datetime_picker').css('display', "none")
+                // $('#datetime_picker').attr("display", "none") // 无效
+            }
+        })
+    })
+</script>
+</html>

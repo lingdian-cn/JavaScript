@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>audio1</title>
+</head>
+<body>
+<hr>
+<video id="webcam" style="width: 400px; height: 400px;"></video>a
+<hr>
+<button onclick="openAudio()">启用audio</button>
+<button onclick="closeAudio()">禁用audio</button>
+<hr>
+</body>
+</html>
+<script>
+    var openAudio = function () {
+        console.log('启用audio')
+    }
+    
+    var closeAudio = function () {
+        console.log('禁用audio')
+    }
+    window.onload = function () {
+    
+        var constraints = {
+            video: true,
+            audio: true
+        };
+    
+        window.AudioContext = window.AudioContext ||
+            window.webkitAudioContext;
+    
+        var context = new AudioContext();
+    
+        navigator.getUserMedia  = navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia;
+    
+        function onSuccess(stream) {
+            // var video = document.querySelector("video");
+            // video.src = window.URL.createObjectURL(stream);
+        
+            // var audioInput = context.createMediaStreamSource(stream);
+            // audioInput.connect(context.destination);
+        
+            var video = document.getElementById('webcam');
+            // video.src = stream;
+            console.log('window.URL', window.URL)
+            video.srcObject = stream
+            // if (window.URL) {
+            //     video.src = window.URL.createObjectURL(stream); // chrome报错，360极速可以
+            // } else {
+            //     video.src = stream;
+            // }
+            video.autoplay = true;
+        }
+    
+        function onError(error) {
+            console.log("navigator.getUserMedia error: ", error);
+        }
+    
+        if (navigator.getUserMedia) {
+            // 支持
+            // navigator.getUserMedia(constraints, onSuccess, onError);
+            navigator.getUserMedia({
+                video: true,
+                audio: true
+            }, onSuccess, onError);
+        } else {
+            // 不支持
+        }
+    }
+
+
+
+    // A:\2_install_software\utils\Google\Chrome\Application\chrome.exe
+    // --user-data-dir="A:\2_install_software\utils\GoogleData\Google\Chrome\User Data"
+    // --disk-cache-dir="F:\Cache\chrome"
+    // A:\2_install_software\utils\GoogleData\Google\Chrome\User Data
+</script>

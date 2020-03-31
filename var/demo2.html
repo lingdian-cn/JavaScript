@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>var_demo2</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let sub = {
+        a: 1,
+        b: 'ok',
+        c: function () {
+            console.log('c()')
+        }
+    }
+
+    let parent = {a: 2, ...sub, d: 3}
+    console.log('parent', parent)
+
+    console.log('obj', {a: 1, a: 2, c: 'c'})
+
+    let obj1 = {a: 1}
+    let obj2 = {...obj1}
+    let obj3 = {a: 1}
+    let obj4 = obj1
+
+    console.log('obj1', obj1)
+    console.log('obj1===obj2', obj1 === obj2) // false
+    console.log('obj1===obj3', obj1 === obj3) // false
+    console.log('obj1===obj4', obj1 === obj4) // true
+
+    obj1.b = 2
+    console.log('obj1===obj4', obj1 === obj4) // true
+
+    obj1 = {a: 1, b: 2}
+    console.log('obj1===obj4', obj1 === obj4) // false
+</script>

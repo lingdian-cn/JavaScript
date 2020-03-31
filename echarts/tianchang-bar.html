@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="barContainer" style="height: 100%"></div>
+   </body>
+</html>
+<script type="text/javascript">
+    var dom = document.getElementById("barContainer");
+    var barChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    option = {
+        title: {
+            text: '天长志愿者统计',
+            // subtext: '纯属虚构',
+            left: 'center'
+        },
+        xAxis: {
+            type: 'category',
+            data: ['天长街道', '铜城镇', '汊涧镇', '秦栏镇', '大通镇', '杨村镇', '石梁镇', '金集镇', '永丰镇', '仁和集镇', '冶山镇', '郑集镇', '张铺镇', '新街镇', '万寿镇'],
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [120, 200, 150, 80, 70, 110, 130, 120, 200, 150, 80, 70, 110, 130, 200],
+            type: 'bar'
+        }],
+        itemStyle: {
+            color: 'rgba(16, 174, 181, 0.75)'
+        },
+    };
+    if (option && typeof option === "object") {
+        barChart.setOption(option, true);
+    }
+</script>

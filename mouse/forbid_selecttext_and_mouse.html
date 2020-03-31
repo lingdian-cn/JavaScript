@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>forbid_selecttext_and_mouse</title>
+</head>
+<body style="text-align: center; cursor: default;">
+    <h2>标题</h2>
+    <div id="div">段落一</div>
+    <p>段落二</p>
+    <p>段落三</p>
+    <p>段落四</p>
+    <p>段落五</p>
+</body>
+<script>
+    /*TODO 禁止鼠标选中文本*/
+    document.onselectstart = function(e){
+        console.log('onselectstart-e', e)
+        return false;
+    }
+    
+    /*TODO 禁用鼠标右键*/
+    document.oncontextmenu = function (e) {
+        console.log('oncontextmenu-e', e)
+        return false
+    }
+    
+    /*TODO 禁止选中div中的文本（动态绑定方式）*/
+    // document.getElementById('div').onselectstart = function (e) {
+    //     console.log('onselectstart-e', e)
+    //     return false
+    // }
+    
+    /*TODO 禁止选中div中的文本（事件监听方式）*/
+    // document.getElementById('div').addEventListener('selectstart', function (e) {
+    //     e.returnValue = false // 通过这种方式设置才能生效，return false 不行。
+    //     console.log('addEventListener-selectstart', e)
+    // })
+    
+</script>
+</html>

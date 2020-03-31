@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draggable1_demo</title>
+</head>
+<body style=""><!--margin: 0 0; padding: 0 0;-->
+<div id="a" draggable="false" style="display: inline-block; width: 310px; height: 300px; background-color: darkgray;">
+    <div draggable="true" style="display: inline-block; width: 100px; height: 100px; background-color: aqua;">1</div>
+    <div draggable="true" style="display: inline-block; width: 100px; height: 100px; background-color: aliceblue;">2</div>
+    <div draggable="true" style="display: inline-block; width: 100px; height: 100px; background-color: black;">3</div>
+    <div draggable="true" style="display: inline-block; width: 100px; height: 100px; background-color: blue;">4</div>
+    <div draggable="true" style="display: inline-block; width: 100px; height: 100px; background-color: gold;">5</div>
+    <div draggable="true" style="display: inline-block; width: 100px; height: 100px; background-color: green;">6</div>
+    <div draggable="true" style="display: inline-block; width: 100px; height: 100px; background-color: darkmagenta;">7</div>
+    <div draggable="true" style="display: inline-block; width: 100px; height: 100px; background-color: blueviolet;">8</div>
+    <div draggable="true" style="display: inline-block; width: 100px; height: 100px; background-color: brown;">9</div>
+</div>
+<div id="b" dropzone="copy" style="display: inline-block; width: 300px; height: 300px; background-color: #a97764;">
+b
+</div>
+
+</body>
+</html>
+<script>
+    document.querySelectorAll('div').forEach(el => {
+        el.ondrag = function (e) {
+            console.log('ondrag', e)
+        }
+        el.ondragend = function (e) {
+            console.log('ondragend', e)
+        }
+        el.ondragenter = function (e) {
+            console.log('ondragenter', e)
+        }
+        el.ondragexit = function (e) {
+            console.log('ondragexit', e)
+        }
+        el.ondragleave = function (e) {
+            console.log('ondragleave', e)
+        }
+        el.ondragover = function (e) {
+            console.log('ondragover', e)
+            e.preventDefault()
+        }
+        el.ondragstart = function (e) {
+            console.log('ondragstart', e)
+            e.dataTransfer.dropEffect = 'copy'
+            e.dataTransfer.setData('data', e.target.innerText)
+        }
+        el.ondrop = function (e) {
+            console.log('----ondrop', e)
+            var data = e.dataTransfer.getData("data");
+            console.log('data', data, e.target)
+            e.target.innerText = data;
+            e.preventDefault();
+        }
+    })
+    
+    // var b = document.querySelector('#b')
+    // b.ondrop = function (e) {
+    //     console.log('----ondrop', e)
+    //     var data = e.dataTransfer.getData("text/plain");
+    //     e.target.appendChild(data);
+    //     e.preventDefault();
+    // }
+    //
+    // b.ondragover = function (e) {
+    //     console.log('ondragover', e)
+    //     e.preventDefault()
+    // }
+</script>

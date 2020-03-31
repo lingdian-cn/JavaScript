@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>variable_demo1</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*解构赋值*/
+    let {protocol, host, pathname} = location
+    console.log('url', protocol+"//"+host+pathname)
+
+
+    /*对象*/
+    let obj = {name: 'javascript', age: 20}
+    // age:old=18 解构赋值，起别名，设置默认值，有了别名后，age不能使用了
+    let {name: username, age:old=18, salary:money=5000 } = obj
+
+    console.log(username+'-'+old+'-'+money)
+
+    /*数组*/
+    let arr = [1, 2, 3]
+    let [x, y, z] = arr
+    // x y 互换值
+    // [x, y] = [y, x] //失败了： x is not defined
+    console.log('xyz', x.toString()+y+z) // xyz 123
+
+    /*交换两个数的值*/
+    let
+        a = 1,
+        b = 3;
+    [a, b] = [b, a]
+    console.log('ab', a.toString()+b) //ab 31
+
+    /*this*/
+    let lingdian = {
+        address: '地球村',
+        both: 1993,
+        age: function () {
+            return new Date().getUTCFullYear()-this.both;
+        }
+    }
+    console.log('age', lingdian.age())
+
+    let computeAge = function () {
+        return new Date().getUTCFullYear()-this.both;
+    }
+    let father = {
+        address: '地球村',
+        both: 1969,
+        age: computeAge
+    }
+    console.log('age', father.age())
+    console.log('computeAge', computeAge()) // computeAge NaN
+
+    console.log('getPrototypeOf', Object.getPrototypeOf(father))
+    console.log('getOwnPropertyDescriptor', Object.getOwnPropertyDescriptor(father))
+    console.log('getOwnPropertyDescriptors', Object.getOwnPropertyDescriptors(father))
+    console.log('getOwnPropertyNames', Object.getOwnPropertyNames(father))
+    console.log('getOwnPropertySymbols', Object.getOwnPropertySymbols(father))
+
+    // apply()和call()传参方式不同
+    console.log('apply()', computeAge.apply(father, []))
+    console.log('call()', computeAge.call(father, 1, 2))
+
+    parseInt('1')
+    Number('1')
+
+    console.log( ['1', '2'].map(Number) ) // [1, 2]
+    console.log( [1, 2].reduce( (a, b) => a*100+b ) ) // 102
+    console.log( [1, 2, 3, 4].filter( v => v>2) ) // [3, 4]
+    console.log( [1, 2, 3, 4].find( v => v>2) ) // 3 ， 返回第一个元素，查不到为undefined
+    console.log( [1, 2, 3, 4].findIndex( v => v>2) ) // 2 ， 返回第一个元素索引，查不到为-1
+
+    console.log( [1,20,11,13].sort() ) // [1, 11, 13, 20]
+    console.log( [1,20,11,13].sort( (a, b) => {
+        if (a>b) return -1;
+        if (a<b) return 1;
+        return 0;
+
+    } ) ) // [20, 13, 11, 1]
+
+    let arr10 = [1, 2, 4]
+    arr10.forEach( (v) => {
+        console.log(v);
+        if (v === 1) {
+            console.log('1', v)
+            return; // 无法跳出
+        }
+    });
+
+    console.log( 123..toString() ) // '123', 注意是两个点！
+    console.log( (123).toString() ); // '123'
+    console.log( 123.0.toString() ); // '123'
+
+    let arr11 = [
+        {a: 1, b: '1'},
+        {a: 2, b: '2'},
+        {a: 3, b: '3'},
+        {a: 4, b: '4'},
+    ]
+
+    let arr12 = arr11.map(item => {
+        let c = []
+        for(let i=0; i<item.a; i++) {
+            c.push(i)
+        }
+        item.c = c
+        return item
+    })
+    console.log('arr11', arr11)
+    console.log('arr12', arr12)
+
+</script>

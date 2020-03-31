@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Marked in the browser</title>
+</head>
+<style>
+    div table {
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+    div table thead tr {
+        border-top: 1px solid #4b5362;
+    }
+    div table thead tr th {
+        padding: 6px 13px;
+        border: 1px solid #4b5362;
+    }
+    div table tbody tr {
+        border-top: 1px solid #4b5362;
+    }
+    div table tbody tr td {
+        padding: 6px 13px;
+        border: 1px solid #4b5362;
+    }
+</style>
+<body>
+<div id="content"></div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="../_libs/jquery-3.4.1.js"></script>
+<script>
+    document.getElementById('content').innerHTML = marked('# Marked in the browser\n\nRendered by **marked**.');
+    $.ajax({
+        url: './md/index.md',
+        success: function (res) {
+            console.log('res', res)
+            document.getElementById('content').innerHTML = marked(res);
+        }
+    })
+</script>
+</body>
+</html>

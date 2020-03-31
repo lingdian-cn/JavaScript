@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XML_Http_Request</title>
+</head>
+<body>
+    <h1 id="h1">XML_Http_Request....</h1>
+</body>
+</html>
+<script>
+    /*创建请求对象*/
+    function createXMLHttpRequest() {
+        let xmlHttpRequest = null;
+        if (window.ActiveXObject) {
+            // IE
+            xmlHttprequest = new ActiveXObject('Microsoft.XMLHTTP')
+        } else if (window.XMLHttpRequest) {
+            // 其他
+            xmlHttpRequest = new XMLHttpRequest()
+        }
+        xmlHttpRequest.onreadystatechange = callback
+        return xmlHttpRequest
+    }
+
+    /*状态改变时的回调*/
+    function callback() {
+        console.log('this', this)
+        let xmlHttpRequest = this
+        if (xmlHttpRequest.readyState === 4) {
+            if (xmlHttpRequest.status === 200 || xmlHttpRequest.status === 0) {
+                // let res = xmlHttpRequest.responseText
+                // console.log('responseText', xmlHttpRequest.responseText)
+                let res = xmlHttpRequest.response
+                console.log('res', res)
+                document.getElementById('h1').innerText = 'OK'
+                // console.log(res.result)
+            }
+        }
+    }
+
+    /*get请求*/
+    function requestByGet() {
+        let url1 = 'https://suggest.taobao.com/sug' // fail
+        let url2 = 'https://api.cdnjs.com/libraries?search=jquery' // ok
+        let url3 = 'https://api.cdnjs.com/libraries/jquery' // ok
+        let url4 = 'http://ip.taobao.com/service/getIpInfo.php?ip=39.96.177.97' // fail
+        let url5 = 'http://mictrl.yishizai.cn:9004/u8/v1/login/doLogin' // ok， JFinal
+        let url6 = 'https://api.you-fire.com/youapi/demo/show/haha?id=chrome' // ok，增加了@CrossOrigin注解
+        let url7 = 'https://api.you-fire.com/youapi/msg/list' // ok，全局配置跨域
+        let request = createXMLHttpRequest()
+        request.responseType = 'json'
+        request.open('get', url6, true)
+        // readyState=1
+        request.onloadstart = function () {
+            console.log('onloadstart', this.response, this)
+        }
+        request.send()
+        // readyState=3
+        request.onprogress = function () {
+            console.log('onprogress', this.response, this)
+        }
+        // readyState=4
+        request.onloadend = function () {
+            console.log('onloadend', this.response, this)
+        }
+        // readyState=4
+        request.onload = function () {
+            console.log('onload', this.response, this)
+        }
+    }
+
+    /*post请求*/
+    function requestByPost () {
+        let url1 = 'https://api.apiopen.top/getWangYiNews'
+        // let body = {page: 1, count: 2}
+        let data = 'page=1&count=2'
+        let request = createXMLHttpRequest()
+        request.responseType = 'json'
+        request.open('post', url1, true)
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        request.send(data)
+    }
+
+    /*页面加载时执行*/
+    window.onload = function () {
+        console.log('window.onload()...')
+        requestByGet()
+        // requestByPost()
+    }
+
+</script>

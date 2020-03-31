@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.set</title>
+</head>
+<body>
+<div id="app">
+    show: <input type="text" v-model="show">
+    <input type="button" value="给对象添加元素" @click="objAddElement">
+    <input type="button" value="给data添加属性" @click="dataAddElement">
+    <br>
+    id: <input type="text" v-model="id">
+    name: <input type="text" v-model="name">
+    <input type="button" value="给集合添加元素" @click="listAddElement">
+    <input type="button" value="修改集合中元素" @click="listChangeElement">
+    <p v-text="'type: '+users.type"></p>
+    <p v-text="'show: '+users.show"></p>
+    <p v-for="item in users.list" :key="item.id">{{item.id}} -- {{item.name}}</p>
+</div>
+</body>
+</html>
+<script src="lib/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            id: '',
+            name: '',
+            show: '',
+            users: {
+                type: 'obj',
+                list: [
+                    {id: 1, name: 'zhangsan'},
+                    {id: 2, name: 'wangwu'},
+                    {id: 3, name: 'lisi'}
+                ]
+            }
+        },
+        methods: {
+            dataAddElement() {
+              this.$set(this, 'newObj', {a: 1, b: 2})
+              console.log('newObj', this)
+            },
+            objAddElement() {
+                // this.users.show = this.show
+                this.$set(this.users, 'show', this.show)
+                console.log('this.users--objAddElement', this.users)
+
+            },
+            listAddElement() {
+                let obj = {id: this.id, name: this.name}
+                // this.$set(this.users.list, this.id-1, { ...obj })
+                this.users.list.unshift({...obj})
+                console.log('this.users-listAddElement', this.users.list)
+            },
+            listChangeElement() {
+                this.users.list[0].name = 'changed'
+                console.log('this.users-listAddElement', this.users.list)
+            }
+        }
+    })
+</script>

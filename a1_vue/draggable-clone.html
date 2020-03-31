@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>draggable-clone</title>
+</head>
+<script src="lib/vue.js"></script>
+<script src="lib/Sortable.min.js"></script>
+<script src="lib/vuedraggable.umd.min.js"></script>
+<style>
+    .dragArea {
+        min-height: 50px;
+        outline: 1px dashed;
+    }
+
+    .list-group {
+        min-height: 20px;
+        width: 100px;
+    }
+
+    .list-group-item {
+        height: 40px;
+        width: 100px;
+        /*border-color: ;*/
+        border: 5px cornflowerblue;
+        cursor: move;
+    }
+</style>
+<body>
+    <div id="app">
+        <h3>Draggable 1</h3>
+        <draggable
+                class="dragArea list-group"
+                :list="list1"
+                :move="move1"
+                @start="start1"
+                @end="end1"
+                :group="{ name: 'people', pull: 'clone', put: true }"
+                :clone="clone1"
+                @change="change1"
+                @add="add1"
+        >
+            <div class="list-group-item" v-for="element in list1" :key="element.id">
+                {{ element.name }}
+            </div>
+        </draggable>
+
+        <h3>Draggable 2</h3>
+        <draggable
+                class="dragArea list-group"
+                :list="list2"
+                group="people"
+                :move="move2"
+                @start="start2"
+                @end="end2"
+                @change="change2"
+                @add="add2"
+        >
+            <div class="list-group-item" v-for="element in list2" :key="element.id">
+                {{ element.name }}
+            </div>
+        </draggable>
+    </div>
+</body>
+</html>
+<script>
+    let idGlobal = 8;
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            list1: [
+                { name: "dog 1", id: 1 },
+                { name: "dog 2", id: 2 },
+                { name: "dog 3", id: 3 },
+                { name: "dog 4", id: 4 }
+            ],
+            list2: [
+                { name: "cat 5", id: 5 },
+                { name: "cat 6", id: 6 },
+                { name: "cat 7", id: 7 }
+            ]
+        },
+        methods: {
+            change1: function(evt) {
+                console.log('change1', evt);
+            },
+            change2: function(evt) {
+                console.log('change2', evt);
+            },
+            clone1({ id }) {
+                return {
+                    id: idGlobal++,
+                    name: `cat ${id}`
+                };
+            },
+            move1(a, b, c) {
+                // console.log('move1', a, b)
+                return true
+            },
+            start1(e) {
+                console.log('start1', e)
+            },
+            end1(e) {
+                console.log('end1', e)
+            },
+            move2(a, b, c) {
+                // console.log('move2', a, b)
+                return true
+            },
+            start2(e) {
+                console.log('start2', e)
+            },
+            end2(e) {
+                console.log('end2', e)
+            },
+            add1(e) {
+                console.log('add1', e)
+            },
+            add2(e) {
+                console.log('add2', e)
+            },
+        }
+    })
+</script>

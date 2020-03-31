@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jsonp</title>
+</head>
+<body>
+    <div id="config" style="width: 400px; height: 400px; background-color: aqua;"></div>
+    <script>
+        function ueditorConf(conf) {
+            console.log('ueditorConf', conf, conf.catcherActionName)
+            document.getElementById('config').innerText = JSON.stringify(conf)
+        }
+    </script>
+    <script src="http://localhost:7002/common/v1/ue/config?callback=ueditorConf&action=config"> </script>
+</body>
+</html>

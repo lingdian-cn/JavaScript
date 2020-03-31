@@ -1,0 +1,206 @@
+#[[#include]]#("/layout/#(template??"_layout_form.html")") #[[#@layout() #define content()]]#
+<div class="box">
+	<div class="box-header">
+		<div class="mi-toolbar">
+			<div class="pull-left">
+				<div class="btn-group">
+					### 左侧按钮
+					#for(btn:formBtns??)
+					#if(btn.position?? == "left")
+					#if(btn.type?? == "save")
+					<button type="button" class="btn btn-primary " onclick="$('#mi-form').submit()">#(btn.title??"保存")</button>
+					#end
+					#end
+					#end
+				</div>
+			</div>
+			<div class="pull-right">
+				### 右侧按钮
+				#for(btn:formBtns??)
+				#if(btn.position?? == "right")
+				#if(btn.type?? == "reload")
+				<button type="button" class="btn btn-default" onclick="LD.reload()"><i class="glyphicon glyphicon-refresh icon-refresh "></i></button>
+				#else if(btn.type?? == "close")
+				<button type="button" class="btn  btn-default" onclick="LD.dialog.close()">关闭</button>
+				#end
+				#end
+				#end
+			</div>
+		</div>
+	</div>
+	<div class="box-body">
+		<div class="error_msg"></div>
+		<form id="mi-form" class="form-horizontal mi-form">
+			<fieldset>
+				#for(field:formFields??)
+				#if(field.type??"form-group" == "form-group")
+				<div class="form-group " style="overflow-x: hidden;">
+				#for(child:field.children??)
+				#if(child.type??"input" == "input")
+					<label for='#(child.name??)' class="col-sm-2 control-label">#(child.title??)</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id='#(child.name??)' name='#(child.name??)' placeholder='#(child.placeholder??)'>
+					</div>
+				#else if(child.type??"input" == "radio")
+					<label for='#(child.name??)' class="col-sm-2 control-label">#(child.title??)</label>
+					<div class="col-sm-4">
+						#for(item:child.data??)
+						<label class="radio-inline"><input type="radio" name='#(child.name??)' value='#(item.value??)' #(item.checked??false ? "checked":"")>#(item.text??)</label>
+						#end
+					</div>
+				#else if(child.type??"input" == "uploader")
+					<label for='#(child.name??)' class="col-sm-2 control-label">#(child.title??)</label>
+					<div class="col-sm-10">
+						<input type='hidden' id='#(child.name??)' name='#(child.name??)' placeholder='#(child.placeholder??"请上传缩略图")' autocomplete="off" class="mi-uploader" value=""
+							   data-options="showType:'image',show:'showImage',showWidth:'150px',showHeight:'150px',auto:true,success:uploadSuccess,acceptType:'images'">
+					</div>
+				#else if(child.type??"input" == "datetime")
+					<label for='#(child.name??)' class="col-sm-2 control-label">#(child.title??)</label>
+					<div style="float: left; padding-left: 15px; padding-right: 15px;" class="input-group date form_datetime col-sm-4">
+						<input class="form-control" type="text" name='#(child.name??)' value="" placeholder='#(child.placeholder??)'>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					</div>
+				#else if(child.type??"input" == "date")
+					<label for='#(child.name??)' class="col-sm-2 control-label">#(child.title??)</label>
+					<div style="float: left; padding-left: 15px; padding-right: 15px;" class="input-group date form_date col-sm-4">
+						<input class="form-control" type="text" name='#(child.name??)' value="" placeholder='#(child.placeholder??)'>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					</div>
+				#else if(child.type??"input" == "time")
+					<label for='#(child.name??)' class="col-sm-2 control-label">#(child.title??)</label>
+					<div style="float: left; padding-left: 15px; padding-right: 15px;" class="input-group date form_time col-sm-4">
+						<input class="form-control" type="text" name='#(child.name??)' value="" placeholder='#(child.placeholder??)'>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+						<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+					</div>
+				#else if(child.type??"input" == "editor")
+					<label for='#(child.name??"content")' class="col-sm-2 control-label">#(child.title??"内容")</label><!--float: right; margin-right: 14px;-->
+					<script id='#(child.name??"content")' name='#(child.name??"content")' type="text/plain" style="margin-left: 17.8%; width: 90.1%;">#(child.placeholder??"此处编辑内容")</script>
+				#end
+				#end
+				</div>
+				#else if(field.type?? == "hidden")
+				<input type="hidden" name="#(field.name??)" value="#(field.value??)">
+				#end
+				#end
+				#[[<input type="hidden" name="_page_params_action" value="#(_page_params_action??)">]]#
+			</fieldset>
+		</form>
+	</div>
+</div>
+<script>
+	
+	#for(field:formFields??)
+		#if(field.type?? == "form-group")
+			#for(child:field.children??)
+				#if(child.type?? == "editor")
+	var #(child.name??)Ue = LD.ue.init('#(child.name??)', {initialFrameHeight: 400});
+				#end
+			#end
+		#end
+	#end
+	
+	$(function() {
+		### 此处不需要
+		#--
+		$('input[type=radio][name=isValidTime]').change(function () {
+			// console.log('isValidTime', this.value, $('#datetime_picker').css("display"))
+			if (this.value === '1') {
+				$('#datetime_picker').css("display", "block")
+			} else {
+				$('#datetime_picker').css("display", "none")
+			}
+		})
+		--#
+		#set(a=0,b=0,c=0)
+		#for(field:formFields??)
+			#if(field.type?? == "form-group")
+				#for(child:field.children??)
+					#if(child.type?? == "datetime" && a == 0)
+					#set(a=a+1)
+		// 初始化日期控件
+		LD.datepicker.initDatetime('.form_datetime')
+					#else if(child.type?? == "date" && b == 0)
+					#set(b=b+1)
+		// 初始化日期控件
+		LD.datepicker.initDate('.form_date')
+					#else if(child.type?? == "time" && c == 0)
+					#set(c=c+1)
+		// 初始化日期控件
+		LD.datepicker.initTime('.form_time')
+					#end
+				#end
+			#end
+		#end
+		
+		#[[#if(_page_params_action == 'edit')]]#
+		LD.form.setForm($("#mi-form"),{
+			url:'#(loadFormUrl??)',
+			data:{
+				#(paramKey??):'#(paramValue??)'
+			},
+			success: function (res) {
+				### UEditor编辑器设置内容
+				#for(field:formFields??)
+				#if(field.type?? == "form-group")
+				#for(child:field.children??)
+				#if(child.type?? == "editor")
+				// 此处需延时设置，否则设置无效
+				setTimeout(() => {
+					#(child.name??)Ue.setContent(res.data.content)
+				}, 200)
+				#end
+				#end
+				#end
+				#end
+			}
+		})
+		#[[#else]]#
+		// console.log('其它状态')
+		#[[#end]]#
+		
+		LD.form.validate($("#mi-form"), {
+			noClose: false,
+			url: '#(submitUrl??)',
+			rules: {
+				#for(field:formFields??)
+				#if(field.type?? == "form-group")
+				#for(child:field.children??)
+				#if(child.rule??)
+				#(child.name??): #(child.rule??),
+				#end
+				#end
+				#end
+				#end
+			},
+			messages: { // 验证失败的提示信息
+				#for(field:formFields??)
+				#if(field.type?? == "form-group")
+				#for(child:field.children??)
+				#if(child.rule??)
+				#(child.name??): '#(child.messages??)',
+				#end
+				#end
+				#end
+				#end
+			}
+		});
+	});
+	
+	### 上传组件success回调
+	#for(field:formFields??)
+	#if(field.type?? == "form-group")
+	#for(child:field.children??)
+	#if(child.type?? == "uploader")
+	// 缩略图上传成功方法
+	function uploadSuccess(file) {
+		console.log('uploadSuccess', file);
+	}
+	#end
+	#end
+	#end
+	#end
+</script>
+#[[#end]]#

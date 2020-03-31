@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>audio1</title>
+</head>
+<body>
+<audio id="1" src="5363.wav" controls></audio><button onclick="play('1')">播放</button><button onclick="pause('1')">暂停</button><br>
+<audio id="2" src="7890.wav" controls></audio><button onclick="play('2')">播放</button><button onclick="pause('2')">暂停</button><br><br>
+<audio id="3" src="8521.wav" controls></audio><button onclick="play('3')">播放</button><button onclick="pause('3')">暂停</button><br><br>
+<audio id="4" src="9877.mp3" controls></audio><button onclick="play('4')">播放</button><button onclick="pause('4')">暂停</button><br><br>
+<audio id="5" src="call.mp3" loop></audio><button onclick="play('5')">播放</button><button onclick="pause('5')">暂停</button><br><br>
+
+</body>
+</html>
+<script>
+    function play(id) {
+        document.getElementById(id).play()
+    }
+    function pause(id) {
+        document.getElementById(id).pause()
+        document.getElementById(id).load()
+    }
+</script>

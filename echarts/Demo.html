@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<script src="../_libs/echarts/echarts.js"></script>
+<body>
+<div id="app" style="width: 1000px; height: 600px;"></div>
+</body>
+<script>
+    var myEchart = echarts.init(document.getElementById('app'))
+    var option = {
+        title: {
+            text: 'ECharts Demo'
+        },
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        },
+        yAxis: {},
+        series: [{
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 50]
+        }]
+    };
+    myEchart.setOption(option)
+</script>
+</html>

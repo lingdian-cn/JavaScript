@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>抽奖</title>
+</head>
+<style>
+    body {
+        background-color: #992a21;
+        text-align: center;
+        color: white;
+        font-size: 100px;
+        /*display: inline-block;*/
+        cursor: pointer;
+        height: 100%;
+    }
+</style>
+<body>
+
+</body>
+</html>
+<script>
+    var isStart = false;
+    var doc = document.getElementsByTagName('body')[0];
+    var list = [
+        '柏洪梦', '凌典', '杨路路', '魏兰兰', '桑伟', '施方辉', '蔡伟忠', '林妹妹'
+    ];
+    doc.setAttribute('height', document.body.offsetHeight+'px')
+    console.log('-------', document.body.offsetHeight+'px')
+    
+    setInterval(() => {
+        if (isStart) {
+            var index = (Math.random()*(list.length-1)).toFixed(0);
+            console.log('---', index);
+            doc.innerText = list[index];
+        }
+    }, 100);
+    
+    doc.onclick = function () {
+        console.log('click', isStart)
+        isStart = !isStart;
+    }
+    
+</script>

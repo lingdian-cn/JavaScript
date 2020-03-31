@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+       <meta charset="utf-8">
+       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+   </head>
+   <body style="height: 100%; margin: 0">
+       <div id="pieContainer" style="height: 100%"></div>
+   </body>
+</html>
+<script type="text/javascript">
+    var dom = document.getElementById("pieContainer");
+    var pieChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    var data = genData(50);
+    
+    option = {
+        title: {
+            text: '天长志愿者统计',
+            // subtext: '纯属虚构',
+            left: 'center'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a}-{b} <br>志愿者在线人数：{c} <br>占比：{d}%',
+        },
+        legend: {
+            type: 'scroll',
+            orient: 'vertical',
+            right: 10,
+            top: 20,
+            bottom: 20,
+            data: data.legendData,
+            selected: data.selected
+        },
+        series: [
+            {
+                name: '天长市',
+                type: 'pie',
+                radius: '55%',
+                center: ['40%', '50%'],
+                data: data.seriesData,
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+    
+    
+    function genData(count) {
+        var nameList = ['天长街道', '铜城镇', '汊涧镇', '秦栏镇', '大通镇', '杨村镇', '石梁镇', '金集镇', '永丰镇', '仁和集镇', '冶山镇', '郑集镇', '张铺镇', '新街镇', '万寿镇'];
+        var legendData = [];
+        var seriesData = [];
+        var selected = {};
+        for (var i = 0; i < nameList.length; i++) {
+            var name = nameList[i]
+            legendData.push(name);
+            seriesData.push({
+                name: name,
+                value: Math.round(Math.random() * 200)
+            });
+            // selected[name] = i < 6;
+        }
+        
+        return {
+            legendData: legendData,
+            seriesData: seriesData,
+            selected: selected
+        };
+        
+    }
+    if (option && typeof option === "object") {
+        pieChart.setOption(option, true);
+    }
+</script>

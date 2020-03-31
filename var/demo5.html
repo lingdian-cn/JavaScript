@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>var_demo5</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    Object.prototype.aaName = 'lingdian'
+    let var1 = {
+        a: 1,
+        b: {
+            b1: 'b1',
+            b2: 'b2'
+        },
+        c: new Date()
+    }
+    console.log('var1', var1)
+    for (let i in var1) {
+        console.log('i1', i) // a b c aaName ，TODO for in 包含继承的属性
+    }
+
+    for (let i in var1) {
+        if (var1.hasOwnProperty(i)) {
+            console.log('i2', i) // a b c ，TODO hasOwnProperty排除继承的属性
+        }
+    }
+
+    // for (let i of var1) {   // var1 is not iterable
+    //     console.log('i3.1', i)
+    // }
+    for (let i of Object.keys(var1)) {
+        console.log('i3.2', i)      // a b c
+    }
+
+    Array.prototype.aaProp = 'haha'
+    let arr1 = [
+        1, 2 , 'array'
+    ]
+    console.log('arr1', arr1)
+    for (let i of arr1) {
+        console.log('i4', i) // 1 2 array ， TODO for of 不包含继承的属性
+    }
+
+
+    /* 测试对象引用问题 */
+    let var2 = {a: 1, b: 2, obj: {o1: 1}}
+
+    console.log('var2', var2)
+    console.log('...var2', {...var2})
+    var2.c = 3
+    var2.obj.o2 = 2
+    console.log('var2', var2)
+
+    var user = {userInfo: 'facebook', status: 2}
+    var {userInfo, roomInfo=[], status} = user
+    console.log(userInfo, status)
+
+    console.log(Date.now().toString(), { d: Date.now().toString(), n: (Math.random()*999999999999999999999).toString()})
+    var roomId = 12345
+    console.log('---', {userInfo, roomInfo: [12345, ...roomInfo], status})
+
+    var arr = [1,2,3,4]
+    console.log('splice', arr.splice(2, 1))
+    console.log('arr', arr)
+
+
+
+</script>

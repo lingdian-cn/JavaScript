@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>var_demo4</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let obj = {arr: [1,2,3], obj: {name: 'name', age: 'age'}}
+    let var1 = {
+        one: 1,
+        two: {
+            a: 'a',
+            b: 'b'
+        },
+        obj
+    }
+
+    // TODO 展开语法 和 assign(target, source)方法 相同，都是浅复制，即第一层引用不同，内部引用相同
+    let var2 = {...var1}
+    // let var2 = Object.assign({}, var1)
+
+    // TODO JSON.parse(text) 和 JSON.stringify(object) 实现深度复制
+    let var3 = JSON.parse(JSON.stringify(var1))
+
+    console.log('var1', var1)
+    console.log('var2', var2)
+    console.log('var3', var3)
+    console.log('var1===var2', var1===var2)         // false
+    console.log('var1===var3', var1===var3)         // false
+    console.log('obj===var2.obj', obj===var2.obj)   // true
+    console.log('obj===var3.obj', obj===var3.obj)   // false
+    var1.one = 111
+
+    console.log('var2', var2)
+    obj.arr = [11,22,33]
+
+
+    console.log('obj', obj)
+    console.log('var2', var2)
+    console.log('var3', var3)
+    console.log('obj===var2.obj', obj===var2.obj)   // true
+    console.log('obj===var3.obj', obj===var3.obj)   // false
+
+
+
+
+
+</script>

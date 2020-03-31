@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gaode_mark</title>
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=44f02a5250ff36acb0abff2def256c25"></script>
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+    }
+</style>
+<body>
+<div id="mapContainer" style="width: 1536px; height: 731px; overflow: hidden;"></div>
+<button class="btn" id="add-marker" style="margin-right:1rem;">添加Marker</button>
+<button class="btn" id="remove-marker">删除Marker</button>
+<!-- 加载地图JSAPI脚本 -->
+<script>
+    var map = new AMap.Map('mapContainer', {
+        resizeEnable: true, //是否监控地图容器尺寸变化
+        zoom:11, //初始化地图层级
+        center: [116.397428, 39.90923] //初始化地图中心点
+    });
+
+    // 构造marker点
+    var marker = new AMap.Marker({
+        icon: "https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
+        position: [116.405467, 39.907761]
+    });
+
+    //事件绑定
+    document.querySelector("#add-marker").onclick = function() {
+        map.add(marker);
+        map.setFitView();
+    }
+    document.querySelector("#remove-marker").onclick = function() {
+        map.remove(marker);
+        map.setFitView();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>标记和定位</title>
+    <!--右下方卡片样式-->
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>
+    <!--兼容性-->
+    <script src="https://cache.amap.com/lbs/static/es5.min.js"></script>
+    <!--注意：此地图的key是本人申请测试使用-->
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=44f02a5250ff36acb0abff2def256c25&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar,AMap.CitySearch,AMap.Geolocation"></script>
+    <style>
+        html, body, #mapContainer {
+            width: 100%;
+            height: 100%;
+        }
+        label {
+            width: 55px;
+            height: 26px;
+            line-height: 26px;
+            margin-bottom: 0;
+        }
+        button.btn {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mapContainer"></div>
+    <div class="info">
+        <h4 id='status'></h4><hr>
+        <p id='result'></p><hr>
+        <p >由于众多浏览器已不再支持非安全域的定位请求，为保位成功率和精度，请升级您的站点到HTTPS。</p>
+    </div>
+    <div class="input-card" style="width:24rem;">
+        <h4>添加、删除覆盖物</h4>
+        <div class="input-item">
+            <label>Marker：</label>
+            <button class="btn" id="add-marker" style="margin-right:1rem;">添加Marker</button>
+            <button class="btn" id="remove-marker">删除Marker</button>
+        </div>
+        <div class="input-item">
+            <label>Circle：</label>
+            <button class="btn" id="add-circle" style="margin-right:1rem;">添加Circle</button>
+            <button class="btn" id="remove-circle">删除Circle</button>
+        </div>
+        <div class="input-item">
+            <label>Group：</label>
+            <input id="addOverlayGroup" type="button" class="btn" value="添加覆盖物群组"/>
+            <input id="removeOverlayGroup" type="button" class="btn" value="移除覆盖物群组"/>
+        </div>
+    </div>
+</body>
+<script>
+    var scale = new AMap.Scale({ // 比例尺（左下方）
+            visible: true
+        }),
+        toolBar = new AMap.ToolBar({ // 工具条（左上方）
+            visible: true
+        }),
+        overView = new AMap.OverView({ // 鹰眼（右下方）
+            visible: true
+        }),
+        /*初始化地图*/
+        map = new AMap.Map('mapContainer', {
+            resizeEnable: true, //是否监控地图容器尺寸变化
+            zoom:12, // 地图缩放级别 1-19
+            center: [117.21709, 31.858968], // 地图初始化时的中心点
+        });
+    map.addControl(scale);
+    map.addControl(toolBar);
+    map.addControl(overView);
+    
+    /*TODO 标记*/
+    // 构造点标记
+    var marker = new AMap.Marker({
+        icon: "https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png", // 图片可自定义
+        position: [117.210565,31.852597],
+        title: '安徽米控科技有限公司', // 鼠标悬停时显示
+        label: {
+            offset: new AMap.Pixel(20, 20), //修改label相对于maker的位置
+            content: "安徽米控科技有限公司",
+        }
+    });
+    // 构造矢量圆形
+    var circle = new AMap.Circle({
+        center: new AMap.LngLat("117.214638", "31.857366"), // 圆心位置
+        radius: 1000,  //半径
+        strokeColor: "#F33",  //线颜色
+        strokeOpacity: 1,  //线透明度
+        strokeWeight: 3,  //线粗细度
+        fillColor: "#ee2200",  //填充颜色
+        fillOpacity: 0.35 //填充透明度
+    });
+    
+    
+    //事件绑定
+    document.querySelector("#add-marker").onclick = function() {
+        map.add(marker);
+        map.setFitView();
+    }
+    document.querySelector("#remove-marker").onclick = function() {
+        map.remove(marker);
+        map.setFitView();
+    }
+    document.querySelector("#add-circle").onclick = function() {
+        map.add(circle);
+        map.setFitView();
+    }
+    document.querySelector("#remove-circle").onclick = function() {
+        map.remove(circle);
+        map.setFitView();
+    }
+
+    var lnglats = [[117.20975,31.853435], [117.209251,31.85302], [117.208355,31.854109], [117.208012,31.852852]];
+    var markers = [];
+    for (var i = 0; i < lnglats.length; i++) {
+        var lnglat = lnglats[i];
+        // 创建点实例
+        var m = new AMap.Marker({
+            position: new AMap.LngLat(lnglat[0], lnglat[1]),
+            icon: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b' + (i + 1) + '.png',
+            extData: {
+                id: i + 1
+            },
+            title: 'title' + (i + 1), // 鼠标悬停时显示
+            label: {
+                offset: new AMap.Pixel(20, 20), //修改label相对于maker的位置
+                content: 'marker' + (i + 1),
+            }
+        });
+        markers.push(m);
+    }
+    // 创建覆盖物群组，并将 marker 传给 OverlayGroup
+    var overlayGroups = new AMap.OverlayGroup(markers);
+    
+    // 添加覆盖物群组
+    document.getElementById("addOverlayGroup").onclick = function () {
+        map.add(overlayGroups);
+        map.setFitView();
+    };
+    // 移除覆盖物群组
+    document.getElementById("removeOverlayGroup").onclick = function () {
+        map.remove(overlayGroups);
+        map.setFitView();
+    };
+    
+    
+    /*TODO 精准定位*/
+    var geolocation = new AMap.Geolocation({
+        enableHighAccuracy: false,//是否使用高精度定位，默认:true
+        timeout: 20000,          //超过3秒后停止定位，默认：5s
+        buttonPosition:'LB',    //定位按钮的停靠位置  LT LB RT RB
+        buttonOffset: new AMap.Pixel(10, 45),//定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+        zoomToAccuracy: true,   //定位成功后是否自动调整地图视野到定位点
+    });
+    map.addControl(geolocation);
+    geolocation.getCurrentPosition((status, result) => {
+        console.log('getCurrentPosition', status, result)
+        if (status=='complete') {
+            onComplete(result)
+        } else {
+            onError(result)
+        }
+    });
+    //解析定位结果
+    function onComplete(data) {
+        document.getElementById('status').innerHTML='定位成功'
+        var str = [];
+        str.push('定位结果：' + data.position);
+        str.push('定位类别：' + data.location_type);
+        if(data.accuracy){
+            str.push('精度：' + data.accuracy + ' 米');
+        }//如为IP精确定位结果则没有精度信息
+        str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+        document.getElementById('result').innerHTML = str.join('<br>');
+    }
+    //解析定位错误信息
+    function onError(data) {
+        document.getElementById('status').innerHTML='定位失败'
+        document.getElementById('result').innerHTML = '失败原因排查信息:'+data.message;
+    }
+
+    /*TODO IP定位（当前key无法使用该插件）*/
+    //获取用户所在城市信息
+    function showCityInfo() {
+        //实例化城市查询类
+        var citysearch = new AMap.CitySearch();
+        //自动获取用户IP，返回当前城市
+        citysearch.getLocalCity((status, result) => {
+            console.log('getLocalCity', status, result)
+            if (status === 'complete' && result.info === 'OK') {
+                if (result && result.city && result.bounds) {
+                    var cityinfo = result.city;
+                    var citybounds = result.bounds;
+                    document.getElementById('result').innerHTML = '您当前所在城市：'+cityinfo;
+                    //地图显示当前城市
+                    map.setBounds(citybounds);
+                }
+            } else {
+                if(result.info) {
+                    document.getElementById('result').innerHTML = result.info;
+                } else {
+                    document.getElementById('result').innerHTML = result;
+                }
+            }
+        });
+    }
+    showCityInfo();
+
+</script>
+</html>

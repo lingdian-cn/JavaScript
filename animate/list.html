@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../_libs/jquery-3.4.1.js"></script>
+</head>
+<style>
+    ul,ol {
+        border: 1px solid #c4c76c;
+    }
+    li {
+        white-space: pre;
+        padding: 5px 0px;
+    }
+</style>
+<body>
+<ol id="list1">
+</ol>
+</body>
+</html>
+<script>
+    var list1 = [
+        {
+            title: 'java',
+            star: 67134,
+        },
+        {
+            title: 'python',
+            star: 59394,
+        },
+        {
+            title: 'javascript',
+            star: 69839,
+        },
+        {
+            title: 'c++',
+            star: 45789,
+        },
+        {
+            title: 'c#',
+            star: 35588,
+        },
+        {
+            title: 'go',
+            star: 45685,
+        },
+        {
+            title: 'sql',
+            star: 65473,
+        },
+        {
+            title: 'php',
+            star: 56865,
+        },
+        {
+            title: 'objective-c',
+            star: 34955,
+        },
+        {
+            title: 'ruby',
+            star: 34855,
+        },
+        {
+            title: 'java',
+            star: 67134,
+        },
+        {
+            title: 'python',
+            star: 59394,
+        },
+        {
+            title: 'javascript',
+            star: 69839,
+        },
+        {
+            title: 'c++',
+            star: 45789,
+        },
+        {
+            title: 'c#',
+            star: 35588,
+        },
+        {
+            title: 'go',
+            star: 45685,
+        },
+        {
+            title: 'sql',
+            star: 65473,
+        },
+        {
+            title: 'php',
+            star: 56865,
+        },
+        {
+            title: 'objective-c',
+            star: 34955,
+        },
+        {
+            title: 'ruby',
+            star: 34855,
+        },
+    ]
+    
+    /**
+     * @description TODO 列表滚动方法
+     * @author lingdian
+     * @date 2020-01-19 17:09:30
+     * @$el 列表元素的jquery对象
+     * @list Array 列表数据
+     * @min Number 列表数据最小滚动数量
+     * @duration Number 滚动间隔时长（单位毫秒）
+     * @render Function 列表项渲染方法
+     */
+    var ListScroll = function ($el, list, min, duration, render) {
+        this.isScroll = true;
+        var var1 = '';
+        list.forEach(item => {
+            var1 += render(item)
+        });
+        $el.append(var1);
+        this.clock = setInterval(() => {
+            if(this.isScroll && list.left >= min) {
+                var item0 = list[0];
+                list.splice(0, 1)
+                list.push(item0)
+                var newChild = '';
+                list.forEach(item => {
+                    newChild += render(item)
+                });
+                $el.empty()
+                $el.append(newChild)
+                // console.log('list1', list)
+            }
+        }, duration);
+    
+        $el.mouseover(() => {
+            this.isScroll = false
+        });
+        $el.mouseout(() => {
+            this.isScroll = true
+        });
+    }
+    
+    // 渲染列表项
+    var render = function(item) {
+        return '<li>'+item.title+'\t\t'+item.star+'</li>'
+    }
+    
+    // 调用
+    ListScroll($('#list1'), list1, 200, render)
+    
+    /*var isScroll = true;
+    
+    var child = '';
+    for (let item of list1) {
+        child += '<li>'+item.title+'\t\t'+item.star+'</li>'
+    }
+    $('#list1').append(child)
+    
+    var clock = function(){
+        return setInterval(() => {
+            if(isScroll) {
+                var item0 = list1[0];
+                list1.splice(0, 1)
+                list1.push(item0)
+                var newChild = '';
+                for (let item of list1) {
+                    newChild += '<li>'+item.title+'\t\t'+item.star+'</li>'
+                }
+                $('#list1').empty()
+                $('#list1').append(newChild)
+            
+                console.log('list1', list1)
+            }
+        }, 200)
+    }
+
+    var intervalId = clock();
+
+    $('#list1').mouseover(function () {
+        isScroll = false
+    })
+    $('#list1').mouseout(function () {
+        isScroll = true
+    })
+    // $('#list1').mouseenter(function () {
+    //     isScroll = false
+    // })
+    // $('#list1').mouseleave(function () {
+    //     isScroll = true
+    // })*/
+    
+    
+    var list2 = [
+        {
+            code: '000102S001000J01A0120',
+            name: '白苏子',
+            makeIn: '安国公司',
+            type: '5袋每盒',
+            price: '500'
+        },
+        {
+            code: '000102S001000J01A0121',
+            name: '雪上一枝蒿',
+            makeIn: '亳州公司',
+            type: '10袋每盒',
+            price: '653'
+        },
+        {
+            code: '000102S001000J01A0122',
+            name: '龙葵',
+            makeIn: '亳州公司',
+            type: '12袋每盒',
+            price: '500'
+        },
+        {
+            code: '000102S001000J01A0123',
+            name: '竹节参',
+            makeIn: '安国公司',
+            type: '6袋每盒',
+            price: '460'
+        },
+        {
+            code: '000102S001000J01A0124',
+            name: '广东刘寄奴',
+            makeIn: '靖宇公司',
+            type: '12袋每盒',
+            price: '510'
+        },
+        {
+            code: '000102S001000J01A0125',
+            name: '灯盏细辛',
+            makeIn: '亳州公司',
+            type: '12袋每盒',
+            price: '230'
+        },
+        {
+            code: '000102S001000J01A0126',
+            name: '龙涎香',
+            makeIn: '治平公司',
+            type: '12袋每盒',
+            price: '400'
+        },
+        {
+            code: '000102S001000J01A0127',
+            name: '大豆黄卷',
+            makeIn: '亳州公司',
+            type: '13袋每盒',
+            price: '500'
+        },
+        {
+            code: '000102S001000J01A0128',
+            name: '铁皮石斛',
+            makeIn: '亳州公司',
+            type: '12袋每盒',
+            price: '500'
+        },
+        {
+            code: '000102S001000J01A0128',
+            name: '景天',
+            makeIn: '靖宇公司',
+            type: '15袋每盒',
+            price: '156'
+        },
+        {
+            code: '000102S001000J01A0128',
+            name: '狗尾草',
+            makeIn: '亳州公司',
+            type: '12袋每盒',
+            price: '50'
+        },
+    ]
+    
+</script>

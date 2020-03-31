@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>audio4</title>
+</head>
+<body>
+<hr>
+<video id="webcam" style="width: 400px; height: 400px;"></video>
+<hr>
+<button onclick="openAudio()">启用audio</button>
+<button onclick="closeAudio()">禁用audio</button>
+<hr>
+</body>
+</html>
+<script>
+    // 多媒体
+    navigator.getUserMedia  = navigator.getUserMedia ||
+        navigator.webkitGetUserMedia ||
+        navigator.mozGetUserMedia ||
+        navigator.msGetUserMedia;
+    
+    // 音频上下文
+    window.AudioContext = window.AudioContext ||
+        window.webkitAudioContext;
+    // 创建音频上下文对象
+    var audioContext = new AudioContext();
+    
+    var audioInput;
+    var scriptProcessor;
+    
+    var openAudio = function (data) {
+        console.log('启用audio', data)
+        if (audioInput) {
+            audioContext.resume();
+        }
+    }
+    
+    var closeAudio = function (data) {
+        console.log('禁用audio', data)
+        if (audioInput) {
+            audioContext.close();
+        }
+    }
+    
+    window.onload = function () {
+    
+        var constraints = {
+            video: true,
+            audio: true
+        };
+    
+    
+    
+        window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
+    
+        function onSuccess(stream) {
+            // var video = document.querySelector("video");
+            // video.src = window.URL.createObjectURL(stream);
+            // 捕获麦克风声音
+            audioInput = audioContext.createMediaStreamSource(stream);
+            // audioInput.connect(audioContext.destination);
+            console.log('audioInput', audioInput)
+            console.log('audioContext.destination', audioContext.destination)
+    
+            // 创建一个音频分析对象，采样的缓冲区大小为4096，输入和输出都是单声道
+            scriptProcessor = audioContext.createScriptProcessor(4096,1,1);
+            // 将该分析对象与麦克风音频进行连接
+            audioInput.connect(scriptProcessor);
+            // 此举无甚效果，仅仅是因为解决 Chrome 自身的 bug
+            scriptProcessor.connect(audioContext.destination);
+            // 开始处理音频
+            scriptProcessor.onaudioprocess = function(e) {
+                // 获得缓冲区的输入音频，转换为包含了PCM通道数据的32位浮点数组
+                let buffer = e.inputBuffer.getChannelData(0);
+                // 获取缓冲区中最大的音量值
+                let maxVal = Math.max.apply(Math, buffer);
+                // 显示音量值
+                console.log('maxVal', maxVal)
+                // mystatus.innerHTML =Math.round(maxVal * 100);
+            };
+            
+            var videoTracks = stream.getVideoTracks();
+            var audioTracks = stream.getAudioTracks();
+            console.log('videoTracks', videoTracks)
+            console.log('audioTracks', audioTracks)
+            
+            var video = document.getElementById('webcam');
+            video.srcObject = stream;
+            console.log('window.URL', window.URL)
+            video.autoplay = true;
+        }
+    
+        function onError(error) {
+            console.log("navigator.getUserMedia error: ", error);
+        }
+    
+        if (navigator.getUserMedia) {
+            // 支持
+            navigator.getUserMedia(constraints, onSuccess, onError);
+        } else {
+            // 不支持
+            console.log('不支持getUserMedia')
+        }
+    }
+</script>

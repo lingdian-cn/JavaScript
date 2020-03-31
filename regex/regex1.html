@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regex1</title>
+</head>
+<body>
+<h1>regex1</h1>
+</body>
+</html>
+<script>
+    /**
+     * TODO 判断字符串中是否包含#include([value])，并将#include([value])替换为[value]
+     * @type {string}
+     */
+    var str1 = `<h1>标题1
+        #include('./header.js')
+        <p>段落一</p>
+        #include('./siderbar.js')
+        <p>段落二</p>
+        <h2>标题2</h2>
+        #include('./header.js')
+        <p>段落二</p>
+        <h2>标题2</h2>
+        </h1>`;
+    
+    console.log('newStr1', replaceTemplate(str1, /\#include\(.+\)/g))
+    console.log('str1', str1)
+    
+    function replaceTemplate(origin, templateRegex) {
+        var regExpMatchArray = origin.match(templateRegex)
+        for (let i = 0; i <regExpMatchArray.length; i++) {
+            var include = regExpMatchArray[i]
+            var path = parseTemplate(include)
+            console.log('parseTemplate', path)
+            if (origin.indexOf(include) > -1) {
+                origin = origin.replace(include, path);
+            }
+        }
+        return origin;
+    }
+    
+    function parseTemplate(val) {
+        var start = val.indexOf('\(')
+        var end = val.lastIndexOf('\)')
+        return val.substring(start+1, end)
+    }
+    
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01_three_methods_bind_event</title>
+</head>
+<style>
+    .text {
+        width: 100px;
+        text-align: left;
+        white-space: pre;
+    }
+</style>
+<body style="text-align: left;">
+    <p class='text'>row :</p><input id='row' type='text' onclick='rowBindFunc(this)'/><br>
+    <p class='text'>dynamic :</p><input id='dynamic' type='text'/><br>
+    <p class='text'>listener :</p><input id='listener' type='text'/><br>
+</body>
+</html>
+<script>
+    /*TODO js绑定事件的三种方式：行内绑定，动态绑定，事件监听*/
+    /*1.行内绑定*/
+    function rowBindFunc(input) {
+        // 函数内的this指向window对象, 可以通过传参的方式获取当前dom元素<input>，即input
+        console.log('rowBindFunc-this', this, '-----', this.location.href, '-----', input)
+    }
+    /*2.动态绑定*/
+    document.getElementById('dynamic').onclick = function() {
+        // 函数内的this指向当前绑定事件的dom元素<input>
+        console.log('dynamic-this', this)
+    }
+    /*3.事件监听*/
+    document.getElementById('listener').addEventListener('click', function () {
+        // 函数内的this指向当前绑定事件的dom元素<input>
+        console.log('listener-this', this)
+    })
+</script>

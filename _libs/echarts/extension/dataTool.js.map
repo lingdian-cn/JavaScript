@@ -1,0 +1,910 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+  <link rel="dns-prefetch" href="https://github.githubassets.com">
+  <link rel="dns-prefetch" href="https://avatars0.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars1.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars2.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  <link rel="dns-prefetch" href="https://github-cloud.s3.amazonaws.com">
+  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com/">
+
+
+
+  <link crossorigin="anonymous" media="all" integrity="sha512-Wr5yTs8gD42bv1Ll5KLXr7cXzuVcbKOcuHmifgt/6YlZuluDTyAJnfnYhNYKpgVK1F51ks8Y2QA+XENQoMp/PA==" rel="stylesheet" href="https://github.githubassets.com/assets/frameworks-5abe724ecf200f8d9bbf52e5e4a2d7af.css" />
+  <link crossorigin="anonymous" media="all" integrity="sha512-DnBQhWGJ7icZU4LPhD6FlaZ9IrBOmbP4/4bEfpGQRbCLwutaFNqbuAaM8Y/w7IygRCMuOybM7fLDGe+UV9TEjQ==" rel="stylesheet" href="https://github.githubassets.com/assets/site-0e7050856189ee27195382cf843e8595.css" />
+    <link crossorigin="anonymous" media="all" integrity="sha512-0y1r9T46lxgga0JM1aaMQSLHARH3h7/npxbbEYkhIR/QYHswdnq40YREqmndqF5+XeXluF7TuC3lMBRpRQ85fw==" rel="stylesheet" href="https://github.githubassets.com/assets/github-d32d6bf53e3a9718206b424cd5a68c41.css" />
+    
+    
+    
+    
+
+
+  <meta name="viewport" content="width=device-width">
+  
+  <title>incubator-echarts/dataTool.js.map at 4.6.0 · apache/incubator-echarts · GitHub</title>
+    <meta name="description" content="A powerful, interactive charting and visualization library for browser - apache/incubator-echarts">
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
+  <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
+  <meta property="fb:app_id" content="1401488693436528">
+
+    <meta name="twitter:image:src" content="https://avatars3.githubusercontent.com/u/47359?s=400&amp;v=4" /><meta name="twitter:site" content="@github" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="apache/incubator-echarts" /><meta name="twitter:description" content="A powerful, interactive charting and visualization library for browser - apache/incubator-echarts" />
+    <meta property="og:image" content="https://avatars3.githubusercontent.com/u/47359?s=400&amp;v=4" /><meta property="og:site_name" content="GitHub" /><meta property="og:type" content="object" /><meta property="og:title" content="apache/incubator-echarts" /><meta property="og:url" content="https://github.com/apache/incubator-echarts" /><meta property="og:description" content="A powerful, interactive charting and visualization library for browser - apache/incubator-echarts" />
+
+  <link rel="assets" href="https://github.githubassets.com/">
+  
+  
+
+    <meta name="request-id" content="6818:28EE:333967:4774B3:5E3BDB24" data-pjax-transient="true" /><meta name="html-safe-nonce" content="0aa6d5ef898d9844dcf252341e54cb9c5b60dd5f" data-pjax-transient="true" /><meta name="visitor-payload" content="eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9hcGFjaGUvaW5jdWJhdG9yLWVjaGFydHMvdHJlZS80LjYuMC9kaXN0L2V4dGVuc2lvbiIsInJlcXVlc3RfaWQiOiI2ODE4OjI4RUU6MzMzOTY3OjQ3NzRCMzo1RTNCREIyNCIsInZpc2l0b3JfaWQiOiI0MjI4MDAzNDY2MDI0NjE4NDIxIiwicmVnaW9uX2VkZ2UiOiJhcC1zb3V0aGVhc3QtMSIsInJlZ2lvbl9yZW5kZXIiOiJpYWQifQ==" data-pjax-transient="true" /><meta name="visitor-hmac" content="e899b9b93e3382898939d3e653e799e2eaa6b3c064ef84c5fd07cf7feef77c1a" data-pjax-transient="true" />
+
+
+
+  <meta name="github-keyboard-shortcuts" content="repository,source-code" data-pjax-transient="true" />
+
+  
+
+  <meta name="selected-link" value="repo_source" data-pjax-transient>
+
+      <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
+    <meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
+    <meta name="google-site-verification" content="GXs5KoUUkNCoaAZn7wPN-t01Pywp9M3sEjnt_3_ZWPc">
+
+  <meta name="octolytics-host" content="collector.githubapp.com" /><meta name="octolytics-app-id" content="github" /><meta name="octolytics-event-url" content="https://collector.githubapp.com/github-external/browser_event" /><meta name="octolytics-dimension-ga_id" content="" class="js-octo-ga-id" />
+<meta name="analytics-location" content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" />
+
+
+
+    <meta name="google-analytics" content="UA-3769691-2">
+
+
+<meta class="js-ga-set" name="dimension1" content="Logged Out">
+
+
+
+  
+
+      <meta name="hostname" content="github.com">
+    <meta name="user-login" content="">
+
+      <meta name="expected-hostname" content="github.com">
+
+
+    <meta name="enabled-features" content="MARKETPLACE_FEATURED_BLOG_POSTS,MARKETPLACE_INVOICED_BILLING,MARKETPLACE_SOCIAL_PROOF_CUSTOMERS,MARKETPLACE_TRENDING_SOCIAL_PROOF,MARKETPLACE_RECOMMENDATIONS,MARKETPLACE_PENDING_INSTALLATIONS,RELATED_ISSUES">
+
+  <meta http-equiv="x-pjax-version" content="8f96ca6a75dbc84543e99442e6ce0946">
+  
+
+      <link href="https://github.com/apache/incubator-echarts/commits/4.6.0.atom" rel="alternate" title="Recent Commits to incubator-echarts:4.6.0" type="application/atom+xml">
+
+  <meta name="go-import" content="github.com/apache/incubator-echarts git https://github.com/apache/incubator-echarts.git">
+
+  <meta name="octolytics-dimension-user_id" content="47359" /><meta name="octolytics-dimension-user_login" content="apache" /><meta name="octolytics-dimension-repository_id" content="9185792" /><meta name="octolytics-dimension-repository_nwo" content="apache/incubator-echarts" /><meta name="octolytics-dimension-repository_public" content="true" /><meta name="octolytics-dimension-repository_is_fork" content="false" /><meta name="octolytics-dimension-repository_network_root_id" content="9185792" /><meta name="octolytics-dimension-repository_network_root_nwo" content="apache/incubator-echarts" /><meta name="octolytics-dimension-repository_explore_github_marketplace_ci_cta_shown" content="false" />
+
+
+    <link rel="canonical" href="https://github.com/apache/incubator-echarts/blob/4.6.0/dist/extension/dataTool.js.map" data-pjax-transient>
+
+
+  <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+
+  <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+
+  <link rel="mask-icon" href="https://github.githubassets.com/pinned-octocat.svg" color="#000000">
+  <link rel="icon" type="image/x-icon" class="js-site-favicon" href="https://github.githubassets.com/favicon.ico">
+
+<meta name="theme-color" content="#1e2327">
+
+
+  <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials">
+
+  </head>
+
+  <body class="logged-out env-production page-responsive page-blob">
+    
+
+  <div class="position-relative js-header-wrapper ">
+    <a href="#start-of-content" tabindex="1" class="px-2 py-4 bg-blue text-white show-on-focus js-skip-to-content">Skip to content</a>
+    <span class="Progress progress-pjax-loader position-fixed width-full js-pjax-loader-bar">
+      <span class="progress-pjax-loader-bar top-0 left-0" style="width: 0%;"></span>
+    </span>
+
+    
+    
+
+
+
+        <header class="Header-old header-logged-out js-details-container Details position-relative f4 py-2" role="banner">
+  <div class="container-lg d-lg-flex flex-items-center p-responsive">
+    <div class="d-flex flex-justify-between flex-items-center">
+        <a class="mr-4" href="https://github.com/" aria-label="Homepage" data-ga-click="(Logged out) Header, go to homepage, icon:logo-wordmark">
+          <svg height="32" class="octicon octicon-mark-github text-white" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+
+          <div class="d-lg-none css-truncate css-truncate-target width-fit p-2">
+            
+              <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+    <a class="Header-link" href="/apache">apache</a>
+    /
+    <a class="Header-link" href="/apache/incubator-echarts">incubator-echarts</a>
+
+
+          </div>
+
+        <div class="d-flex flex-items-center">
+            <a href="/join?source=header-repo"
+              class="d-inline-block d-lg-none f5 text-white no-underline border border-gray-dark rounded-2 px-2 py-1 mr-3 mr-sm-5"
+              data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/apache/incubator-echarts/blob/4.6.0/dist/extension/dataTool.js.map&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="5937e678a6c95c24a879414ca495c8f954c16fa86f41bd4bdb0258592527a0e6"
+              data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">
+              Sign&nbsp;up
+            </a>
+
+          <button class="btn-link d-lg-none mt-1 js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <svg height="24" class="octicon octicon-three-bars text-white" viewBox="0 0 12 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"/></svg>
+          </button>
+        </div>
+    </div>
+
+    <div class="HeaderMenu HeaderMenu--logged-out position-fixed top-0 right-0 bottom-0 height-fit position-lg-relative d-lg-flex flex-justify-between flex-items-center flex-auto">
+      <div class="d-flex d-lg-none flex-justify-end border-bottom bg-gray-light p-3">
+        <button class="btn-link js-details-target" type="button" aria-label="Toggle navigation" aria-expanded="false">
+          <svg height="24" class="octicon octicon-x text-gray" viewBox="0 0 12 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+        </button>
+      </div>
+
+        <nav class="mt-0 px-3 px-lg-0 mb-5 mb-lg-0" aria-label="Global">
+          <ul class="d-lg-flex list-style-none">
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Why GitHub?
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <a href="/features" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Features">Features <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a>
+                    <ul class="list-style-none f5 pb-3">
+                      <li class="edge-item-fix"><a href="/features/code-review/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Code review">Code review</a></li>
+                      <li class="edge-item-fix"><a href="/features/project-management/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Project management">Project management</a></li>
+                      <li class="edge-item-fix"><a href="/features/integrations" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Integrations">Integrations</a></li>
+                      <li class="edge-item-fix"><a href="/features/actions" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Actions">Actions</a></li>
+                          <li class="edge-item-fix"><a href="/features/packages" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to GitHub Packages">Packages</a></li>
+                      <li class="edge-item-fix"><a href="/features/security" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Security">Security</a></li>
+                      <li class="edge-item-fix"><a href="/features#team-management" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Team management">Team management</a></li>
+                      <li class="edge-item-fix"><a href="/features#hosting" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Code hosting">Hosting</a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="/customer-stories" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Customer stories">Customer stories <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="/security" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Security">Security <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="/enterprise" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Enterprise">Enterprise</a>
+              </li>
+
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Explore
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                      <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-0 mt-0 pb-4 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="/explore" class="py-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Explore">Explore GitHub <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2 border-lg-top pt-lg-3">Learn &amp; contribute</h4>
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="/topics" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Topics">Topics</a></li>
+                        <li class="edge-item-fix"><a href="/collections" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Collections">Collections</a></li>
+                      <li class="edge-item-fix"><a href="/trending" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Trending">Trending</a></li>
+                      <li class="edge-item-fix"><a href="https://lab.github.com/" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Learning lab">Learning Lab</a></li>
+                      <li class="edge-item-fix"><a href="https://opensource.guide" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Open source guides">Open source guides</a></li>
+                    </ul>
+
+                    <h4 class="text-gray-light text-normal text-mono f5 mb-2 border-lg-top pt-lg-3">Connect with others</h4>
+                    <ul class="list-style-none mb-0">
+                      <li class="edge-item-fix"><a href="https://github.com/events" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Events">Events</a></li>
+                      <li class="edge-item-fix"><a href="https://github.community" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Community forum">Community forum</a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com" class="py-2 pb-0 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to GitHub Education">GitHub Education</a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+
+              <li class="border-bottom border-lg-bottom-0 mr-0 mr-lg-3">
+                <a href="/marketplace" class="HeaderMenu-link no-underline py-3 d-block d-lg-inline-block" data-ga-click="(Logged out) Header, go to Marketplace">Marketplace</a>
+              </li>
+
+              <li class="d-block d-lg-flex flex-lg-nowrap flex-lg-items-center border-bottom border-lg-bottom-0 mr-0 mr-lg-3 edge-item-fix position-relative flex-wrap flex-justify-between d-flex flex-items-center ">
+                <details class="HeaderMenu-details details-overlay details-reset width-full">
+                  <summary class="HeaderMenu-summary HeaderMenu-link px-0 py-3 border-0 no-wrap d-block d-lg-inline-block">
+                    Pricing
+                    <svg x="0px" y="0px" viewBox="0 0 14 8" xml:space="preserve" fill="none" class="icon-chevon-down-mktg position-absolute position-lg-relative">
+                       <path d="M1,1l6.2,6L13,1"></path>
+                    </svg>
+                  </summary>
+
+                  <div class="dropdown-menu flex-auto rounded-1 bg-white px-0 pt-2 pb-4 mt-0 p-lg-4 position-relative position-lg-absolute left-0 left-lg-n4">
+                    <a href="/pricing" class="pb-2 lh-condensed-ultra d-block link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Pricing">Plans <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a>
+
+                    <ul class="list-style-none mb-3">
+                      <li class="edge-item-fix"><a href="/pricing#feature-comparison" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Compare plans">Compare plans</a></li>
+                      <li class="edge-item-fix"><a href="https://enterprise.github.com/contact" class="py-2 lh-condensed-ultra d-block link-gray no-underline f5" data-ga-click="(Logged out) Header, go to Contact Sales">Contact Sales</a></li>
+                    </ul>
+
+                    <ul class="list-style-none mb-0 border-lg-top pt-lg-3">
+                      <li class="edge-item-fix"><a href="/nonprofit" class="py-2 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover" data-ga-click="(Logged out) Header, go to Nonprofits">Nonprofit <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                      <li class="edge-item-fix"><a href="https://education.github.com" class="py-2 pb-0 lh-condensed-ultra d-block no-underline link-gray-dark no-underline h5 Bump-link--hover"  data-ga-click="(Logged out) Header, go to Education">Education <span class="Bump-link-symbol float-right text-normal text-gray-light">&rarr;</span></a></li>
+                    </ul>
+                  </div>
+                </details>
+              </li>
+          </ul>
+        </nav>
+
+      <div class="d-lg-flex flex-items-center px-3 px-lg-0 text-center text-lg-left">
+          <div class="d-lg-flex mb-3 mb-lg-0">
+            <div class="header-search flex-self-stretch flex-lg-self-auto mr-0 mr-lg-3 mb-3 mb-lg-0 scoped-search site-scoped-search js-site-search position-relative js-jump-to"
+  role="combobox"
+  aria-owns="jump-to-results"
+  aria-label="Search or jump to"
+  aria-haspopup="listbox"
+  aria-expanded="false"
+>
+  <div class="position-relative">
+    <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-site-search-form" role="search" aria-label="Site" data-scope-type="Repository" data-scope-id="9185792" data-scoped-search-url="/apache/incubator-echarts/search" data-unscoped-search-url="/search" action="/apache/incubator-echarts/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <label class="form-control input-sm header-search-wrapper p-0 header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center js-chromeless-input-container">
+        <input type="text"
+          class="form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+          data-hotkey="s,/"
+          name="q"
+          value=""
+          placeholder="Search"
+          data-unscoped-placeholder="Search GitHub"
+          data-scoped-placeholder="Search"
+          autocapitalize="off"
+          aria-autocomplete="list"
+          aria-controls="jump-to-results"
+          aria-label="Search"
+          data-jump-to-suggestions-path="/_graphql/GetSuggestedNavigationDestinations"
+          spellcheck="false"
+          autocomplete="off"
+          >
+            <input type="hidden" value="fTT7Q3j5YZY+K1HIaDsyJf6ISSjTJDUI5oAQk4Z1Iv9kAIUboBhRHYAy2WvRcMnizzcBnNNtsy4XFTDe1qurqQ==" data-csrf="true" class="js-data-jump-to-suggestions-path-csrf" />
+          <input type="hidden" class="js-site-search-type-field" name="type" >
+            <img src="https://github.githubassets.com/images/search-key-slash.svg" alt="" class="mr-2 header-search-key-slash">
+
+            <div class="Box position-absolute overflow-hidden d-none jump-to-suggestions js-jump-to-suggestions-container">
+              
+<ul class="d-none js-jump-to-suggestions-template-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-suggestion" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 00-1 1v14a1 1 0 001 1h13a1 1 0 001-1V1a1 1 0 00-1-1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0013 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 000-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+</ul>
+
+<ul class="d-none js-jump-to-no-results-template-container">
+  <li class="d-flex flex-justify-center flex-items-center f5 d-none js-jump-to-suggestion p-2">
+    <span class="text-gray">No suggested jump to results</span>
+  </li>
+</ul>
+
+<ul id="jump-to-results" role="listbox" class="p-0 m-0 js-navigation-container jump-to-suggestions-results-container js-jump-to-suggestions-results-container">
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-scoped-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 00-1 1v14a1 1 0 001 1h13a1 1 0 001-1V1a1 1 0 00-1-1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0013 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 000-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+  
+
+<li class="d-flex flex-justify-start flex-items-center p-0 f5 navigation-item js-navigation-item js-jump-to-global-search d-none" role="option">
+  <a tabindex="-1" class="no-underline d-flex flex-auto flex-items-center jump-to-suggestions-path js-jump-to-suggestion-path js-navigation-open p-2" href="">
+    <div class="jump-to-octicon js-jump-to-octicon flex-shrink-0 mr-2 text-center d-none">
+      <svg height="16" width="16" class="octicon octicon-repo flex-shrink-0 js-jump-to-octicon-repo d-none" title="Repository" aria-label="Repository" viewBox="0 0 12 16" version="1.1" role="img"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-project flex-shrink-0 js-jump-to-octicon-project d-none" title="Project" aria-label="Project" viewBox="0 0 15 16" version="1.1" role="img"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 00-1 1v14a1 1 0 001 1h13a1 1 0 001-1V1a1 1 0 00-1-1z"/></svg>
+      <svg height="16" width="16" class="octicon octicon-search flex-shrink-0 js-jump-to-octicon-search d-none" title="Search" aria-label="Search" viewBox="0 0 16 16" version="1.1" role="img"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0013 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 000-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
+    </div>
+
+    <img class="avatar mr-2 flex-shrink-0 js-jump-to-suggestion-avatar d-none" alt="" aria-label="Team" src="" width="28" height="28">
+
+    <div class="jump-to-suggestion-name js-jump-to-suggestion-name flex-auto overflow-hidden text-left no-wrap css-truncate css-truncate-target">
+    </div>
+
+    <div class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none js-jump-to-badge-search">
+      <span class="js-jump-to-badge-search-text-default d-none" aria-label="in this repository">
+        In this repository
+      </span>
+      <span class="js-jump-to-badge-search-text-global d-none" aria-label="in all of GitHub">
+        All GitHub
+      </span>
+      <span aria-hidden="true" class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+
+    <div aria-hidden="true" class="border rounded-1 flex-shrink-0 bg-gray px-1 text-gray-light ml-1 f6 d-none d-on-nav-focus js-jump-to-badge-jump">
+      Jump to
+      <span class="d-inline-block ml-1 v-align-middle">↵</span>
+    </div>
+  </a>
+</li>
+
+
+</ul>
+
+            </div>
+      </label>
+</form>  </div>
+</div>
+
+          </div>
+
+        <a href="/login?return_to=%2Fapache%2Fincubator-echarts%2Fblob%2F4.6.0%2Fdist%2Fextension%2FdataTool.js.map"
+          class="HeaderMenu-link no-underline mr-3"
+          data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/apache/incubator-echarts/blob/4.6.0/dist/extension/dataTool.js.map&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="19f7758f540ab4c93e85faa7815f0f304df0d3c07de2e827b399205aa6d659d9"
+          data-ga-click="(Logged out) Header, clicked Sign in, text:sign-in">
+          Sign&nbsp;in
+        </a>
+          <a href="/join?source=header-repo&amp;source_repo=apache%2Fincubator-echarts"
+            class="HeaderMenu-link d-inline-block no-underline border border-gray-dark rounded-1 px-2 py-1"
+            data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;site header menu&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/apache/incubator-echarts/blob/4.6.0/dist/extension/dataTool.js.map&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="19f7758f540ab4c93e85faa7815f0f304df0d3c07de2e827b399205aa6d659d9"
+            data-ga-click="(Logged out) Header, clicked Sign up, text:sign-up">
+            Sign&nbsp;up
+          </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+  </div>
+
+  <div id="start-of-content" class="show-on-focus"></div>
+
+
+    <div id="js-flash-container">
+
+</div>
+
+
+
+
+  <div class="application-main " data-commit-hovercards-enabled>
+        <div itemscope itemtype="http://schema.org/SoftwareSourceCode" class="">
+    <main  >
+      
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <div class="pagehead repohead readability-menu bg-gray-light pb-0 pt-0 pt-lg-3  pb-0">
+
+    <div class="container-lg mb-4 p-responsive d-none d-lg-flex">
+
+      <div class="flex-auto min-width-0 width-fit mr-3">
+        <h1 class="public  d-flex flex-wrap flex-items-center break-word float-none ">
+    <svg class="octicon octicon-repo" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9H3V8h1v1zm0-3H3v1h1V6zm0-2H3v1h1V4zm0-2H3v1h1V2zm8-1v12c0 .55-.45 1-1 1H6v2l-1.5-1.5L3 16v-2H1c-.55 0-1-.45-1-1V1c0-.55.45-1 1-1h10c.55 0 1 .45 1 1zm-1 10H1v2h2v-1h3v1h5v-2zm0-10H2v9h9V1z"/></svg>
+  <span class="author ml-1 flex-self-stretch" itemprop="author">
+    <a class="url fn" rel="author" data-hovercard-type="organization" data-hovercard-url="/orgs/apache/hovercard" href="/apache">apache</a>
+  </span>
+  <span class="path-divider flex-self-stretch">/</span>
+  <strong itemprop="name" class="mr-2 flex-self-stretch">
+    <a data-pjax="#js-repo-pjax-container" href="/apache/incubator-echarts">incubator-echarts</a>
+  </strong>
+  
+</h1>
+
+
+      </div>
+
+      <ul class="pagehead-actions flex-shrink-0"  >
+
+
+
+
+  <li>
+    
+  <a class="tooltipped tooltipped-s btn btn-sm btn-with-count" aria-label="You must be signed in to watch a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;notification subscription menu watch&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/apache/incubator-echarts/blob/4.6.0/dist/extension/dataTool.js.map&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="625e1990b0cd3dac2d0ee06f0803fa99db842eaf3e31b9380ec2cea9e8e092d5" href="/login?return_to=%2Fapache%2Fincubator-echarts">
+    <svg class="octicon octicon-eye v-align-text-bottom" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6C13 14 16 8 16 8s-3-6-7.94-6zM8 12c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4zm2-4c0 1.11-.89 2-2 2-1.11 0-2-.89-2-2 0-1.11.89-2 2-2 1.11 0 2 .89 2 2z"/></svg>
+    Watch
+</a>    <a class="social-count" href="/apache/incubator-echarts/watchers"
+       aria-label="2001 users are watching this repository">
+      2k
+    </a>
+
+  </li>
+
+  <li>
+        <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="You must be signed in to star a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;star button&quot;,&quot;repository_id&quot;:9185792,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/apache/incubator-echarts/blob/4.6.0/dist/extension/dataTool.js.map&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="5e6a2653c220195a1205076ec2a602d2afb8da87088752db58d19c94c5f47574" href="/login?return_to=%2Fapache%2Fincubator-echarts">
+      <svg aria-label="star" height="16" class="octicon octicon-star v-align-text-bottom" viewBox="0 0 14 16" version="1.1" width="14" role="img"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"/></svg>
+
+      Star
+</a>
+    <a class="social-count js-social-count" href="/apache/incubator-echarts/stargazers"
+      aria-label="39269 users starred this repository">
+      39.3k
+    </a>
+
+  </li>
+
+  <li>
+      <a class="btn btn-sm btn-with-count tooltipped tooltipped-s" aria-label="You must be signed in to fork a repository" rel="nofollow" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;repo details fork button&quot;,&quot;repository_id&quot;:9185792,&quot;auth_type&quot;:&quot;LOG_IN&quot;,&quot;originating_url&quot;:&quot;https://github.com/apache/incubator-echarts/blob/4.6.0/dist/extension/dataTool.js.map&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="bb0a75c09a31a69f80486d3c987d236b2285b225120c792d52114098435cee4e" href="/login?return_to=%2Fapache%2Fincubator-echarts">
+        <svg class="octicon octicon-repo-forked v-align-text-bottom" viewBox="0 0 10 16" version="1.1" width="10" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1a1.993 1.993 0 00-1 3.72V6L5 8 3 6V4.72A1.993 1.993 0 002 1a1.993 1.993 0 00-1 3.72V6.5l3 3v1.78A1.993 1.993 0 005 15a1.993 1.993 0 001-3.72V9.5l3-3V4.72A1.993 1.993 0 008 1zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3 10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zm3-10c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg>
+        Fork
+</a>
+    <a href="/apache/incubator-echarts/network/members" class="social-count"
+       aria-label="12990 users forked this repository">
+      13k
+    </a>
+  </li>
+</ul>
+
+    </div>
+      
+<nav class="hx_reponav reponav js-repo-nav js-sidenav-container-pjax clearfix container-lg p-responsive d-none d-lg-block"
+     itemscope
+     itemtype="http://schema.org/BreadcrumbList"
+    aria-label="Repository"
+     data-pjax="#js-repo-pjax-container">
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a class="js-selected-navigation-item selected reponav-item" itemprop="url" data-hotkey="g c" aria-current="page" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /apache/incubator-echarts/tree/4.6.0" href="/apache/incubator-echarts/tree/4.6.0">
+      <div class="d-inline"><svg class="octicon octicon-code" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5 3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/></svg></div>
+      <span itemprop="name">Code</span>
+      <meta itemprop="position" content="1">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" data-hotkey="g i" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /apache/incubator-echarts/issues" href="/apache/incubator-echarts/issues">
+        <div class="d-inline"><svg class="octicon octicon-issue-opened" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 011.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"/></svg></div>
+        <span itemprop="name">Issues</span>
+        <span class="Counter">2,668</span>
+        <meta itemprop="position" content="2">
+</a>    </span>
+
+
+  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+    <a data-hotkey="g p" data-skip-pjax="true" itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /apache/incubator-echarts/pulls" href="/apache/incubator-echarts/pulls">
+      <div class="d-inline"><svg class="octicon octicon-git-pull-request" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 11.28V5c-.03-.78-.34-1.47-.94-2.06C9.46 2.35 8.78 2.03 8 2H7V0L4 3l3 3V4h1c.27.02.48.11.69.31.21.2.3.42.31.69v6.28A1.993 1.993 0 0010 15a1.993 1.993 0 001-3.72zm-1 2.92c-.66 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2zM4 3c0-1.11-.89-2-2-2a1.993 1.993 0 00-1 3.72v6.56A1.993 1.993 0 002 15a1.993 1.993 0 001-3.72V4.72c.59-.34 1-.98 1-1.72zm-.8 10c0 .66-.55 1.2-1.2 1.2-.65 0-1.2-.55-1.2-1.2 0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2zM2 4.2C1.34 4.2.8 3.65.8 3c0-.65.55-1.2 1.2-1.2.65 0 1.2.55 1.2 1.2 0 .65-.55 1.2-1.2 1.2z"/></svg></div>
+      <span itemprop="name">Pull requests</span>
+      <span class="Counter">70</span>
+      <meta itemprop="position" content="4">
+</a>  </span>
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement" class="position-relative float-left">
+      <a data-hotkey="g w" data-skip-pjax="true" class="js-selected-navigation-item reponav-item" data-selected-links="repo_actions /apache/incubator-echarts/actions" href="/apache/incubator-echarts/actions">
+        <div class="d-inline"><svg class="octicon octicon-play" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 8A7 7 0 110 8a7 7 0 0114 0zm-8.223 3.482l4.599-3.066a.5.5 0 000-.832L5.777 4.518A.5.5 0 005 4.934v6.132a.5.5 0 00.777.416z"/></svg></div>
+        Actions
+</a>
+    </span>
+
+    <a data-hotkey="g b" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /apache/incubator-echarts/projects" href="/apache/incubator-echarts/projects">
+      <div class="d-inline"><svg class="octicon octicon-project" viewBox="0 0 15 16" version="1.1" width="15" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M10 12h3V2h-3v10zm-4-2h3V2H6v8zm-4 4h3V2H2v12zm-1 1h13V1H1v14zM14 0H1a1 1 0 00-1 1v14a1 1 0 001 1h13a1 1 0 001-1V1a1 1 0 00-1-1z"/></svg></div>
+      Projects
+      <span class="Counter" >1</span>
+</a>
+    <a class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /apache/incubator-echarts/wiki" href="/apache/incubator-echarts/wiki">
+      <div class="d-inline"><svg class="octicon octicon-book" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3 5h4v1H3V5zm0 3h4V7H3v1zm0 2h4V9H3v1zm11-5h-4v1h4V5zm0 2h-4v1h4V7zm0 2h-4v1h4V9zm2-6v9c0 .55-.45 1-1 1H9.5l-1 1-1-1H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h5.5l1 1 1-1H15c.55 0 1 .45 1 1zm-8 .5L7.5 3H2v9h6V3.5zm7-.5H9.5l-.5.5V12h6V3z"/></svg></div>
+      Wiki
+</a>
+    <a data-skip-pjax="true" class="js-selected-navigation-item reponav-item" data-selected-links="security alerts policy token_scanning code_scanning /apache/incubator-echarts/security/advisories" href="/apache/incubator-echarts/security/advisories">
+      <div class="d-inline"><svg class="octicon octicon-shield" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 2l7-2 7 2v6.02C14 12.69 8.69 16 7 16c-1.69 0-7-3.31-7-7.98V2zm1 .75L7 1l6 1.75v5.268C13 12.104 8.449 15 7 15c-1.449 0-6-2.896-6-6.982V2.75zm1 .75L7 2v12c-1.207 0-5-2.482-5-5.985V3.5z"/></svg></div>
+      Security
+</a>
+    <a class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors dependency_graph pulse people /apache/incubator-echarts/pulse" href="/apache/incubator-echarts/pulse">
+      <div class="d-inline"><svg class="octicon octicon-graph" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 14v1H0V0h1v14h15zM5 13H3V8h2v5zm4 0H7V3h2v10zm4 0h-2V6h2v7z"/></svg></div>
+      Insights
+</a>
+
+</nav>
+
+  <div class="reponav-wrapper reponav-small d-lg-none">
+  <nav class="reponav js-reponav text-center no-wrap"
+       itemscope
+       itemtype="http://schema.org/BreadcrumbList">
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a class="js-selected-navigation-item selected reponav-item" itemprop="url" aria-current="page" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches repo_packages /apache/incubator-echarts/tree/4.6.0" href="/apache/incubator-echarts/tree/4.6.0">
+        <span itemprop="name">Code</span>
+        <meta itemprop="position" content="1">
+</a>    </span>
+
+      <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+        <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_issues repo_labels repo_milestones /apache/incubator-echarts/issues" href="/apache/incubator-echarts/issues">
+          <span itemprop="name">Issues</span>
+          <span class="Counter">2,668</span>
+          <meta itemprop="position" content="2">
+</a>      </span>
+
+
+    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+      <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_pulls checks /apache/incubator-echarts/pulls" href="/apache/incubator-echarts/pulls">
+        <span itemprop="name">Pull requests</span>
+        <span class="Counter">70</span>
+        <meta itemprop="position" content="4">
+</a>    </span>
+
+      <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+        <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_projects new_repo_project repo_project /apache/incubator-echarts/projects" href="/apache/incubator-echarts/projects">
+          <span itemprop="name">Projects</span>
+          <span class="Counter">1</span>
+          <meta itemprop="position" content="5">
+</a>      </span>
+
+      <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+        <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_actions /apache/incubator-echarts/actions" href="/apache/incubator-echarts/actions">
+          <span itemprop="name">Actions</span>
+          <meta itemprop="position" content="6">
+</a>      </span>
+
+      <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
+        <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="repo_wiki /apache/incubator-echarts/wiki" href="/apache/incubator-echarts/wiki">
+          <span itemprop="name">Wiki</span>
+          <meta itemprop="position" content="7">
+</a>      </span>
+
+      <a itemprop="url" class="js-selected-navigation-item reponav-item" data-selected-links="security alerts policy token_scanning code_scanning /apache/incubator-echarts/security/advisories" href="/apache/incubator-echarts/security/advisories">
+        <span itemprop="name">Security</span>
+        <meta itemprop="position" content="8">
+</a>
+      <a class="js-selected-navigation-item reponav-item" data-selected-links="pulse /apache/incubator-echarts/pulse" href="/apache/incubator-echarts/pulse">
+        Pulse
+</a>
+
+  </nav>
+</div>
+
+
+  </div>
+<div class="container-lg clearfix new-discussion-timeline  p-responsive">
+  <div class="repository-content ">
+
+    
+    
+
+
+  
+
+
+    <a class="d-none js-permalink-shortcut" data-hotkey="y" href="/apache/incubator-echarts/blob/f4fc1b0625f3c88b9f4dbed03eeb091ed6bd1079/dist/extension/dataTool.js.map">Permalink</a>
+
+    <!-- blob contrib key: blob_contributors:v21:865f94d436dc4bcc220216cf8fda3d89 -->
+        <div class="signup-prompt-bg rounded-1 js-signup-prompt" data-prompt="signup" hidden>
+    <div class="signup-prompt p-4 text-center mb-4 rounded-1">
+      <div class="position-relative">
+        <button type="button" class="position-absolute top-0 right-0 btn-link link-gray js-signup-prompt-button" data-ga-click="(Logged out) Sign up prompt, clicked Dismiss, text:dismiss">
+          Dismiss
+        </button>
+        <h3 class="pt-2">Join GitHub today</h3>
+        <p class="col-6 mx-auto">GitHub is home to over 40 million developers working together to host and review code, manage projects, and build software together.</p>
+        <a class="btn btn-primary" data-hydro-click="{&quot;event_type&quot;:&quot;authentication.click&quot;,&quot;payload&quot;:{&quot;location_in_page&quot;:&quot;files signup prompt&quot;,&quot;repository_id&quot;:null,&quot;auth_type&quot;:&quot;SIGN_UP&quot;,&quot;originating_url&quot;:&quot;https://github.com/apache/incubator-echarts/blob/4.6.0/dist/extension/dataTool.js.map&quot;,&quot;user_id&quot;:null}}" data-hydro-click-hmac="6b3122084f811d99edf29caa00fdc06570b4b747ab6d1da0f3117544c957b0f7" data-ga-click="(Logged out) Sign up prompt, clicked Sign up, text:sign-up" href="/join?source=prompt-blob-show&amp;source_repo=apache%2Fincubator-echarts">Sign up</a>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="d-flex flex-items-start flex-shrink-0 pb-3 flex-column flex-md-row">
+      <span class="d-flex flex-justify-between width-full width-md-auto">
+        
+<details class="details-reset details-overlay branch-select-menu " id="branch-select-menu">
+  <summary class="btn btn-sm css-truncate"
+           data-hotkey="w"
+           title="Switch branches or tags">
+    <i>Tag:</i>
+    <span class="css-truncate-target" data-menu-button>4.6.0</span>
+    <span class="dropdown-caret"></span>
+  </summary>
+
+  <details-menu class="SelectMenu SelectMenu--hasFilter" src="/apache/incubator-echarts/refs/4.6.0/dist/extension/dataTool.js.map?source_action=show&amp;source_controller=blob" preload>
+    <div class="SelectMenu-modal">
+      <include-fragment class="SelectMenu-loading" aria-label="Menu is loading">
+        <svg class="octicon octicon-octoface anim-pulse" height="32" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M14.7 5.34c.13-.32.55-1.59-.13-3.31 0 0-1.05-.33-3.44 1.3-1-.28-2.07-.32-3.13-.32s-2.13.04-3.13.32c-2.39-1.64-3.44-1.3-3.44-1.3-.68 1.72-.26 2.99-.13 3.31C.49 6.21 0 7.33 0 8.69 0 13.84 3.33 15 7.98 15S16 13.84 16 8.69c0-1.36-.49-2.48-1.3-3.35zM8 14.02c-3.3 0-5.98-.15-5.98-3.35 0-.76.38-1.48 1.02-2.07 1.07-.98 2.9-.46 4.96-.46 2.07 0 3.88-.52 4.96.46.65.59 1.02 1.3 1.02 2.07 0 3.19-2.68 3.35-5.98 3.35zM5.49 9.01c-.66 0-1.2.8-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.54-1.78-1.2-1.78zm5.02 0c-.66 0-1.2.79-1.2 1.78s.54 1.79 1.2 1.79c.66 0 1.2-.8 1.2-1.79s-.53-1.78-1.2-1.78z"/></svg>
+      </include-fragment>
+    </div>
+  </details-menu>
+</details>
+
+        <div class="BtnGroup flex-shrink-0 d-md-none">
+          <a href="/apache/incubator-echarts/find/4.6.0"
+                class="js-pjax-capture-input btn btn-sm BtnGroup-item"
+                data-pjax
+                data-hotkey="t">
+            Find file
+          </a>
+          <clipboard-copy value="dist/extension/dataTool.js.map" class="btn btn-sm BtnGroup-item">
+            Copy path
+          </clipboard-copy>
+        </div>
+      </span>
+      <h2 id="blob-path" class="breadcrumb flex-auto min-width-0 text-normal flex-md-self-center ml-md-2 mr-md-3 my-2 my-md-0">
+        <span class="js-repo-root text-bold"><span class="js-path-segment"><a data-pjax="true" href="/apache/incubator-echarts/tree/4.6.0"><span>incubator-echarts</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/apache/incubator-echarts/tree/4.6.0/dist"><span>dist</span></a></span><span class="separator">/</span><span class="js-path-segment"><a data-pjax="true" href="/apache/incubator-echarts/tree/4.6.0/dist/extension"><span>extension</span></a></span><span class="separator">/</span><strong class="final-path">dataTool.js.map</strong>
+      </h2>
+
+      <div class="BtnGroup flex-shrink-0 d-none d-md-inline-block">
+        <a href="/apache/incubator-echarts/find/4.6.0"
+              class="js-pjax-capture-input btn btn-sm BtnGroup-item"
+              data-pjax
+              data-hotkey="t">
+          Find file
+        </a>
+        <clipboard-copy value="dist/extension/dataTool.js.map" class="btn btn-sm BtnGroup-item">
+          Copy path
+        </clipboard-copy>
+      </div>
+    </div>
+
+    
+
+
+
+    <include-fragment src="/apache/incubator-echarts/contributors/4.6.0/dist/extension/dataTool.js.map" class="Box Box--condensed commit-loader">
+      <div class="Box-body bg-blue-light f6">
+        Fetching contributors&hellip;
+      </div>
+
+      <div class="Box-body d-flex flex-items-center" >
+          <img alt="" class="loader-loading mr-2" src="https://github.githubassets.com/images/spinners/octocat-spinner-32-EAF2F5.gif" width="16" height="16" />
+        <span class="text-red h6 loader-error">Cannot retrieve contributors at this time</span>
+      </div>
+</include-fragment>
+
+
+
+
+    <div class="Box mt-3 position-relative">
+      
+<div class="Box-header py-2 d-flex flex-column flex-shrink-0 flex-md-row flex-md-items-center">
+  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+
+      1 lines (1 sloc)
+      <span class="file-info-divider"></span>
+    54.1 KB
+  </div>
+
+  <div class="d-flex py-1 py-md-0 flex-auto flex-order-1 flex-md-order-2 flex-sm-grow-0 flex-justify-between">
+
+    <div class="BtnGroup">
+      <a id="raw-url" class="btn btn-sm BtnGroup-item" href="/apache/incubator-echarts/raw/4.6.0/dist/extension/dataTool.js.map">Raw</a>
+        <a class="btn btn-sm js-update-url-with-hash BtnGroup-item" data-hotkey="b" href="/apache/incubator-echarts/blame/4.6.0/dist/extension/dataTool.js.map">Blame</a>
+      <a rel="nofollow" class="btn btn-sm BtnGroup-item" href="/apache/incubator-echarts/commits/4.6.0/dist/extension/dataTool.js.map">History</a>
+    </div>
+
+
+    <div>
+          <button class="btn-octicon disabled tooltipped tooltipped-nw js-remove-unless-mac-or-win"
+             type="button"
+             disabled
+             aria-label="You must be on a branch to open this file in GitHub Desktop">
+              <svg class="octicon octicon-device-desktop" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M15 2H1c-.55 0-1 .45-1 1v9c0 .55.45 1 1 1h5.34c-.25.61-.86 1.39-2.34 2h8c-1.48-.61-2.09-1.39-2.34-2H15c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm0 9H1V3h14v8z"/></svg>
+          </button>
+
+          <button type="button" class="btn-octicon disabled tooltipped tooltipped-nw"
+            aria-label="You must be signed in to make or propose changes">
+            <svg class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 011.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg>
+          </button>
+          <button type="button" class="btn-octicon btn-octicon-danger disabled tooltipped tooltipped-nw"
+            aria-label="You must be signed in to make or propose changes">
+            <svg class="octicon octicon-trashcan" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M11 2H9c0-.55-.45-1-1-1H5c-.55 0-1 .45-1 1H2c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1v9c0 .55.45 1 1 1h7c.55 0 1-.45 1-1V5c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm-1 12H3V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9zm1-10H2V3h9v1z"/></svg>
+          </button>
+    </div>
+  </div>
+</div>
+
+
+
+
+      
+
+  <div itemprop="text" class="Box-body p-0 blob-wrapper data type-text ">
+      
+<table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tr>
+        <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="LC1" class="blob-code blob-code-inner js-file-line">{&quot;version&quot;:3,&quot;file&quot;:&quot;dataTool.js&quot;,&quot;sources&quot;:[&quot;../../../zrender/src/core/util.js&quot;,&quot;../../extension-src/dataTool/gexf.js&quot;,&quot;../../src/util/number.js&quot;,&quot;../../extension-src/dataTool/prepareBoxplotData.js&quot;,&quot;../../extension-src/dataTool/index.js&quot;],&quot;sourcesContent&quot;:[&quot;/**\n * @module zrender/core/util\n */\n\n// 用于处理merge时无法遍历Date等对象的问题\nvar BUILTIN_OBJECT = {\n    &#39;[object Function]&#39;: 1,\n    &#39;[object RegExp]&#39;: 1,\n    &#39;[object Date]&#39;: 1,\n    &#39;[object Error]&#39;: 1,\n    &#39;[object CanvasGradient]&#39;: 1,\n    &#39;[object CanvasPattern]&#39;: 1,\n    // For node-canvas\n    &#39;[object Image]&#39;: 1,\n    &#39;[object Canvas]&#39;: 1\n};\n\nvar TYPED_ARRAY = {\n    &#39;[object Int8Array]&#39;: 1,\n    &#39;[object Uint8Array]&#39;: 1,\n    &#39;[object Uint8ClampedArray]&#39;: 1,\n    &#39;[object Int16Array]&#39;: 1,\n    &#39;[object Uint16Array]&#39;: 1,\n    &#39;[object Int32Array]&#39;: 1,\n    &#39;[object Uint32Array]&#39;: 1,\n    &#39;[object Float32Array]&#39;: 1,\n    &#39;[object Float64Array]&#39;: 1\n};\n\nvar objToString = Object.prototype.toString;\n\nvar arrayProto = Array.prototype;\nvar nativeForEach = arrayProto.forEach;\nvar nativeFilter = arrayProto.filter;\nvar nativeSlice = arrayProto.slice;\nvar nativeMap = arrayProto.map;\nvar nativeReduce = arrayProto.reduce;\n\n// Avoid assign to an exported variable, for transforming to cjs.\nvar methods = {};\n\nexport function $override(name, fn) {\n    // Clear ctx instance for different environment\n    if (name === &#39;createCanvas&#39;) {\n        _ctx = null;\n    }\n\n    methods[name] = fn;\n}\n\n/**\n * Those data types can be cloned:\n *     Plain object, Array, TypedArray, number, string, null, undefined.\n * Those data types will be assgined using the orginal data:\n *     BUILTIN_OBJECT\n * Instance of user defined class will be cloned to a plain object, without\n * properties in prototype.\n * Other data types is not supported (not sure what will happen).\n *\n * Caution: do not support clone Date, for performance consideration.\n * (There might be a large number of date in `series.data`).\n * So date should not be modified in and out of echarts.\n *\n * @param {*} source\n * @return {*} new\n */\nexport function clone(source) {\n    if (source == null || typeof source !== &#39;object&#39;) {\n        return source;\n    }\n\n    var result = source;\n    var typeStr = objToString.call(source);\n\n    if (typeStr === &#39;[object Array]&#39;) {\n        if (!isPrimitive(source)) {\n            result = [];\n            for (var i = 0, len = source.length; i &lt; len; i++) {\n                result[i] = clone(source[i]);\n            }\n        }\n    }\n    else if (TYPED_ARRAY[typeStr]) {\n        if (!isPrimitive(source)) {\n            var Ctor = source.constructor;\n            if (source.constructor.from) {\n                result = Ctor.from(source);\n            }\n            else {\n                result = new Ctor(source.length);\n                for (var i = 0, len = source.length; i &lt; len; i++) {\n                    result[i] = clone(source[i]);\n                }\n            }\n        }\n    }\n    else if (!BUILTIN_OBJECT[typeStr] &amp;&amp; !isPrimitive(source) &amp;&amp; !isDom(source)) {\n        result = {};\n        for (var key in source) {\n            if (source.hasOwnProperty(key)) {\n                result[key] = clone(source[key]);\n            }\n        }\n    }\n\n    return result;\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {*} target\n * @param {*} source\n * @param {boolean} [overwrite=false]\n */\nexport function merge(target, source, overwrite) {\n    // We should escapse that source is string\n    // and enter for ... in ...\n    if (!isObject(source) || !isObject(target)) {\n        return overwrite ? clone(source) : target;\n    }\n\n    for (var key in source) {\n        if (source.hasOwnProperty(key)) {\n            var targetProp = target[key];\n            var sourceProp = source[key];\n\n            if (isObject(sourceProp)\n                &amp;&amp; isObject(targetProp)\n                &amp;&amp; !isArray(sourceProp)\n                &amp;&amp; !isArray(targetProp)\n                &amp;&amp; !isDom(sourceProp)\n                &amp;&amp; !isDom(targetProp)\n                &amp;&amp; !isBuiltInObject(sourceProp)\n                &amp;&amp; !isBuiltInObject(targetProp)\n                &amp;&amp; !isPrimitive(sourceProp)\n                &amp;&amp; !isPrimitive(targetProp)\n            ) {\n                // 如果需要递归覆盖，就递归调用merge\n                merge(targetProp, sourceProp, overwrite);\n            }\n            else if (overwrite || !(key in target)) {\n                // 否则只处理overwrite为true，或者在目标对象中没有此属性的情况\n                // NOTE，在 target[key] 不存在的时候也是直接覆盖\n                target[key] = clone(source[key], true);\n            }\n        }\n    }\n\n    return target;\n}\n\n/**\n * @param {Array} targetAndSources The first item is target, and the rests are source.\n * @param {boolean} [overwrite=false]\n * @return {*} target\n */\nexport function mergeAll(targetAndSources, overwrite) {\n    var result = targetAndSources[0];\n    for (var i = 1, len = targetAndSources.length; i &lt; len; i++) {\n        result = merge(result, targetAndSources[i], overwrite);\n    }\n    return result;\n}\n\n/**\n * @param {*} target\n * @param {*} source\n * @memberOf module:zrender/core/util\n */\nexport function extend(target, source) {\n    for (var key in source) {\n        if (source.hasOwnProperty(key)) {\n            target[key] = source[key];\n        }\n    }\n    return target;\n}\n\n/**\n * @param {*} target\n * @param {*} source\n * @param {boolean} [overlay=false]\n * @memberOf module:zrender/core/util\n */\nexport function defaults(target, source, overlay) {\n    for (var key in source) {\n        if (source.hasOwnProperty(key)\n            &amp;&amp; (overlay ? source[key] != null : target[key] == null)\n        ) {\n            target[key] = source[key];\n        }\n    }\n    return target;\n}\n\nexport var createCanvas = function () {\n    return methods.createCanvas();\n};\n\nmethods.createCanvas = function () {\n    return document.createElement(&#39;canvas&#39;);\n};\n\n// FIXME\nvar _ctx;\n\nexport function getContext() {\n    if (!_ctx) {\n        // Use util.createCanvas instead of createCanvas\n        // because createCanvas may be overwritten in different environment\n        _ctx = createCanvas().getContext(&#39;2d&#39;);\n    }\n    return _ctx;\n}\n\n/**\n * 查询数组中元素的index\n * @memberOf module:zrender/core/util\n */\nexport function indexOf(array, value) {\n    if (array) {\n        if (array.indexOf) {\n            return array.indexOf(value);\n        }\n        for (var i = 0, len = array.length; i &lt; len; i++) {\n            if (array[i] === value) {\n                return i;\n            }\n        }\n    }\n    return -1;\n}\n\n/**\n * 构造类继承关系\n *\n * @memberOf module:zrender/core/util\n * @param {Function} clazz 源类\n * @param {Function} baseClazz 基类\n */\nexport function inherits(clazz, baseClazz) {\n    var clazzPrototype = clazz.prototype;\n    function F() {}\n    F.prototype = baseClazz.prototype;\n    clazz.prototype = new F();\n\n    for (var prop in clazzPrototype) {\n        if (clazzPrototype.hasOwnProperty(prop)) {\n            clazz.prototype[prop] = clazzPrototype[prop];\n        }\n    }\n    clazz.prototype.constructor = clazz;\n    clazz.superClass = baseClazz;\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {Object|Function} target\n * @param {Object|Function} sorce\n * @param {boolean} overlay\n */\nexport function mixin(target, source, overlay) {\n    target = &#39;prototype&#39; in target ? target.prototype : target;\n    source = &#39;prototype&#39; in source ? source.prototype : source;\n\n    defaults(target, source, overlay);\n}\n\n/**\n * Consider typed array.\n * @param {Array|TypedArray} data\n */\nexport function isArrayLike(data) {\n    if (!data) {\n        return;\n    }\n    if (typeof data === &#39;string&#39;) {\n        return false;\n    }\n    return typeof data.length === &#39;number&#39;;\n}\n\n/**\n * 数组或对象遍历\n * @memberOf module:zrender/core/util\n * @param {Object|Array} obj\n * @param {Function} cb\n * @param {*} [context]\n */\nexport function each(obj, cb, context) {\n    if (!(obj &amp;&amp; cb)) {\n        return;\n    }\n    if (obj.forEach &amp;&amp; obj.forEach === nativeForEach) {\n        obj.forEach(cb, context);\n    }\n    else if (obj.length === +obj.length) {\n        for (var i = 0, len = obj.length; i &lt; len; i++) {\n            cb.call(context, obj[i], i, obj);\n        }\n    }\n    else {\n        for (var key in obj) {\n            if (obj.hasOwnProperty(key)) {\n                cb.call(context, obj[key], key, obj);\n            }\n        }\n    }\n}\n\n/**\n * 数组映射\n * @memberOf module:zrender/core/util\n * @param {Array} obj\n * @param {Function} cb\n * @param {*} [context]\n * @return {Array}\n */\nexport function map(obj, cb, context) {\n    if (!(obj &amp;&amp; cb)) {\n        return;\n    }\n    if (obj.map &amp;&amp; obj.map === nativeMap) {\n        return obj.map(cb, context);\n    }\n    else {\n        var result = [];\n        for (var i = 0, len = obj.length; i &lt; len; i++) {\n            result.push(cb.call(context, obj[i], i, obj));\n        }\n        return result;\n    }\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {Array} obj\n * @param {Function} cb\n * @param {Object} [memo]\n * @param {*} [context]\n * @return {Array}\n */\nexport function reduce(obj, cb, memo, context) {\n    if (!(obj &amp;&amp; cb)) {\n        return;\n    }\n    if (obj.reduce &amp;&amp; obj.reduce === nativeReduce) {\n        return obj.reduce(cb, memo, context);\n    }\n    else {\n        for (var i = 0, len = obj.length; i &lt; len; i++) {\n            memo = cb.call(context, memo, obj[i], i, obj);\n        }\n        return memo;\n    }\n}\n\n/**\n * 数组过滤\n * @memberOf module:zrender/core/util\n * @param {Array} obj\n * @param {Function} cb\n * @param {*} [context]\n * @return {Array}\n */\nexport function filter(obj, cb, context) {\n    if (!(obj &amp;&amp; cb)) {\n        return;\n    }\n    if (obj.filter &amp;&amp; obj.filter === nativeFilter) {\n        return obj.filter(cb, context);\n    }\n    else {\n        var result = [];\n        for (var i = 0, len = obj.length; i &lt; len; i++) {\n            if (cb.call(context, obj[i], i, obj)) {\n                result.push(obj[i]);\n            }\n        }\n        return result;\n    }\n}\n\n/**\n * 数组项查找\n * @memberOf module:zrender/core/util\n * @param {Array} obj\n * @param {Function} cb\n * @param {*} [context]\n * @return {*}\n */\nexport function find(obj, cb, context) {\n    if (!(obj &amp;&amp; cb)) {\n        return;\n    }\n    for (var i = 0, len = obj.length; i &lt; len; i++) {\n        if (cb.call(context, obj[i], i, obj)) {\n            return obj[i];\n        }\n    }\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {Function} func\n * @param {*} context\n * @return {Function}\n */\nexport function bind(func, context) {\n    var args = nativeSlice.call(arguments, 2);\n    return function () {\n        return func.apply(context, args.concat(nativeSlice.call(arguments)));\n    };\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {Function} func\n * @return {Function}\n */\nexport function curry(func) {\n    var args = nativeSlice.call(arguments, 1);\n    return function () {\n        return func.apply(this, args.concat(nativeSlice.call(arguments)));\n    };\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {*} value\n * @return {boolean}\n */\nexport function isArray(value) {\n    return objToString.call(value) === &#39;[object Array]&#39;;\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {*} value\n * @return {boolean}\n */\nexport function isFunction(value) {\n    return typeof value === &#39;function&#39;;\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {*} value\n * @return {boolean}\n */\nexport function isString(value) {\n    return objToString.call(value) === &#39;[object String]&#39;;\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {*} value\n * @return {boolean}\n */\nexport function isObject(value) {\n    // Avoid a V8 JIT bug in Chrome 19-20.\n    // See https://code.google.com/p/v8/issues/detail?id=2291 for more details.\n    var type = typeof value;\n    return type === &#39;function&#39; || (!!value &amp;&amp; type === &#39;object&#39;);\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {*} value\n * @return {boolean}\n */\nexport function isBuiltInObject(value) {\n    return !!BUILTIN_OBJECT[objToString.call(value)];\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {*} value\n * @return {boolean}\n */\nexport function isTypedArray(value) {\n    return !!TYPED_ARRAY[objToString.call(value)];\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {*} value\n * @return {boolean}\n */\nexport function isDom(value) {\n    return typeof value === &#39;object&#39;\n        &amp;&amp; typeof value.nodeType === &#39;number&#39;\n        &amp;&amp; typeof value.ownerDocument === &#39;object&#39;;\n}\n\n/**\n * Whether is exactly NaN. Notice isNaN(&#39;a&#39;) returns true.\n * @param {*} value\n * @return {boolean}\n */\nexport function eqNaN(value) {\n    /* eslint-disable-next-line no-self-compare */\n    return value !== value;\n}\n\n/**\n * If value1 is not null, then return value1, otherwise judget rest of values.\n * Low performance.\n * @memberOf module:zrender/core/util\n * @return {*} Final value\n */\nexport function retrieve(values) {\n    for (var i = 0, len = arguments.length; i &lt; len; i++) {\n        if (arguments[i] != null) {\n            return arguments[i];\n        }\n    }\n}\n\nexport function retrieve2(value0, value1) {\n    return value0 != null\n        ? value0\n        : value1;\n}\n\nexport function retrieve3(value0, value1, value2) {\n    return value0 != null\n        ? value0\n        : value1 != null\n        ? value1\n        : value2;\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {Array} arr\n * @param {number} startIndex\n * @param {number} endIndex\n * @return {Array}\n */\nexport function slice() {\n    return Function.call.apply(nativeSlice, arguments);\n}\n\n/**\n * Normalize css liked array configuration\n * e.g.\n *  3 =&gt; [3, 3, 3, 3]\n *  [4, 2] =&gt; [4, 2, 4, 2]\n *  [4, 3, 2] =&gt; [4, 3, 2, 3]\n * @param {number|Array.&lt;number&gt;} val\n * @return {Array.&lt;number&gt;}\n */\nexport function normalizeCssArray(val) {\n    if (typeof (val) === &#39;number&#39;) {\n        return [val, val, val, val];\n    }\n    var len = val.length;\n    if (len === 2) {\n        // vertical | horizontal\n        return [val[0], val[1], val[0], val[1]];\n    }\n    else if (len === 3) {\n        // top | horizontal | bottom\n        return [val[0], val[1], val[2], val[1]];\n    }\n    return val;\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {boolean} condition\n * @param {string} message\n */\nexport function assert(condition, message) {\n    if (!condition) {\n        throw new Error(message);\n    }\n}\n\n/**\n * @memberOf module:zrender/core/util\n * @param {string} str string to be trimed\n * @return {string} trimed string\n */\nexport function trim(str) {\n    if (str == null) {\n        return null;\n    }\n    else if (typeof str.trim === &#39;function&#39;) {\n        return str.trim();\n    }\n    else {\n        return str.replace(/^[\\s\\uFEFF\\xA0]+|[\\s\\uFEFF\\xA0]+$/g, &#39;&#39;);\n    }\n}\n\nvar primitiveKey = &#39;__ec_primitive__&#39;;\n/**\n * Set an object as primitive to be ignored traversing children in clone or merge\n */\nexport function setAsPrimitive(obj) {\n    obj[primitiveKey] = true;\n}\n\nexport function isPrimitive(obj) {\n    return obj[primitiveKey];\n}\n\n/**\n * @constructor\n * @param {Object} obj Only apply `ownProperty`.\n */\nfunction HashMap(obj) {\n    var isArr = isArray(obj);\n    // Key should not be set on this, otherwise\n    // methods get/set/... may be overrided.\n    this.data = {};\n    var thisMap = this;\n\n    (obj instanceof HashMap)\n        ? obj.each(visit)\n        : (obj &amp;&amp; each(obj, visit));\n\n    function visit(value, key) {\n        isArr ? thisMap.set(value, key) : thisMap.set(key, value);\n    }\n}\n\nHashMap.prototype = {\n    constructor: HashMap,\n    // Do not provide `has` method to avoid defining what is `has`.\n    // (We usually treat `null` and `undefined` as the same, different\n    // from ES6 Map).\n    get: function (key) {\n        return this.data.hasOwnProperty(key) ? this.data[key] : null;\n    },\n    set: function (key, value) {\n        // Comparing with invocation chaining, `return value` is more commonly\n        // used in this case: `var someVal = map.set(&#39;a&#39;, genVal());`\n        return (this.data[key] = value);\n    },\n    // Although util.each can be performed on this hashMap directly, user\n    // should not use the exposed keys, who are prefixed.\n    each: function (cb, context) {\n        context !== void 0 &amp;&amp; (cb = bind(cb, context));\n        /* eslint-disable guard-for-in */\n        for (var key in this.data) {\n            this.data.hasOwnProperty(key) &amp;&amp; cb(this.data[key], key);\n        }\n        /* eslint-enable guard-for-in */\n    },\n    // Do not use this method if performance sensitive.\n    removeKey: function (key) {\n        delete this.data[key];\n    }\n};\n\nexport function createHashMap(obj) {\n    return new HashMap(obj);\n}\n\nexport function concatArray(a, b) {\n    var newArray = new a.constructor(a.length + b.length);\n    for (var i = 0; i &lt; a.length; i++) {\n        newArray[i] = a[i];\n    }\n    var offset = a.length;\n    for (i = 0; i &lt; b.length; i++) {\n        newArray[i + offset] = b[i];\n    }\n    return newArray;\n}\n\n\nexport function noop() {}\n&quot;,&quot;/*\n* Licensed to the Apache Software Foundation (ASF) under one\n* or more contributor license agreements.  See the NOTICE file\n* distributed with this work for additional information\n* regarding copyright ownership.  The ASF licenses this file\n* to you under the Apache License, Version 2.0 (the\n* \&quot;License\&quot;); you may not use this file except in compliance\n* with the License.  You may obtain a copy of the License at\n*\n*   http://www.apache.org/licenses/LICENSE-2.0\n*\n* Unless required by applicable law or agreed to in writing,\n* software distributed under the License is distributed on an\n* \&quot;AS IS\&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n* KIND, either express or implied.  See the License for the\n* specific language governing permissions and limitations\n* under the License.\n*/\n\n/**\n * This is a parse of GEXF.\n *\n * The spec of GEXF:\n * https://gephi.org/gexf/1.2draft/gexf-12draft-primer.pdf\n */\n\nimport * as zrUtil from &#39;zrender/src/core/util&#39;;\n\nexport function parse(xml) {\n    var doc;\n    if (typeof xml === &#39;string&#39;) {\n        var parser = new DOMParser();\n        doc = parser.parseFromString(xml, &#39;text/xml&#39;);\n    }\n    else {\n        doc = xml;\n    }\n    if (!doc || doc.getElementsByTagName(&#39;parsererror&#39;).length) {\n        return null;\n    }\n\n    var gexfRoot = getChildByTagName(doc, &#39;gexf&#39;);\n\n    if (!gexfRoot) {\n        return null;\n    }\n\n    var graphRoot = getChildByTagName(gexfRoot, &#39;graph&#39;);\n\n    var attributes = parseAttributes(getChildByTagName(graphRoot, &#39;attributes&#39;));\n    var attributesMap = {};\n    for (var i = 0; i &lt; attributes.length; i++) {\n        attributesMap[attributes[i].id] = attributes[i];\n    }\n\n    return {\n        nodes: parseNodes(getChildByTagName(graphRoot, &#39;nodes&#39;), attributesMap),\n        links: parseEdges(getChildByTagName(graphRoot, &#39;edges&#39;))\n    };\n}\n\nfunction parseAttributes(parent) {\n    return parent ? zrUtil.map(getChildrenByTagName(parent, &#39;attribute&#39;), function (attribDom) {\n        return {\n            id: getAttr(attribDom, &#39;id&#39;),\n            title: getAttr(attribDom, &#39;title&#39;),\n            type: getAttr(attribDom, &#39;type&#39;)\n        };\n    }) : [];\n}\n\nfunction parseNodes(parent, attributesMap) {\n    return parent ? zrUtil.map(getChildrenByTagName(parent, &#39;node&#39;), function (nodeDom) {\n\n        var id = getAttr(nodeDom, &#39;id&#39;);\n        var label = getAttr(nodeDom, &#39;label&#39;);\n\n        var node = {\n            id: id,\n            name: label,\n            itemStyle: {\n                normal: {}\n            }\n        };\n\n        var vizSizeDom = getChildByTagName(nodeDom, &#39;viz:size&#39;);\n        var vizPosDom = getChildByTagName(nodeDom, &#39;viz:position&#39;);\n        var vizColorDom = getChildByTagName(nodeDom, &#39;viz:color&#39;);\n        // var vizShapeDom = getChildByTagName(nodeDom, &#39;viz:shape&#39;);\n\n        var attvaluesDom = getChildByTagName(nodeDom, &#39;attvalues&#39;);\n\n        if (vizSizeDom) {\n            node.symbolSize = parseFloat(getAttr(vizSizeDom, &#39;value&#39;));\n        }\n        if (vizPosDom) {\n            node.x = parseFloat(getAttr(vizPosDom, &#39;x&#39;));\n            node.y = parseFloat(getAttr(vizPosDom, &#39;y&#39;));\n            // z\n        }\n        if (vizColorDom) {\n            node.itemStyle.normal.color = &#39;rgb(&#39; + [\n                getAttr(vizColorDom, &#39;r&#39;) | 0,\n                getAttr(vizColorDom, &#39;g&#39;) | 0,\n                getAttr(vizColorDom, &#39;b&#39;) | 0\n            ].join(&#39;,&#39;) + &#39;)&#39;;\n        }\n        // if (vizShapeDom) {\n            // node.shape = getAttr(vizShapeDom, &#39;shape&#39;);\n        // }\n        if (attvaluesDom) {\n            var attvalueDomList = getChildrenByTagName(attvaluesDom, &#39;attvalue&#39;);\n\n            node.attributes = {};\n\n            for (var j = 0; j &lt; attvalueDomList.length; j++) {\n                var attvalueDom = attvalueDomList[j];\n                var attId = getAttr(attvalueDom, &#39;for&#39;);\n                var attValue = getAttr(attvalueDom, &#39;value&#39;);\n                var attribute = attributesMap[attId];\n\n                if (attribute) {\n                    switch (attribute.type) {\n                        case &#39;integer&#39;:\n                        case &#39;long&#39;:\n                            attValue = parseInt(attValue, 10);\n                            break;\n                        case &#39;float&#39;:\n                        case &#39;double&#39;:\n                            attValue = parseFloat(attValue);\n                            break;\n                        case &#39;boolean&#39;:\n                            attValue = attValue.toLowerCase() === &#39;true&#39;;\n                            break;\n                        default:\n                    }\n                    node.attributes[attId] = attValue;\n                }\n            }\n        }\n\n        return node;\n    }) : [];\n}\n\nfunction parseEdges(parent) {\n    return parent ? zrUtil.map(getChildrenByTagName(parent, &#39;edge&#39;), function (edgeDom) {\n        var id = getAttr(edgeDom, &#39;id&#39;);\n        var label = getAttr(edgeDom, &#39;label&#39;);\n\n        var sourceId = getAttr(edgeDom, &#39;source&#39;);\n        var targetId = getAttr(edgeDom, &#39;target&#39;);\n\n        var edge = {\n            id: id,\n            name: label,\n            source: sourceId,\n            target: targetId,\n            lineStyle: {\n                normal: {}\n            }\n        };\n\n        var lineStyle = edge.lineStyle.normal;\n\n        var vizThicknessDom = getChildByTagName(edgeDom, &#39;viz:thickness&#39;);\n        var vizColorDom = getChildByTagName(edgeDom, &#39;viz:color&#39;);\n        // var vizShapeDom = getChildByTagName(edgeDom, &#39;viz:shape&#39;);\n\n        if (vizThicknessDom) {\n            lineStyle.width = parseFloat(vizThicknessDom.getAttribute(&#39;value&#39;));\n        }\n        if (vizColorDom) {\n            lineStyle.color = &#39;rgb(&#39; + [\n                getAttr(vizColorDom, &#39;r&#39;) | 0,\n                getAttr(vizColorDom, &#39;g&#39;) | 0,\n                getAttr(vizColorDom, &#39;b&#39;) | 0\n            ].join(&#39;,&#39;) + &#39;)&#39;;\n        }\n        // if (vizShapeDom) {\n        //     edge.shape = vizShapeDom.getAttribute(&#39;shape&#39;);\n        // }\n\n        return edge;\n    }) : [];\n}\n\nfunction getAttr(el, attrName) {\n    return el.getAttribute(attrName);\n}\n\nfunction getChildByTagName(parent, tagName) {\n    var node = parent.firstChild;\n\n    while (node) {\n        if (\n            node.nodeType !== 1\n            || node.nodeName.toLowerCase() !== tagName.toLowerCase()\n        ) {\n            node = node.nextSibling;\n        }\n        else {\n            return node;\n        }\n    }\n\n    return null;\n}\n\nfunction getChildrenByTagName(parent, tagName) {\n    var node = parent.firstChild;\n    var children = [];\n    while (node) {\n        if (node.nodeName.toLowerCase() === tagName.toLowerCase()) {\n            children.push(node);\n        }\n        node = node.nextSibling;\n    }\n\n    return children;\n}\n&quot;,&quot;/*\n* Licensed to the Apache Software Foundation (ASF) under one\n* or more contributor license agreements.  See the NOTICE file\n* distributed with this work for additional information\n* regarding copyright ownership.  The ASF licenses this file\n* to you under the Apache License, Version 2.0 (the\n* \&quot;License\&quot;); you may not use this file except in compliance\n* with the License.  You may obtain a copy of the License at\n*\n*   http://www.apache.org/licenses/LICENSE-2.0\n*\n* Unless required by applicable law or agreed to in writing,\n* software distributed under the License is distributed on an\n* \&quot;AS IS\&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n* KIND, either express or implied.  See the License for the\n* specific language governing permissions and limitations\n* under the License.\n*/\n\n/*\n* A third-party license is embeded for some of the code in this file:\n* The method \&quot;quantile\&quot; was copied from \&quot;d3.js\&quot;.\n* (See more details in the comment of the method below.)\n* The use of the source code of this file is also subject to the terms\n* and consitions of the license of \&quot;d3.js\&quot; (BSD-3Clause, see\n* &lt;/licenses/LICENSE-d3&gt;).\n*/\n\nimport * as zrUtil from &#39;zrender/src/core/util&#39;;\n\nvar RADIAN_EPSILON = 1e-4;\n\nfunction _trim(str) {\n    return str.replace(/^\\s+|\\s+$/g, &#39;&#39;);\n}\n\n/**\n * Linear mapping a value from domain to range\n * @memberOf module:echarts/util/number\n * @param  {(number|Array.&lt;number&gt;)} val\n * @param  {Array.&lt;number&gt;} domain Domain extent domain[0] can be bigger than domain[1]\n * @param  {Array.&lt;number&gt;} range  Range extent range[0] can be bigger than range[1]\n * @param  {boolean} clamp\n * @return {(number|Array.&lt;number&gt;}\n */\nexport function linearMap(val, domain, range, clamp) {\n    var subDomain = domain[1] - domain[0];\n    var subRange = range[1] - range[0];\n\n    if (subDomain === 0) {\n        return subRange === 0\n            ? range[0]\n            : (range[0] + range[1]) / 2;\n    }\n\n    // Avoid accuracy problem in edge, such as\n    // 146.39 - 62.83 === 83.55999999999999.\n    // See echarts/test/ut/spec/util/number.js#linearMap#accuracyError\n    // It is a little verbose for efficiency considering this method\n    // is a hotspot.\n    if (clamp) {\n        if (subDomain &gt; 0) {\n            if (val &lt;= domain[0]) {\n                return range[0];\n            }\n            else if (val &gt;= domain[1]) {\n                return range[1];\n            }\n        }\n        else {\n            if (val &gt;= domain[0]) {\n                return range[0];\n            }\n            else if (val &lt;= domain[1]) {\n                return range[1];\n            }\n        }\n    }\n    else {\n        if (val === domain[0]) {\n            return range[0];\n        }\n        if (val === domain[1]) {\n            return range[1];\n        }\n    }\n\n    return (val - domain[0]) / subDomain * subRange + range[0];\n}\n\n/**\n * Convert a percent string to absolute number.\n * Returns NaN if percent is not a valid string or number\n * @memberOf module:echarts/util/number\n * @param {string|number} percent\n * @param {number} all\n * @return {number}\n */\nexport function parsePercent(percent, all) {\n    switch (percent) {\n        case &#39;center&#39;:\n        case &#39;middle&#39;:\n            percent = &#39;50%&#39;;\n            break;\n        case &#39;left&#39;:\n        case &#39;top&#39;:\n            percent = &#39;0%&#39;;\n            break;\n        case &#39;right&#39;:\n        case &#39;bottom&#39;:\n            percent = &#39;100%&#39;;\n            break;\n    }\n    if (typeof percent === &#39;string&#39;) {\n        if (_trim(percent).match(/%$/)) {\n            return parseFloat(percent) / 100 * all;\n        }\n\n        return parseFloat(percent);\n    }\n\n    return percent == null ? NaN : +percent;\n}\n\n/**\n * (1) Fix rounding error of float numbers.\n * (2) Support return string to avoid scientific notation like &#39;3.5e-7&#39;.\n *\n * @param {number} x\n * @param {number} [precision]\n * @param {boolean} [returnStr]\n * @return {number|string}\n */\nexport function round(x, precision, returnStr) {\n    if (precision == null) {\n        precision = 10;\n    }\n    // Avoid range error\n    precision = Math.min(Math.max(0, precision), 20);\n    x = (+x).toFixed(precision);\n    return returnStr ? x : +x;\n}\n\n/**\n * asc sort arr.\n * The input arr will be modified.\n *\n * @param {Array} arr\n * @return {Array} The input arr.\n */\nexport function asc(arr) {\n    arr.sort(function (a, b) {\n        return a - b;\n    });\n    return arr;\n}\n\n/**\n * Get precision\n * @param {number} val\n */\nexport function getPrecision(val) {\n    val = +val;\n    if (isNaN(val)) {\n        return 0;\n    }\n    // It is much faster than methods converting number to string as follows\n    //      var tmp = val.toString();\n    //      return tmp.length - 1 - tmp.indexOf(&#39;.&#39;);\n    // especially when precision is low\n    var e = 1;\n    var count = 0;\n    while (Math.round(val * e) / e !== val) {\n        e *= 10;\n        count++;\n    }\n    return count;\n}\n\n/**\n * @param {string|number} val\n * @return {number}\n */\nexport function getPrecisionSafe(val) {\n    var str = val.toString();\n\n    // Consider scientific notation: &#39;3.4e-12&#39; &#39;3.4e+12&#39;\n    var eIndex = str.indexOf(&#39;e&#39;);\n    if (eIndex &gt; 0) {\n        var precision = +str.slice(eIndex + 1);\n        return precision &lt; 0 ? -precision : 0;\n    }\n    else {\n        var dotIndex = str.indexOf(&#39;.&#39;);\n        return dotIndex &lt; 0 ? 0 : str.length - 1 - dotIndex;\n    }\n}\n\n/**\n * Minimal dicernible data precisioin according to a single pixel.\n *\n * @param {Array.&lt;number&gt;} dataExtent\n * @param {Array.&lt;number&gt;} pixelExtent\n * @return {number} precision\n */\nexport function getPixelPrecision(dataExtent, pixelExtent) {\n    var log = Math.log;\n    var LN10 = Math.LN10;\n    var dataQuantity = Math.floor(log(dataExtent[1] - dataExtent[0]) / LN10);\n    var sizeQuantity = Math.round(log(Math.abs(pixelExtent[1] - pixelExtent[0])) / LN10);\n    // toFixed() digits argument must be between 0 and 20.\n    var precision = Math.min(Math.max(-dataQuantity + sizeQuantity, 0), 20);\n    return !isFinite(precision) ? 20 : precision;\n}\n\n/**\n * Get a data of given precision, assuring the sum of percentages\n * in valueList is 1.\n * The largest remainer method is used.\n * https://en.wikipedia.org/wiki/Largest_remainder_method\n *\n * @param {Array.&lt;number&gt;} valueList a list of all data\n * @param {number} idx index of the data to be processed in valueList\n * @param {number} precision integer number showing digits of precision\n * @return {number} percent ranging from 0 to 100\n */\nexport function getPercentWithPrecision(valueList, idx, precision) {\n    if (!valueList[idx]) {\n        return 0;\n    }\n\n    var sum = zrUtil.reduce(valueList, function (acc, val) {\n        return acc + (isNaN(val) ? 0 : val);\n    }, 0);\n    if (sum === 0) {\n        return 0;\n    }\n\n    var digits = Math.pow(10, precision);\n    var votesPerQuota = zrUtil.map(valueList, function (val) {\n        return (isNaN(val) ? 0 : val) / sum * digits * 100;\n    });\n    var targetSeats = digits * 100;\n\n    var seats = zrUtil.map(votesPerQuota, function (votes) {\n        // Assign automatic seats.\n        return Math.floor(votes);\n    });\n    var currentSum = zrUtil.reduce(seats, function (acc, val) {\n        return acc + val;\n    }, 0);\n\n    var remainder = zrUtil.map(votesPerQuota, function (votes, idx) {\n        return votes - seats[idx];\n    });\n\n    // Has remainding votes.\n    while (currentSum &lt; targetSeats) {\n        // Find next largest remainder.\n        var max = Number.NEGATIVE_INFINITY;\n        var maxId = null;\n        for (var i = 0, len = remainder.length; i &lt; len; ++i) {\n            if (remainder[i] &gt; max) {\n                max = remainder[i];\n                maxId = i;\n            }\n        }\n\n        // Add a vote to max remainder.\n        ++seats[maxId];\n        remainder[maxId] = 0;\n        ++currentSum;\n    }\n\n    return seats[idx] / digits;\n}\n\n// Number.MAX_SAFE_INTEGER, ie do not support.\nexport var MAX_SAFE_INTEGER = 9007199254740991;\n\n/**\n * To 0 - 2 * PI, considering negative radian.\n * @param {number} radian\n * @return {number}\n */\nexport function remRadian(radian) {\n    var pi2 = Math.PI * 2;\n    return (radian % pi2 + pi2) % pi2;\n}\n\n/**\n * @param {type} radian\n * @return {boolean}\n */\nexport function isRadianAroundZero(val) {\n    return val &gt; -RADIAN_EPSILON &amp;&amp; val &lt; RADIAN_EPSILON;\n}\n\n/* eslint-disable */\nvar TIME_REG = /^(?:(\\d{4})(?:[-\\/](\\d{1,2})(?:[-\\/](\\d{1,2})(?:[T ](\\d{1,2})(?::(\\d\\d)(?::(\\d\\d)(?:[.,](\\d+))?)?)?(Z|[\\+\\-]\\d\\d:?\\d\\d)?)?)?)?)?$/; // jshint ignore:line\n/* eslint-enable */\n\n/**\n * @param {string|Date|number} value These values can be accepted:\n *   + An instance of Date, represent a time in its own time zone.\n *   + Or string in a subset of ISO 8601, only including:\n *     + only year, month, date: &#39;2012-03&#39;, &#39;2012-03-01&#39;, &#39;2012-03-01 05&#39;, &#39;2012-03-01 05:06&#39;,\n *     + separated with T or space: &#39;2012-03-01T12:22:33.123&#39;, &#39;2012-03-01 12:22:33.123&#39;,\n *     + time zone: &#39;2012-03-01T12:22:33Z&#39;, &#39;2012-03-01T12:22:33+8000&#39;, &#39;2012-03-01T12:22:33-05:00&#39;,\n *     all of which will be treated as local time if time zone is not specified\n *     (see &lt;https://momentjs.com/&gt;).\n *   + Or other string format, including (all of which will be treated as loacal time):\n *     &#39;2012&#39;, &#39;2012-3-1&#39;, &#39;2012/3/1&#39;, &#39;2012/03/01&#39;,\n *     &#39;2009/6/12 2:00&#39;, &#39;2009/6/12 2:05:08&#39;, &#39;2009/6/12 2:05:08.123&#39;\n *   + a timestamp, which represent a time in UTC.\n * @return {Date} date\n */\nexport function parseDate(value) {\n    if (value instanceof Date) {\n        return value;\n    }\n    else if (typeof value === &#39;string&#39;) {\n        // Different browsers parse date in different way, so we parse it manually.\n        // Some other issues:\n        // new Date(&#39;1970-01-01&#39;) is UTC,\n        // new Date(&#39;1970/01/01&#39;) and new Date(&#39;1970-1-01&#39;) is local.\n        // See issue #3623\n        var match = TIME_REG.exec(value);\n\n        if (!match) {\n            // return Invalid Date.\n            return new Date(NaN);\n        }\n\n        // Use local time when no timezone offset specifed.\n        if (!match[8]) {\n            // match[n] can only be string or undefined.\n            // But take care of &#39;12&#39; + 1 =&gt; &#39;121&#39;.\n            return new Date(\n                +match[1],\n                +(match[2] || 1) - 1,\n                +match[3] || 1,\n                +match[4] || 0,\n                +(match[5] || 0),\n                +match[6] || 0,\n                +match[7] || 0\n            );\n        }\n        // Timezoneoffset of Javascript Date has considered DST (Daylight Saving Time,\n        // https://tc39.github.io/ecma262/#sec-daylight-saving-time-adjustment).\n        // For example, system timezone is set as \&quot;Time Zone: America/Toronto\&quot;,\n        // then these code will get different result:\n        // `new Date(1478411999999).getTimezoneOffset();  // get 240`\n        // `new Date(1478412000000).getTimezoneOffset();  // get 300`\n        // So we should not use `new Date`, but use `Date.UTC`.\n        else {\n            var hour = +match[4] || 0;\n            if (match[8].toUpperCase() !== &#39;Z&#39;) {\n                hour -= match[8].slice(0, 3);\n            }\n            return new Date(Date.UTC(\n                +match[1],\n                +(match[2] || 1) - 1,\n                +match[3] || 1,\n                hour,\n                +(match[5] || 0),\n                +match[6] || 0,\n                +match[7] || 0\n            ));\n        }\n    }\n    else if (value == null) {\n        return new Date(NaN);\n    }\n\n    return new Date(Math.round(value));\n}\n\n/**\n * Quantity of a number. e.g. 0.1, 1, 10, 100\n *\n * @param  {number} val\n * @return {number}\n */\nexport function quantity(val) {\n    return Math.pow(10, quantityExponent(val));\n}\n\n/**\n * Exponent of the quantity of a number\n * e.g., 1234 equals to 1.234*10^3, so quantityExponent(1234) is 3\n *\n * @param  {number} val non-negative value\n * @return {number}\n */\nexport function quantityExponent(val) {\n    if (val === 0) {\n        return 0;\n    }\n\n    var exp = Math.floor(Math.log(val) / Math.LN10);\n    /**\n     * exp is expected to be the rounded-down result of the base-10 log of val.\n     * But due to the precision loss with Math.log(val), we need to restore it\n     * using 10^exp to make sure we can get val back from exp. #11249\n     */\n    if (val / Math.pow(10, exp) &gt;= 10) {\n        exp++;\n    }\n    return exp;\n}\n\n/**\n * find a “nice” number approximately equal to x. Round the number if round = true,\n * take ceiling if round = false. The primary observation is that the “nicest”\n * numbers in decimal are 1, 2, and 5, and all power-of-ten multiples of these numbers.\n *\n * See \&quot;Nice Numbers for Graph Labels\&quot; of Graphic Gems.\n *\n * @param  {number} val Non-negative value.\n * @param  {boolean} round\n * @return {number}\n */\nexport function nice(val, round) {\n    var exponent = quantityExponent(val);\n    var exp10 = Math.pow(10, exponent);\n    var f = val / exp10; // 1 &lt;= f &lt; 10\n    var nf;\n    if (round) {\n        if (f &lt; 1.5) {\n            nf = 1;\n        }\n        else if (f &lt; 2.5) {\n            nf = 2;\n        }\n        else if (f &lt; 4) {\n            nf = 3;\n        }\n        else if (f &lt; 7) {\n            nf = 5;\n        }\n        else {\n            nf = 10;\n        }\n    }\n    else {\n        if (f &lt; 1) {\n            nf = 1;\n        }\n        else if (f &lt; 2) {\n            nf = 2;\n        }\n        else if (f &lt; 3) {\n            nf = 3;\n        }\n        else if (f &lt; 5) {\n            nf = 5;\n        }\n        else {\n            nf = 10;\n        }\n    }\n    val = nf * exp10;\n\n    // Fix 3 * 0.1 === 0.30000000000000004 issue (see IEEE 754).\n    // 20 is the uppper bound of toFixed.\n    return exponent &gt;= -20 ? +val.toFixed(exponent &lt; 0 ? -exponent : 0) : val;\n}\n\n/**\n * This code was copied from \&quot;d3.js\&quot;\n * &lt;https://github.com/d3/d3/blob/9cc9a875e636a1dcf36cc1e07bdf77e1ad6e2c74/src/arrays/quantile.js&gt;.\n * See the license statement at the head of this file.\n * @param {Array.&lt;number&gt;} ascArr\n */\nexport function quantile(ascArr, p) {\n    var H = (ascArr.length - 1) * p + 1;\n    var h = Math.floor(H);\n    var v = +ascArr[h - 1];\n    var e = H - h;\n    return e ? v + e * (ascArr[h] - v) : v;\n}\n\n/**\n * Order intervals asc, and split them when overlap.\n * expect(numberUtil.reformIntervals([\n *     {interval: [18, 62], close: [1, 1]},\n *     {interval: [-Infinity, -70], close: [0, 0]},\n *     {interval: [-70, -26], close: [1, 1]},\n *     {interval: [-26, 18], close: [1, 1]},\n *     {interval: [62, 150], close: [1, 1]},\n *     {interval: [106, 150], close: [1, 1]},\n *     {interval: [150, Infinity], close: [0, 0]}\n * ])).toEqual([\n *     {interval: [-Infinity, -70], close: [0, 0]},\n *     {interval: [-70, -26], close: [1, 1]},\n *     {interval: [-26, 18], close: [0, 1]},\n *     {interval: [18, 62], close: [0, 1]},\n *     {interval: [62, 150], close: [0, 1]},\n *     {interval: [150, Infinity], close: [0, 0]}\n * ]);\n * @param {Array.&lt;Object&gt;} list, where `close` mean open or close\n *        of the interval, and Infinity can be used.\n * @return {Array.&lt;Object&gt;} The origin list, which has been reformed.\n */\nexport function reformIntervals(list) {\n    list.sort(function (a, b) {\n        return littleThan(a, b, 0) ? -1 : 1;\n    });\n\n    var curr = -Infinity;\n    var currClose = 1;\n    for (var i = 0; i &lt; list.length;) {\n        var interval = list[i].interval;\n        var close = list[i].close;\n\n        for (var lg = 0; lg &lt; 2; lg++) {\n            if (interval[lg] &lt;= curr) {\n                interval[lg] = curr;\n                close[lg] = !lg ? 1 - currClose : 1;\n            }\n            curr = interval[lg];\n            currClose = close[lg];\n        }\n\n        if (interval[0] === interval[1] &amp;&amp; close[0] * close[1] !== 1) {\n            list.splice(i, 1);\n        }\n        else {\n            i++;\n        }\n    }\n\n    return list;\n\n    function littleThan(a, b, lg) {\n        return a.interval[lg] &lt; b.interval[lg]\n            || (\n                a.interval[lg] === b.interval[lg]\n                &amp;&amp; (\n                    (a.close[lg] - b.close[lg] === (!lg ? 1 : -1))\n                    || (!lg &amp;&amp; littleThan(a, b, 1))\n                )\n            );\n    }\n}\n\n/**\n * parseFloat NaNs numeric-cast false positives (null|true|false|\&quot;\&quot;)\n * ...but misinterprets leading-number strings, particularly hex literals (\&quot;0x...\&quot;)\n * subtraction forces infinities to NaN\n *\n * @param {*} v\n * @return {boolean}\n */\nexport function isNumeric(v) {\n    return v - parseFloat(v) &gt;= 0;\n}\n&quot;,&quot;/*\n* Licensed to the Apache Software Foundation (ASF) under one\n* or more contributor license agreements.  See the NOTICE file\n* distributed with this work for additional information\n* regarding copyright ownership.  The ASF licenses this file\n* to you under the Apache License, Version 2.0 (the\n* \&quot;License\&quot;); you may not use this file except in compliance\n* with the License.  You may obtain a copy of the License at\n*\n*   http://www.apache.org/licenses/LICENSE-2.0\n*\n* Unless required by applicable law or agreed to in writing,\n* software distributed under the License is distributed on an\n* \&quot;AS IS\&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n* KIND, either express or implied.  See the License for the\n* specific language governing permissions and limitations\n* under the License.\n*/\n\nimport * as numberUtil from &#39;../../src/util/number&#39;;\n\n/**\n * See:\n *  &lt;https://en.wikipedia.org/wiki/Box_plot#cite_note-frigge_hoaglin_iglewicz-2&gt;\n *  &lt;http://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/boxplot.stats.html&gt;\n *\n * Helper method for preparing data.\n *\n * @param {Array.&lt;number&gt;} rawData like\n *        [\n *            [12,232,443], (raw data set for the first box)\n *            [3843,5545,1232], (raw datat set for the second box)\n *            ...\n *        ]\n * @param {Object} [opt]\n *\n * @param {(number|string)} [opt.boundIQR=1.5] Data less than min bound is outlier.\n *      default 1.5, means Q1 - 1.5 * (Q3 - Q1).\n *      If &#39;none&#39;/0 passed, min bound will not be used.\n * @param {(number|string)} [opt.layout=&#39;horizontal&#39;]\n *      Box plot layout, can be &#39;horizontal&#39; or &#39;vertical&#39;\n * @return {Object} {\n *      boxData: Array.&lt;Array.&lt;number&gt;&gt;\n *      outliers: Array.&lt;Array.&lt;number&gt;&gt;\n *      axisData: Array.&lt;string&gt;\n * }\n */\nexport default function (rawData, opt) {\n    opt = opt || [];\n    var boxData = [];\n    var outliers = [];\n    var axisData = [];\n    var boundIQR = opt.boundIQR;\n    var useExtreme = boundIQR === &#39;none&#39; || boundIQR === 0;\n\n    for (var i = 0; i &lt; rawData.length; i++) {\n        axisData.push(i + &#39;&#39;);\n        var ascList = numberUtil.asc(rawData[i].slice());\n\n        var Q1 = numberUtil.quantile(ascList, 0.25);\n        var Q2 = numberUtil.quantile(ascList, 0.5);\n        var Q3 = numberUtil.quantile(ascList, 0.75);\n        var min = ascList[0];\n        var max = ascList[ascList.length - 1];\n\n        var bound = (boundIQR == null ? 1.5 : boundIQR) * (Q3 - Q1);\n\n        var low = useExtreme\n            ? min\n            : Math.max(min, Q1 - bound);\n        var high = useExtreme\n            ? max\n            : Math.min(max, Q3 + bound);\n\n        boxData.push([low, Q1, Q2, Q3, high]);\n\n        for (var j = 0; j &lt; ascList.length; j++) {\n            var dataItem = ascList[j];\n            if (dataItem &lt; low || dataItem &gt; high) {\n                var outlier = [i, dataItem];\n                opt.layout === &#39;vertical&#39; &amp;&amp; outlier.reverse();\n                outliers.push(outlier);\n            }\n        }\n    }\n    return {\n        boxData: boxData,\n        outliers: outliers,\n        axisData: axisData\n    };\n}\n&quot;,&quot;/*\n* Licensed to the Apache Software Foundation (ASF) under one\n* or more contributor license agreements.  See the NOTICE file\n* distributed with this work for additional information\n* regarding copyright ownership.  The ASF licenses this file\n* to you under the Apache License, Version 2.0 (the\n* \&quot;License\&quot;); you may not use this file except in compliance\n* with the License.  You may obtain a copy of the License at\n*\n*   http://www.apache.org/licenses/LICENSE-2.0\n*\n* Unless required by applicable law or agreed to in writing,\n* software distributed under the License is distributed on an\n* \&quot;AS IS\&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n* KIND, either express or implied.  See the License for the\n* specific language governing permissions and limitations\n* under the License.\n*/\n\nimport * as echarts from &#39;echarts&#39;;\nimport * as gexf from &#39;./gexf&#39;;\nimport prepareBoxplotData from &#39;./prepareBoxplotData&#39;;\n\nexport var version = &#39;1.0.0&#39;;\n\nexport {gexf};\n\nexport {prepareBoxplotData};\n\n// For backward compatibility, where the namespace `dataTool` will\n// be mounted on `echarts` is the extension `dataTool` is imported.\n// But the old version of echarts do not have `dataTool` namespace,\n// so check it before mounting.\nif (echarts.dataTool) {\n    echarts.dataTool.version = version;\n    echarts.dataTool.gexf = gexf;\n    echarts.dataTool.prepareBoxplotData = prepareBoxplotData;\n}\n&quot;],&quot;names&quot;:[&quot;zrUtil.map&quot;,&quot;numberUtil.asc&quot;,&quot;numberUtil.quantile&quot;,&quot;echarts.dataTool&quot;],&quot;mappings&quot;:&quot;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&quot;}</td>
+      </tr>
+</table>
+
+  <details class="details-reset details-overlay BlobToolbar position-absolute js-file-line-actions dropdown d-none" aria-hidden="true">
+    <summary class="btn-octicon ml-0 px-2 p-0 bg-white border border-gray-dark rounded-1" aria-label="Inline file action toolbar">
+      <svg class="octicon octicon-kebab-horizontal" viewBox="0 0 13 16" version="1.1" width="13" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm5 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM13 7.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+    </summary>
+    <details-menu>
+      <ul class="BlobToolbar-dropdown dropdown-menu dropdown-menu-se mt-2" style="width:185px">
+        <li>
+          <clipboard-copy role="menuitem" class="dropdown-item" id="js-copy-lines" style="cursor:pointer;">
+            Copy lines
+          </clipboard-copy>
+        </li>
+        <li>
+          <clipboard-copy role="menuitem" class="dropdown-item" id="js-copy-permalink" style="cursor:pointer;">
+            Copy permalink
+          </clipboard-copy>
+        </li>
+        <li><a class="dropdown-item js-update-url-with-hash" id="js-view-git-blame" role="menuitem" href="/apache/incubator-echarts/blame/f4fc1b0625f3c88b9f4dbed03eeb091ed6bd1079/dist/extension/dataTool.js.map">View git blame</a></li>
+          <li><a class="dropdown-item" id="js-new-issue" role="menuitem" href="/apache/incubator-echarts/issues/new">Reference in new issue</a></li>
+      </ul>
+    </details-menu>
+  </details>
+
+  </div>
+
+    </div>
+
+  
+
+  <details class="details-reset details-overlay details-overlay-dark">
+    <summary data-hotkey="l" aria-label="Jump to line"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast linejump" aria-label="Jump to line">
+      <!-- '"` --><!-- </textarea></xmp> --></option></form><form class="js-jump-to-line-form Box-body d-flex" action="" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <input class="form-control flex-auto mr-3 linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" aria-label="Jump to line" autofocus>
+        <button type="submit" class="btn" data-close-dialog>Go</button>
+</form>    </details-dialog>
+  </details>
+
+
+
+  </div>
+</div>
+
+    </main>
+  </div>
+  
+
+  </div>
+
+        
+<div class="footer container-lg width-full p-responsive" role="contentinfo">
+  <div class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <ul class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      <li class="mr-3 mr-lg-0">&copy; 2020 GitHub, Inc.</li>
+        <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to terms, text:terms" href="https://github.com/site/terms">Terms</a></li>
+        <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to privacy, text:privacy" href="https://github.com/site/privacy">Privacy</a></li>
+        <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to security, text:security" href="https://github.com/security">Security</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://githubstatus.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+        <li><a data-ga-click="Footer, go to help, text:help" href="https://help.github.com">Help</a></li>
+    </ul>
+
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mx-lg-4" href="https://github.com">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+</a>
+   <ul class="list-style-none d-flex flex-wrap col-12 col-lg-5 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+        <li class="mr-3 mr-lg-0"><a data-ga-click="Footer, go to contact, text:contact" href="https://github.com/contact">Contact GitHub</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://github.com/pricing" data-ga-click="Footer, go to Pricing, text:Pricing">Pricing</a></li>
+      <li class="mr-3 mr-lg-0"><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li class="mr-3 mr-lg-0"><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
+        <li class="mr-3 mr-lg-0"><a href="https://github.blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a data-ga-click="Footer, go to about, text:about" href="https://github.com/about">About</a></li>
+
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+</div>
+
+
+
+  <div id="ajax-error-message" class="ajax-error-message flash flash-error">
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 000 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 00.01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <button type="button" class="flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
+      <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+    </button>
+    You can’t perform that action at this time.
+  </div>
+
+
+    <script crossorigin="anonymous" async="async" integrity="sha512-UaFVxMPLvbZjU/kUHeElAR2PW/IDeg1Sl7PeD8PjxND+IAB+AXTRRV7lq5LPiGwstCgOK1fvfhM/sbdF7eK9aQ==" type="application/javascript" src="https://github.githubassets.com/assets/unsupported-bootstrap-51a155c4.js"></script>
+    <script crossorigin="anonymous" async="async" integrity="sha512-0ME9ftiuUHsYYdeBdLtPHbeL4j0UjTAy9YxHpX0AaZLPPex/JTS5mmHozk8Bnp2czMkd3FmK8DfVID7zxmD5OA==" type="application/javascript" id="js-conditional-compat" data-src="https://github.githubassets.com/assets/compat-bootstrap-d0c13d7e.js"></script>
+    <script crossorigin="anonymous" integrity="sha512-IwQJ6J3gUcGOTT/7J84SB//tSsY88D7t1y2XySfTQzO2BPYMOSmk5D14NgAgot5xgxLr+ft726LMJt9ZzpSeFg==" type="application/javascript" src="https://github.githubassets.com/assets/frameworks-230409e8.js"></script>
+    
+    <script crossorigin="anonymous" async="async" integrity="sha512-KsPpNr/ifRdTdw7hmhyurxviHL6PlpwI0euSAeJT4MHCQt3cgM/DPvp4nYGTibQ/6PW3IZsuDnhXAcp2uY8Zow==" type="application/javascript" src="https://github.githubassets.com/assets/github-bootstrap-2ac3e936.js"></script>
+    
+    
+    
+  <div class="js-stale-session-flash flash flash-warn flash-banner" hidden
+    >
+    <svg class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 000 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 00.01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg>
+    <span class="js-stale-session-flash-signed-in" hidden>You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    <span class="js-stale-session-flash-signed-out" hidden>You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+  </div>
+  <template id="site-details-dialog">
+  <details class="details-reset details-overlay details-overlay-dark lh-default text-gray-dark hx_rsm" open>
+    <summary role="button" aria-label="Close dialog"></summary>
+    <details-dialog class="Box Box--overlay d-flex flex-column anim-fade-in fast hx_rsm-dialog hx_rsm-modal">
+      <button class="Box-btn-octicon m-0 btn-octicon position-absolute right-0 top-0" type="button" aria-label="Close dialog" data-close-dialog>
+        <svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48L7.48 8z"/></svg>
+      </button>
+      <div class="octocat-spinner my-6 js-details-dialog-spinner"></div>
+    </details-dialog>
+  </details>
+</template>
+
+  <div class="Popover js-hovercard-content position-absolute" style="display: none; outline: none;" tabindex="0">
+  <div class="Popover-message Popover-message--bottom-left Popover-message--large Box box-shadow-large" style="width:360px;">
+  </div>
+</div>
+
+    
+  <div class="js-notification-shelf-not-found-error" hidden></div>
+
+  <div aria-live="polite" class="js-global-screen-reader-notice sr-only"></div>
+
+  </body>
+</html>
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+    <script src="../_libs/jquery-1.12.4.js"></script>
+</head>
+<style>
+    a,div {
+        font-size: 100px;
+    }
+    .postplayIOS {
+        position: sticky;
+        position: -webkit-sticky;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+    
+    .postplayAndroid {
+        position: sticky;
+        position: -webkit-sticky;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+    
+    #nav .redfont {
+        border-bottom: 10px solid red;
+        color: red;
+    }
+</style>
+<body>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id="nav">
+    
+    <a class="xyifu" data-id="yifu" onclick="goscrol(this)">衣服</a>
+    
+    <a class="xxiezi" data-id="xiezi" onclick="goscrol(this)">鞋子</a>
+    
+    <a class="xmaozi" data-id="maozi" onclick="goscrol(this)">帽子</a>
+    
+</div>
+
+<div id="yifu">衣服列表</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id="xiezi">鞋子列表</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id="maozi">帽子列表</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>
+<script>
+    //点击对应的导航栏，跳转到对应商品列表
+    function goscrol(el) {
+        // console.log('el', el)
+        // var id = el.getAttribute("data-id");
+        var id = $(el).attr("data-id");
+        var $scrollHeight = $("#" + id).offset().top;
+        console.log('---', $scrollHeight)
+        $("html, body").animate({
+            scrollTop: $scrollHeight-100
+        },500);
+    }
+    
+    window.onload = function () {
+        var arr = [
+            {id: "yifu", height: $("#yifu").height()},
+            {id: "xiezi", height: $("#xiezi").height()},
+            {id: "maozi", height: $("#maozi").height()}
+        ];
+        
+        var box = document.getElementById("nav");
+        var topmargin = box.offsetTop;
+        
+        //不同设备，安卓，iphone
+        var userAgent = navigator.userAgent.toLowerCase();
+        var isIphone = userAgent.match(/iphone os/i) == "iphone os";
+        var isAndroid = userAgent.match(/android/i) == 'android';
+        
+        
+        $(window).on("scroll", function () {
+            //滚动页面，让导航栏悬浮在窗口顶部
+            var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            
+            // if (isIphone) {
+            //     scroll >= topmargin - 50 ? $("#nav").addClass("postplayIOS") : $("#nav").removeClass("postplayIOS");
+            // } else {
+            //     scroll >= topmargin - 50 ? $("#nav").addClass("postplayAndroid") : $("#nav").removeClass("postplayAndroid");
+            // }
+            scroll >= topmargin - 50 ? $("#nav").addClass("postplayAndroid") : $("#nav").removeClass("postplayAndroid");
+            
+            //当滚动时，导航栏没到窗口顶部，移除选中样式
+            if (document.getElementById(arr[0].id).offsetTop - $(window).scrollTop() > 90) {
+                $(".x" + arr[0].id).removeClass("redfont");
+            }
+            
+            //当滚动到对应产品列表时，导航栏添加对应选中样式
+            for (var i = 0; i < arr.length; i++) {
+                var nowbox = document.getElementById(arr[i].id);
+                if (nowbox.offsetTop - $(window).scrollTop() < 90) {
+                    $(".x" + arr[i].id).addClass("redfont").siblings().removeClass("redfont");
+                }
+            }
+        });
+        
+    };
+</script>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="../_libs/jquery-2.2.4.js"></script>
+<script>
+    function liveList(token) {
+        // $.ajax({
+        //     url: 'http://192.100.88.115:10080/live/list?start=0&limit=10&token='+token,
+        //     type: 'get',
+        //     // dataType: 'json',
+        //     success: function (res) {
+        //         console.log('res', res)
+        //     },
+        //     complete: function (request, status) {
+        //         console.log(request, status)
+        //     }
+        //
+        // })
+        $.ajax({
+            url: 'http://192.100.88.115:10080/live/list',
+            data: {
+                start: 0,
+                limit: 10,
+                token
+            },
+            type: 'post',
+            // dataType: 'json',
+            success: function (res) {
+                console.log('res', res)
+            },
+            complete: function (request, status) {
+                console.log(request, status)
+            }
+
+        })
+    }
+
+    function login() {
+        $.ajax({
+            url: 'http://192.100.88.115:10080/login',
+            data: {
+                username: 'admin',
+                password: 'c4ca4238a0b923820dcc509a6f75849b'
+            },
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                console.log('res', res)
+                liveList(res.token)
+                // logout(res.token)
+            },
+            complete: function (request, status) {
+                console.log(request, status)
+            }
+
+        })
+    }
+
+    function logout (token) {
+        $.ajax({
+            url: 'http://192.100.88.115:10080/logout?token='+token,
+            type: 'get',
+            // dataType: 'json',
+            success: function (res) {
+                console.log('res', res)
+            },
+            complete: function (request, status) {
+                console.log(request, status)
+            }
+        })
+    }
+    
+    function test () {
+        $.ajax({
+            url: 'http://localhost:7003/flow/v1/app/resource/getFormListV2',
+            type: 'post',
+            dataType: 'json',
+            success: function (res) {
+                console.log('res', res)
+            },
+            complete: function (request, status) {
+                console.log(request, status)
+            }
+        })
+    }
+
+    $(function () {
+        // login()
+        test()
+    })
+
+
+</script>

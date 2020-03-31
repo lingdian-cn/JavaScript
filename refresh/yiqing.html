@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>yiqing</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var times = 0;
+    var duration = 2000;
+    var interval = setInterval(() => {
+        // location.href = 'http://dd.yishizai.cn:8006/tianchang/?' + Date.now();
+        window.open('http://dd.yishizai.cn:8006/tianchang/?' + Date.now(), '_blank')
+        times += duration;
+        if(times >= duration*80) {
+            clearInterval(interval)
+        }
+    }, duration)
+    
+</script>
