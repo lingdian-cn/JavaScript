@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XML_Http_Request</title>
+
+</head>
+<body>
+    <h1 id="h1">XML_Http_Request....</h1>
+</body>
+</html>
+<script src="../_libs/jquery-2.2.4.js"></script>
+<script src="../_libs/crypto-js-4.0.0/crypto-js.js"></script>
+<script>
+    const appSecretKey = 'bb49d8d8031b4ae88e3f7c47a63f7069'
+    const appIv = '52T55a11e2c5B78M'
+    const Key = CryptoJS.enc.Utf8.parse(appSecretKey)
+    const IV = CryptoJS.enc.Utf8.parse(appIv)
+    
+    function enCrypt(plaintext) {
+        var encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Utf8.parse(plaintext), Key, {
+            iv: IV,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7,
+        })
+        encrypted = CryptoJS.enc.Base64.stringify(encrypted.ciphertext)
+        return encrypted
+    }
+    
+    function deCrypt(plaintext) {
+        var decrypted = CryptoJS.AES.decrypt(plaintext, Key, { iv: IV, padding: CryptoJS.pad.Pkcs7 })
+        var strDecrypted = decrypted.toString(CryptoJS.enc.Utf8)
+        return strDecrypted
+    }
+    
+    var user = {
+        username: 'lingdian',
+        password: '123456',
+        numList: [1, 2, 3, 4],
+        numListDesc: [4, 3, 2, 1],
+        strList: ['aaa', 'bbb', 'ccc', 'ddd'],
+        strListDesc: ['ddd', 'ccc', 'bbb', 'aaa'],
+    }
+    var encryptStr = enCrypt(JSON.stringify(user))
+    console.log('密文', encryptStr)
+    console.log('明文', deCrypt(encryptStr))
+    
+    /*get请求*/
+    function requestByGet() {
+    }
+    
+    /*post请求*/
+    function requestByPost () {
+        $.ajax({
+            url: 'http://localhost:8000/test/rawdata',
+            data: encryptStr, // raw_data encrypt
+            // data: JSON.stringify(user), // raw_data
+            headers: {'Content-Type':'application/json'}, // raw_data
+            type: 'post',
+            // dataType: 'json',
+            success: function (res) {
+                console.log('%c result ','color:red;font-size:25px;', res)
+                console.log(deCrypt(res))
+                
+            },
+            error: function (request, statusText, errorThrow) {
+                // statusText: 'success', 'error'
+                console.log('error', request, statusText, errorThrow)
+            },
+            statusCode: {
+                404: function (value) {
+                    console.log('statusCode-404', value)
+                }
+            },
+            complete: function (request, statusText) { // 最后执行
+                // statusText: 'success', 'error'
+                console.log('complete', request, statusText)
+            }
+        })
+    }
+    
+    /*页面加载时执行*/
+    window.onload = function () {
+        console.log('window.onload()...')
+        // requestByGet()
+        requestByPost()
+    }
+
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动条</title>
+</head>
+<style>
+    body {
+        display: flex;
+        /*等同于: flex-direction | flex-wrap */
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;        /*父组件必须有高度*/
+        align-content: space-around; /*父组件必须有高度*/
+        height: 700px;
+        border: 4px #000 dotted;
+        border-radius: 10px;
+    }
+    
+    div {
+        /*display: flex;*/
+        /*justify-items: auto;*/
+        
+        width: 300px;
+        height: 300px;
+        border: 1px solid #1b6d85;
+        overflow: auto;
+    }
+    
+    /*整个滚动条：滚动部分+轨道*/
+    div::-webkit-scrollbar {
+        width: 1px;
+        height: 1px;
+        background-color: #ff8420;
+    }
+
+    /*滚动部分*/
+    div::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg,#ff8a00,#e52e71);
+        border-radius: 30px;
+        box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
+    }
+
+    /*轨道*/
+    div::-webkit-scrollbar-track {
+        background: linear-gradient(90deg,#201c29,#201c29 1px,#100e17 0,#100e17);
+    }
+    
+    .div-1::-webkit-scrollbar  {
+        width: 5px;
+        height: 5px;
+    }
+    .div-2::-webkit-scrollbar  {
+        width: 10px;
+        height: 10px;
+    }
+    .div-3::-webkit-scrollbar  {
+        width: 15px;
+        height: 15px;
+    }
+    .div-4::-webkit-scrollbar  {
+        width: 30px;
+        height: 30px;
+    }
+    
+    h1 {
+        color: #FF0000;
+    }
+    h2 {
+        color: #ee2d04;
+    }
+    h3 {
+        color: #de4a00;
+    }
+    h4 {
+        color: #ff7100;
+    }
+    h5 {
+        color: #ff9e00;
+    }
+    h6 {
+        color: #ffd303;
+    }
+</style>
+<body>
+
+</body>
+</html>
+<script>
+    for (let i=0; i<6; i++) {
+        let div = document.createElement('div')
+        div.setAttribute('class', 'div-'+(i+1))
+        div.innerHTML = `<h1>h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1..</h1>
+                        <h2>h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2..</h2>
+                        <h3>h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3..</h3>
+                        <h4>h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4..</h4>
+                        <h5>h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5..</h5>
+                        <h6>h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6..</h6>
+                        <h6>h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6h6..</h6>
+                        <h5>h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5h5..</h5>
+                        <h4>h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4h4..</h4>
+                        <h3>h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3h3..</h3>
+                        <h2>h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2h2..</h2>
+                        <h1>h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1h1..</h1>`
+        document.body.appendChild(div)
+    }
+</script>

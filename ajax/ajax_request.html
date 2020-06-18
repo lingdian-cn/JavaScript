@@ -45,11 +45,18 @@
 
     /*post请求*/
     function requestByPost () {
-        let url = 'https://api.apiopen.top/getWangYiNews'
+        let url = 'http://localhost:8000/v1/login?token=ghwhghi43y'
+        // let url = 'https://api.apiopen.top/getWangYiNews'
         let data = {page: 1, count: 2}
+        let user = {
+            username: 'admin',
+            password: '147258'
+        }
         $.ajax({
             url,
             data,
+            // data: JSON.stringify(user), // raw_data
+            // headers: {'Content-Type':'application/json'}, // raw_data
             type: 'post',
             dataType: 'json',
             success: function (res) {
@@ -74,8 +81,8 @@
     /*页面加载时执行*/
     window.onload = function () {
         console.log('window.onload()...')
-        requestByGet()
-        // requestByPost()
+        // requestByGet()
+        requestByPost()
     }
 
 </script>
