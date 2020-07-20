@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rotate</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>-->
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    body>div {
+        width: 20vw;
+        height: 20vw;
+    }
+</style>
+<body>
+
+    <!--左右滚动-->
+    <style>
+        /*TODO 左右滚动*/
+        .box-lr {
+            transform: rotateY(0deg);
+            transform-origin: 50% 50% -10vw;
+            transform-style: preserve-3d;
+            position: relative;
+            cursor: pointer;
+            animation: box-lr 5s 1;
+        }
+        .box-lr:hover {
+            animation: box-lr 5s infinite;
+        }
+    
+        @keyframes box-lr {
+            0%{transform: rotateY(0);}
+            100%{transform: rotateY(360deg);}
+        }
+    
+        .box-lr>div {
+            width: inherit;
+            height: inherit;
+            position: absolute;
+            transform-origin: 0;
+            border-radius: 3vw;
+            color: #fff;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: .85;
+        }
+    
+        div.box-lr-front {
+            background-color: #0faeb5;
+            transform: rotateY(0deg);
+        }
+        div.box-lr-right {
+            background-color: #f0db09;
+            transform: translateZ(-20vw) rotateY(90deg) ;
+            transform-origin: right;
+        }
+        div.box-lr-back {
+            background-color: #FF0000;
+            transform: translateZ(-20vw) rotateY(180deg);
+            transform-origin: center;
+        }
+        div.box-lr-left {
+            background-color: #CC00FF;
+            transform: translateZ(-20vw) rotateY(-90deg);
+            transform-origin: left;
+        }
+    </style>
+    <div class="box-lr">
+        <div class="box-lr-front">Front</div>
+        <div class="box-lr-right">Right</div>
+        <div class="box-lr-back">Back</div>
+        <div class="box-lr-left">Left</div>
+    </div>
+
+
+    <!--上下滚动-->
+    <style>
+        /*TODO 上下滚动*/
+        .box-tb {
+            position: relative;
+            transform: rotateX(0deg);
+            transform-origin: 50% 50% -10vw;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            animation: 1 5s box-tb;
+        }
+        .box-tb:hover {
+            animation: infinite 5s box-tb;
+        }
+        @keyframes box-tb {
+            0%{transform: rotateX(0deg);}
+            100%{transform: rotateX(360deg);}
+        }
+        .box-tb>div {
+            width: inherit;
+            height: inherit;
+            background-color: #de4a00;
+            position: absolute;
+            border-radius: 3vw;
+            transform-origin: 0;
+            color: #fff;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: .85;
+        }
+    
+        div.box-tb-front {
+            background-color: #0faeb5;
+            transform: rotateX(0deg);
+        }
+        div.box-tb-top {
+            background-color: #0008f0;
+            transform: translateZ(-20vw) rotateX(90deg);
+            transform-origin: top;
+        }
+        div.box-tb-back {
+            background-color: #FF0000;
+            transform: translateZ(-20vw) rotateX(180deg);
+            transform-origin: center;
+        }
+        div.box-tb-bottom {
+            background-color: #00FF12;
+            transform: translateZ(-20vw) rotateX(-90deg);
+            transform-origin: bottom;
+        }
+    </style>
+    <div class="box-tb">
+        <div class="box-tb-front">Front</div>
+        <div class="box-tb-top">Top</div>
+        <div class="box-tb-back">Back</div>
+        <div class="box-tb-bottom">Bottom</div>
+    </div>
+
+    <!--6面 3D Box-->
+    <style>
+        .box-3d {
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            transform-origin: center center 0vw;
+            transform-style: preserve-3d;
+            cursor: pointer;
+            animation: 1 5s box-3d;
+        }
+        .box-3d:hover {
+            animation: infinite 10s box-3d;
+        }
+        @keyframes box-3d {
+            0%{transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+            100%{transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);}
+        }
+        .box-3d>div {
+            width: inherit;
+            height: inherit;
+            border-radius: 3vw;
+            position: absolute;
+            transform-origin: 0;
+            color: #fff;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: .85;
+        }
+        div.box-3d-front {
+            background-color: #0faeb5;
+            transform: translateZ(10vw) rotate(0deg);
+        }
+        div.box-3d-right {
+            background-color: #f0db09;
+            transform: translateZ(-10vw) rotateY(90deg);
+            transform-origin: right;
+        }
+        div.box-3d-back {
+            background-color: #FF0000;
+            transform: translateZ(-10vw) rotateY(180deg);
+            transform-origin: center;
+        }
+        div.box-3d-left {
+            background-color: #CC00FF;
+            transform: translateZ(-10vw) rotateY(-90deg);
+            transform-origin: left;
+        }
+        div.box-3d-top {
+            background-color: #0008f0;
+            transform: translateZ(-10vw) rotateX(90deg);
+            transform-origin: top;
+        }
+        div.box-3d-bottom {
+            background-color: #00FF12;
+            transform: translateZ(-10vw) rotateX(-90deg);
+            transform-origin: bottom;
+        }
+    </style>
+    <div class="box-3d">
+        <div class="box-3d-front">Front</div>
+        <div class="box-3d-right">Right</div>
+        <div class="box-3d-back">Back</div>
+        <div class="box-3d-left">Left</div>
+        <div class="box-3d-top">Top</div>
+        <div class="box-3d-bottom">Bottom</div>
+    </div>
+
+
+</body>
+</html>
+<script>
+    $(function () {
+        $('body>div').click(function () {
+            var transform = $(this).css('transform')
+            console.log('transform', transform)
+            // $(this).css('transform', 'rotateY(0deg)')
+        })
+    })
+</script>

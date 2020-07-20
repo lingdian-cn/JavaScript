@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sun</title>
+    <meta name="keywords" content="日出sunrise 正午noon 日落sunset 联系人：780992092@qq.com 日期：2020-06-27 20:10">
+    <link rel="icon" href="http://www.yishizai.cn/sun.png">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    /*日出sunrise*/
+    .sunrise-container {
+        position: relative;
+        display: flex;
+        justify-items: center;
+        background-image: linear-gradient(0deg,#009fff,#fffdccad 50%,#4bbbff);
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .sunrise-sun {
+        width: 25vh;
+        height: 25vh;
+        background-image: linear-gradient(0deg, #fffdcc00,#fffdcc4d 38%,#f9c36d85);
+        border-radius: 30vh;
+        cursor: pointer;
+        
+    }
+
+    /*正午noon*/
+    .noon-container {
+        position: relative;
+        display: flex;
+        justify-items: center;
+        background-image: linear-gradient(16deg,#014a07,#a2dca700 35%,#ffdea930);
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .noon-sun {
+        width: 16vh;
+        height: 16vh;
+        background-image: linear-gradient(-15deg, #ffe3b5,#fff8ef 75%,#ffdea91c);
+        border-radius: 30vh;
+        cursor: pointer;
+        position: absolute;
+        top: 5vh;
+        right: 15vh;
+        box-shadow: #ffb454b8 0px 1px 20px 0px;
+    }
+
+    /*夕阳sunset*/
+    .sunset-container {
+        position: relative;
+        display: flex;
+        justify-items: center;
+        background-image: linear-gradient(0deg,#ffb0b0,#3c3939 50%,#ffb0b0);
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+    }
+    .sunset-sun {
+        width: 20vh;
+        height: 20vh;
+        background-image: linear-gradient(0deg, #ffcccc00,#fffdcc05 38%,#ff6969 );
+        border-radius: 30vh;
+        cursor: pointer;
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+    
+    
+</style>
+<body>
+    <div class="sunrise-container">
+        <div class="sunrise-sun"></div>
+    </div>
+    <div class="noon-container" style="display: none">
+        <div class="noon-sun"></div>
+    </div>
+    <div class="sunset-container" style="display: none">
+        <div class="sunset-sun"></div>
+    </div>
+</body>
+<script>
+    console.log('%c 欢迎交流！！！', 'font-size: 30px; color: #009fff;')
+    console.log('%c 联系人：\n780992092@qq.com', 'font-size: 30px; color: red;')
+    console.log('%c 日期：\n2020-06-27 20:10', 'font-size: 30px; color: #f9c36d;')
+    
+    $(function () {
+        var sun = '' // sunrise, noon, sunset
+        
+        function finishAll(type) {
+            sun = type
+            $('.sunrise-container').finish()
+            $('.noon-container').finish()
+            $('.sunset-container').finish()
+        }
+        
+        /*日出*/
+        $('.sunrise-sun').mouseenter(function (e) {
+            // console.log('sunrise-sun mouseenter')
+            $('.sunrise-sun').animate({'width': '30vh', 'height': '30vh'}, 500)
+        })
+        $('.sunrise-sun').mouseleave(function (e) {
+            // console.log('sunrise-sun mouseleave')
+            $('.sunrise-sun').animate({'width': '25vh', 'height': '25vh'}, 300)
+        })
+        $('.sunrise-sun').click(function () {
+            finishAll('sunrise')
+            $('.sunrise-container').animate({'height': '0vh'}, 1000).hide(1000)
+            $('.noon-container').show().animate({'height': '100vh'}, 100)
+        })
+        
+        /*正午*/
+        $('.noon-sun').mouseenter(function (e) {
+            // console.log('noon-sun mouseenter')
+            $('.noon-sun').css('box-shadow', '#ffc9839e 0px 1px 20px 20px', 500)
+        })
+        $('.noon-sun').mouseleave(function (e) {
+            // console.log('noon-sun mouseleave')
+            $('.noon-sun').css('box-shadow', '#ffb454b8 0px 1px 20px 0px', 500)
+        })
+        $('.noon-sun').click(function () {
+            finishAll('noon')
+            $('.noon-container').animate({'height': '0vh'}, 1000).hide(1000)
+            $('.sunset-container').show().animate({'height': '100vh'}, 100)
+        })
+        
+        /*日落*/
+        $('.sunset-sun').mouseenter(function (e) {
+            // console.log('sunset-sun mouseenter')
+            $('.sunset-sun').animate({'top': '20px'}, 500).css('background-image', 'linear-gradient(0deg,#ffcccc00,#fffdcc0d 63%,#ff6969)')
+        })
+        $('.sunset-sun').mouseleave(function (e) {
+            // console.log('sunset-sun mouseleave')
+            $('.sunset-sun').animate({'top': '0px'}, 300).css('background-image', 'linear-gradient(0deg,#ffcccc00,#fffdcc0d 38%,#ff6969)')
+        })
+        $('.sunset-sun').click(function () {
+            finishAll('sunset')
+            $('.sunrise-container').show().animate({'height': '100vh'}, 600)
+            // $('.sunset-container').hide(1000)
+            $('.sunset-container').animate({'height': '0vh'}, 1000).hide(1000)
+        })
+    })
+    
+</script>
+</html>

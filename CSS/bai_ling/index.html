@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>棱</title>
+    <link rel="icon" href="images/music.png">
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(0deg, #5f25ff, #8f5fff 35%, #ff5a12);
+        position: relative;
+    }
+    
+    .box {
+        width: 50vw;
+        height: 50vw;
+        position: relative;
+        cursor: pointer;
+        transform: rotateX(0deg) rotateY(0deg);
+        transform-origin: center;
+        transform-style: preserve-3d;
+        animation: linear leng 10s infinite;
+    }
+    @keyframes leng {
+        100%{transform: rotateX(360deg) rotateY(360deg);}
+    }
+    
+    .box>div {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform-origin: center;
+    }
+    
+    @keyframes a-front {
+        100% {transform: translateZ(35vw);}
+    }
+    @keyframes a-back {
+        100% {transform: translateZ(-35vw) rotateY(180deg);}
+    }
+    @keyframes a-top {
+        100% {transform: translateY(-35vw) rotateX(-90deg);}
+    }
+    @keyframes a-bottom {
+        100% {transform: translateY(35vw) rotateX(-90deg);}
+    }
+    @keyframes a-left {
+        100% {transform: translateX(-35vw) rotateY(-90deg);}
+    }
+    @keyframes a-right {
+        100% {transform: translateX(35vw) rotateY(90deg);}
+    }
+    
+    div.front {
+        transform: translateZ(25vw);
+        background: url("images/front.jpg") center center no-repeat;
+        background-size: cover;
+        animation: linear infinite 1s a-front alternate;
+    }
+    div.back {
+        transform: translateZ(-25vw) rotateY(180deg);
+        background: url("images/back.jpg") center center no-repeat;
+        background-size: cover;
+        animation: linear infinite 1s a-back alternate;
+    }
+    div.top {
+        transform: translateY(-25vw) rotateX(-90deg);
+        background: url("images/top.jpg") center center no-repeat;
+        background-size: cover;
+        animation: linear infinite 1s a-top alternate;
+    }
+    div.bottom {
+        transform: translateY(25vw) rotateX(-90deg);
+        background: url("images/bottom.jpg") center center no-repeat;
+        background-size: cover;
+        animation: linear infinite 1s a-bottom alternate;
+    }
+    div.left {
+        transform: translateX(-25vw) rotateY(-90deg);
+        background: url("images/left.jpg") center center no-repeat;
+        background-size: cover;
+        animation: linear infinite 1s a-left alternate;
+    }
+    div.right {
+        transform: translateX(25vw) rotateY(90deg);
+        background: url("images/right.jpg") center center no-repeat;
+        background-size: cover;
+        animation: linear infinite 1s a-right alternate;
+    }
+    /*hover*/
+    .box:hover>.front {
+        transform: translateZ(35vw);
+    }
+    .box:hover>.back {
+        transform: translateZ(-35vw) rotateY(180deg);
+    }
+    .box:hover>.top {
+        transform: translateY(-35vw) rotateX(-90deg);
+    }
+    .box:hover>.bottom {
+        transform: translateY(35vw) rotateX(-90deg);
+    }
+    .box:hover>.left {
+        transform: translateX(-35vw) rotateY(-90deg);
+    }
+    .box:hover>.right {
+        transform: translateX(35vw) rotateY(90deg);
+    }
+    
+    
+    .music {
+        width: 10vw;
+        height: 10vw;
+        max-width: 90px;
+        max-height: 90px;
+        background: url("images/music.png") center center no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 5vw;
+        left: 5vw;
+        transform: rotateZ(0deg);
+        transform-origin: center center 0px;
+        animation: linear infinite 5s a-music;
+    }
+    
+    @keyframes a-music {
+        100%{transform: rotateZ(360deg);}
+    }
+
+</style>
+<body>
+<div class="music"><audio src="music.mp3" preload="auto" autoplay="autoplay" loop>
+<!--<div class="music"><audio src="music.mp3" controls="controls" preload="auto" autoplay="autoplay" muted loop>-->
+</audio></div>
+<div class="box">
+    <div class="front"></div>
+    <div class="back"></div>
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+</body>
+</html>
+<script async>
+    // TODO 音频自动播放：微信中的浏览器可以自动播放；Chrome手动播放一遍之后，就可以自动播放了；在手机浏览器中，自动播放失败
+    // TODO 谷歌浏览器设置：chrome://flags/#autoplay-policy，将 Default 修改为 No user gesture is required。
+    window.onload = function() {
+        console.log('onload', document.querySelector('.music').childNodes[0])
+        
+        // TODO 用户手动触发才可以
+        document.body.addEventListener('click', function (e) {
+            console.log('click', e)
+            if (document.querySelector('.music').childNodes[0].paused) {
+                console.log('paused')
+                document.querySelector('.music').childNodes[0].play()
+                // alert('click: '+document.querySelector('.music').childNodes[0].paused)
+            } else {
+                document.querySelector('.music').childNodes[0].pause()
+                document.querySelector('.music').childNodes[0].play()
+            }
+        })
+    
+        setTimeout(function () {
+            // document.querySelector('.music').childNodes[0].play()
+            document.body.click()
+        }, 10)
+    }
+</script>

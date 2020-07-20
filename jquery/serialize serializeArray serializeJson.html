@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>serialize serializeArray serializeJson</title>
+<!--    <script src="../_libs/jquery-1.12.4.js"></script>-->
+<!--    <script src="../_libs/jquery-2.2.4.js"></script>-->
+    <script src="../_libs/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <form action="">
+        language：<input type="text" name="language" value="jQuery"><br>
+        introduce：<input type="text" name="introduce" value="One JavaScript Framework"><br>
+        textarea：<textarea name="textarea">JavaScript（简称“JS”） 是一种具有函数优先的轻量级，解释型或即时编译型的高级编程语言。</textarea>
+        <br>
+    
+        radio：<input type="radio" name="radio" value="弱语言" checked>弱语言
+        <input type="radio" name="radio" value="轻量级">轻量级<br>
+    
+        range：<input type="range" name="range" min="0" max="100" value="88"><br>
+    
+        checkbox：<input type="checkbox" name="checkbox" value="a" checked>One
+        <input type="checkbox" name="checkbox" value="b" checked>Two
+        <input type="checkbox" name="checkbox" value="c" checked>Three
+        <input type="checkbox" name="checkbox" value="d" >Four
+        <br>
+    
+        select：<select name="select">
+            <option value="1">脚本语言</option>
+            <option value="2">Web开发</option>
+            <option value="3" selected>浏览器开发</option>
+        </select><br>
+    </form>
+</body>
+</html>
+<script>
+    $(function () {
+        (function($){
+            $.fn.serializeJson=function(){
+                var serializeObj={};
+                var array=this.serializeArray();
+                var str=this.serialize();
+                console.log('$(array)', $(array))
+                $(array).each(function(){
+                    if(serializeObj[this.name]){
+                        if($.isArray(serializeObj[this.name]) && this.value!=""){
+                            serializeObj[this.name].push(this.value);
+                        }else {
+                            if(this.value!=""){
+                                serializeObj[this.name]=[serializeObj[this.name],this.value];
+                            }
+                        }
+                    }else{
+                        if(this.value!=""){
+                            serializeObj[this.name]=this.value;
+                        }
+                    }
+                });
+                return serializeObj;
+            };
+        })(jQuery);
+    })
+    
+    $(function () {
+        // 生成url查询字符串
+        console.log('serialize', $('form').serialize())
+        
+        // 生成数组
+        console.log('serializeArray', $('form').serializeArray())
+        
+        // TODO serializeJson这个方法不是JQuery自带的方法
+        console.log('serializeJson', $('form').serializeJson())
+    })
+</script>

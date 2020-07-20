@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>h1 before point</title>
+</head>
+<style>
+    body {
+        padding: 50px 50px;
+        border: 1px #999999 solid;
+        width: 200px;
+    }
+    
+    h1:before {
+        width: 8px;
+        height: 8px;
+        background-color: red;
+        border-radius: 40px;
+        position: relative;
+        top: -6px;
+        margin-right: 10px;
+        content: no-close-quote;
+        display: inline-block;
+    }
+    /* 空格 '\00a0' */
+    div:before {
+        width: 8px;
+        height: 8px;
+        background-color: red;
+        border-radius: 40px;
+        position: relative;
+        top: -2px;
+        margin-right: 10px;
+        content: no-close-quote;
+        display: inline-block;
+    }
+</style>
+<body>
+<h1>样式样式样式样式样式样式样式样式样式样式样式样式样式样式</h1>
+<div>样式样式样式样式样式样式样式样式样式样式样式样式样式样式</div>
+</body>
+</html>

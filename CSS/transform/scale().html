@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scale()缩放</title>
+</head>
+<style>
+    body {
+        padding: 0;
+        margin: 0;
+        /*width: 100vw;*/
+        height: 150vh;
+        display: flex;
+        justify-content: space-around;
+        flex-flow: row wrap;
+        align-items: center;
+        align-content: space-around;
+    }
+    
+    body > div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        align-content: space-around;
+        width: 100%;
+    }
+    
+    body > div > div {
+        width: 20vw;
+        height: 15vw;
+        overflow: hidden;
+        position: relative;
+        border: 1px red dotted;
+    }
+    
+    body > div > div > div {
+        position: absolute;
+        color: white;
+        top: 3px;
+        left: 5px;
+        z-index: 9;
+    }
+    
+    body > div > div > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition-duration: 300ms;
+        transform: scale(1);
+    }
+
+    img.scale3d-2:hover {
+        transform: rotateX(70deg) scale3d(2,2,2);
+        transform-origin: center center 0vh;
+    }
+    img.scale3d-4:hover {
+        transform: rotateX(70deg) scale3d(4,4,4);
+        transform-origin: center center 0vh;
+    }
+    img.scale3d-10:hover {
+        transform: rotateX(70deg) scale3d(10,10,10);
+        transform-origin: center center 0vh;
+    }
+    
+    img.scale-2:hover {
+        transform: scale(2);
+    }
+    img.scale-4:hover {
+        transform: scale(4);
+    }
+    img.scale-10:hover {
+        transform: scale(10);
+    }
+    
+    
+    img.scaleX-2:hover {
+        transform: scaleX(2);
+    }
+    img.scaleX-4:hover {
+        transform: scaleX(4);
+    }
+    img.scaleX-10:hover {
+        transform: scaleX(10);
+    }
+    
+    img.scaleY-2:hover {
+        transform: scaleY(2);
+    }
+    img.scaleY-4:hover {
+        transform: scaleY(4);
+    }
+    img.scaleY-10:hover {
+        transform: scaleY(10);
+    }
+    
+</style>
+<body>
+<!--3d缩放(需配合其他3d函数使用)-->
+<div>
+    <div><div>rotateX(70deg) scale3d(1,1,1)</div><img class="" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>rotateX(70deg) scale3d(2,2,2)</div><img class="scale3d-2" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>rotateX(70deg) scale3d(4,4,4)</div><img class="scale3d-4" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>rotateX(70deg) scale3d(10,10,10)</div><img class="scale3d-10" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+</div>
+
+<!--x,y等比缩放-->
+<div>
+    <div><div>scale(1)</div><img class="" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>scale(2)</div><img class="scale-2" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>scale(4)</div><img class="scale-4" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>scale(10)</div><img class="scale-10" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+</div>
+
+<!--x缩放-->
+<div>
+    <div><div>scaleX(1)</div><img class="" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>scaleX(2)</div><img class="scaleX-2" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>scaleX(4)</div><img class="scaleX-4" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>scaleX(10)</div><img class="scaleX-10" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+</div>
+
+<!--y缩放-->
+<div>
+    <div><div>scaleY(1)</div><img class="" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>scaleY(2)</div><img class="scaleY-2" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>scaleY(4)</div><img class="scaleY-4" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+    <div><div>scaleY(10)</div><img class="scaleY-10" src="https://www.swiper.com.cn/demo/img/largeNature1.jpg" alt=""></div>
+</div>
+
+
+</body>
+</html>

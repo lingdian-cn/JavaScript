@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指向</title>
+</head>
+<style>
+    body {
+        padding: 20px;
+        margin: 0;
+        border: 1px black dotted;
+        position: relative;
+    }
+    
+    .nav-bar {
+        min-height: 50px;
+    }
+
+    .nav-bar ul li {
+        list-style-type: none;
+        margin: 5px 10px;
+        float: left;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .jiantou {
+        position: absolute;
+        top: 22px;
+        /*left: 0px;*/
+        /*-webkit-transform: translateX(-50%) translateY(-60%);*/
+        /*transform: translateX(-50%) translateY(-60%);*/
+        width: 0px;
+        height: 0px;
+        /*margin: 16px;*/
+        /*font-size: 0;*/
+        /*line-height: 0;*/
+        border-left: 16px solid rgba(0, 8, 255, 0);
+        border-right: 16px solid rgba(0, 8, 255, 0);
+        border-bottom: 16px solid #ff0000;
+        /*z-index: 3;*/
+    }
+</style>
+<body>
+<div class="nav-bar">
+    <ul>
+        <li>首页<div class="jiantou"></div><div class="bar-content">1111</div></li>
+        <li>产品</li>
+        <li>文档</li>
+        <li>联系我们</li>
+    </ul>
+</div>
+<div class=""></div>
+</body>
+</html>

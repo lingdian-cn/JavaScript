@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>background-image</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    body>div {
+        width: 100vw;
+        height: 50vh;
+    }
+    /*原图*/
+    .origin {
+        overflow: scroll;
+    }
+    .image {
+        display: flex;
+        justify-content: left;
+        align-items: flex-start;
+    }
+    .image>div {
+        width: 30px;
+        height: 30px;
+        border: 1px #00CCFF dotted;
+        margin-right: 10px;
+    }
+    div.one {
+        width: 20px;
+        height: 20px;
+        background: url(alibaba-1260-900.svg) -563px -163px no-repeat;
+    }
+    div.two {
+        width: 20px;
+        height: 20px;
+        background: url(alibaba-1260-900.svg) -588px -163px no-repeat;
+    }
+    div.one-copy {
+        width: 20px;
+        height: 20px;
+        background: url(alibaba-1260-900.svg) -563px -193px no-repeat;
+    }
+    div.two-copy {
+        width: 20px;
+        height: 20px;
+        background: url(alibaba-1260-900.svg) -588px -193px no-repeat;
+    }
+    div.yi {
+        width: 90px;
+        height: 90px;
+        background: url("alibaba-1260-900.svg") 0px 0px no-repeat;
+    }
+    div.yan {
+        width: 90px;
+        height: 90px;
+        background: url("alibaba-1260-900.svg") -900px 0px no-repeat;
+    }
+</style>
+<body>
+
+<div class="image">
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="one-copy"></div>
+    <div class="two-copy"></div>
+    <div class="yi"></div>
+    <div class="yan"></div>
+</div>
+<div class="origin"><img src="alibaba-1260-900.svg" alt=""></div>
+
+</body>
+</html>
